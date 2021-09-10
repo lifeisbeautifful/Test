@@ -55,6 +55,10 @@
             "NUnit3TestAdapter": {
               "target": "Package",
               "version": "[3.16.1, )"
+            },
+            "Selenium.WebDriver": {
+              "target": "Package",
+              "version": "[3.141.0, )"
             }
           },
           "imports": [
