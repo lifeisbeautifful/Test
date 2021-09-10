@@ -2,11 +2,20 @@ using NUnit.Framework;
 
 namespace Tests
 {
-    public class Tests
+    public class Tests:Drivers
     {
-        [SetUp]
+        public string urlHome = "http://eaapp.somee.com/";
+
+        [OneTimeSetUp]
         public void Setup()
         {
+            ChooseDriver(Browsers.Chrome);
+        }
+
+        [OneTimeTearDown]
+        public void OneTimeTearDown()
+        {
+            Driver.Close();
         }
 
         [Test]
