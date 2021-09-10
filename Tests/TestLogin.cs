@@ -22,7 +22,15 @@ namespace Tests
         [Test]
         public void SuccessLoginWithValidCredentials()
         {
-           
+            HomePage homePage = new HomePage(Driver);
+            LoginPage loginPage = new LoginPage(Driver);
+
+            Navigate(urlHome);
+            loginPage.IfLoggedIn();
+            homePage.NavigateToLoginPage();
+
+            bool result=loginPage.SuccessLoginWithValidCredentials("admin", "password");
+            Assert.That(result, Is.True, "User is not logged in");
         }
     }
 }
