@@ -33,5 +33,10 @@ namespace Tests
                     break;
             }
         }
+
+        public void Navigate(string url)
+        {
+            Driver.Navigate().GoToUrl(url);
+        }
     }
 }
