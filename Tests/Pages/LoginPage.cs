@@ -16,24 +16,24 @@ namespace Tests.Pages
             Driver = driver;
         }
 
-        private IWebElement logOff => Driver.FindElement(By.LinkText("Log off"));
-        private IWebElement username => Driver.FindElement(By.ClassName("form-control"));
-        private IWebElement password => Driver.FindElement(By.Name("Password"));
-        private IWebElement loginBtn => Driver.FindElement(By.XPath("//input[@type='submit']"));
+        private IWebElement logOffLink => Driver.FindElement(By.LinkText("Log off"));
+        private IWebElement usernameField => Driver.FindElement(By.ClassName("form-control"));
+        private IWebElement passwordField => Driver.FindElement(By.Name("Password"));
+        private IWebElement loginButton => Driver.FindElement(By.XPath("//input[@type='submit']"));
         private IWebElement loginLink => Driver.FindElement(By.Id("loginLink"));
 
         public HomePage IfLoggedIn()
         {
-            if (!loginLink.Displayed) { logOff.Click(); }
+            if (!loginLink.Displayed) { logOffLink.Click(); }
             return new HomePage(Driver);
         }
 
         public bool SuccessLoginWithValidCredentials(string username, string password)
         {
-            this.username.SendKeys(username);
-            this.password.SendKeys(password);
-            loginBtn.Click();
-            return logOff.Displayed;
+            this.usernameField.SendKeys(username);
+            this.passwordField.SendKeys(password);
+            loginButton.Click();
+            return logOffLink.Displayed;
         }
     }
 }
