@@ -1,4 +1,5 @@
 using NUnit.Framework;
+using Tests.Pages;
 
 namespace Tests
 {
@@ -19,9 +20,9 @@ namespace Tests
         }
 
         [Test]
-        public void Test1()
+        public void SuccessLoginWithValidCredentials()
         {
-            Assert.Pass();
+           
         }
     }
 }

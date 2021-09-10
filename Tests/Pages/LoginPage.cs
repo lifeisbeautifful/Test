@@ -16,5 +16,13 @@ namespace Tests.Pages
             Driver = driver;
         }
 
+        private IWebElement logOff => Driver.FindElement(By.LinkText("Log off"));
+
+        public HomePage IfLoggedIn()
+        {
+            if (logOff.Displayed) { logOff.Click(); }
+            return new HomePage(Driver);
+        }
+
     }
 }
