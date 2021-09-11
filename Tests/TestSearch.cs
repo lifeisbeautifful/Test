@@ -8,7 +8,7 @@ namespace Tests
 {
     public class TestSearch:Drivers
     {
-        public string urlHome = "http://eaapp.somee.com/";
+        private string urlHome = "http://eaapp.somee.com/";
 
         [OneTimeSetUp]
         public void Setup()

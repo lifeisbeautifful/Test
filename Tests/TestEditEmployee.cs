@@ -8,7 +8,7 @@ namespace Tests
 {
     public class TestEditEmployee:Drivers
     {
-        public string urlHome = "http://eaapp.somee.com/";
+        private string urlHome = "http://eaapp.somee.com/";
         string[] employeeData = { "Oksana", "4000", "2", "4", "a@mailforspam.com" };
         string[] employeeEditedData = { "Name", "3000", "1", "3", "a@mailforspam.com" };
 

@@ -5,7 +5,7 @@ namespace Tests
 {
     public class Tests:Drivers
     {
-        public string urlHome = "http://eaapp.somee.com/";
+        private string urlHome = "http://eaapp.somee.com/";
 
         [OneTimeSetUp]
         public void Setup()
