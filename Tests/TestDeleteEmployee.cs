@@ -29,7 +29,17 @@ namespace Tests
         [Test]
         public void DeleteUser()
         {
+            string[] employeeData = { "Oksana", "4000", "2", "4", "a@mailforspam.com" };
+            EmployeeListPage employeeListPage = new EmployeeListPage(Driver);
+            DeletePage deletePage = new DeletePage(Driver);
 
+            employeeListPage.EmployeePageNavigate();
+            employeeListPage.SearchEmployee(employeeData[0], "single");
+            deletePage.DeleteEmployee(employeeData[0]);
+            employeeListPage.SearchEmployee(employeeData[0], "single");
+
+            bool deleteResult = employeeListPage.CheckIfEmpDeleted(employeeData[0]);
+            Assert.IsTrue(deleteResult, "User is not deleted");
         }
     }
 }
