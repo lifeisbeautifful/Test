@@ -15,12 +15,12 @@ namespace Tests.Pages
 
         private IWebElement EmployeeList => Driver.FindElement(By.LinkText("Employee List"));
         private IWebElement SearchInput => Driver.FindElement(By.XPath("//input[@type='submit']"));
-        private IWebElement CreateNewBtn => Driver.FindElement(By.XPath("//a[text()='Create New']"));
+        private IWebElement CreateNewButton => Driver.FindElement(By.XPath("//a[text()='Create New']"));
 
-        public EmployeeListPage EmployeePageNavigate()
+        public bool EmployeePageNavigate()
         {
             EmployeeList.Click();
-            return new EmployeeListPage(Driver);
+            return CreateNewButton.Displayed;
         }
     }
 }

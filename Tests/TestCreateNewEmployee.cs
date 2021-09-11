@@ -29,7 +29,7 @@ namespace Tests
         {
             EmployeeListPage employeeListPage = new EmployeeListPage(Driver);
             var page = employeeListPage.EmployeePageNavigate();
-            Assert.AreEqual(page,employeeListPage);
+            Assert.AreEqual(page,true,"User is not navigated to 'Employee List' page");
             CreatePage createPage = new CreatePage(Driver);
             createPage.OpenCreatePage();
         }
