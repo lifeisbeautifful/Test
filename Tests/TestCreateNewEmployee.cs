@@ -21,6 +21,8 @@ namespace Tests
         [OneTimeTearDown]
         public void OneTimeTearDown()
         {
+            DeletePage deletePage = new DeletePage(Driver);
+            deletePage.DeleteEmployee("Oksana");
             Driver.Close();
         }
 
