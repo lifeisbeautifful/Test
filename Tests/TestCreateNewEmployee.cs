@@ -15,7 +15,7 @@ namespace Tests
             Navigate(urlHome);
 
             LoginPage loginPage = new LoginPage(Driver);
-            loginPage.IfLoggedIn();
+            loginPage.IfLoggedOff("admin", "password");
         }
 
         [OneTimeTearDown]
@@ -28,7 +28,7 @@ namespace Tests
         public void SuccessCreateNewEmployee()
         {
             string[] employeeCreatedData = { "Oksana", "4000", "2", "4", "a@mailforspam.com" };
-            //string[] employeeEditedData = { "Name", "3000", "1", "3", "a@mailforspam.com" };
+            string[] employeeEditedData = { "Name", "3000", "1", "3", "a@mailforspam.com" };
 
             EmployeeListPage employeeListPage = new EmployeeListPage(Driver);
             var page = employeeListPage.EmployeePageNavigate();
@@ -36,7 +36,7 @@ namespace Tests
 
             CreatePage createPage = new CreatePage(Driver);
             createPage.OpenCreatePage()
-                      .CreateEditEmployee(employeeCreatedData);
+                      .CreateEditEmployee(employeeEditedData,employeeCreatedData);
             Assert.IsTrue(employeeListPage.IsAt, "User is not navigated back to 'Employee List' page from 'Create' page");
 
             var foundCreatedEmployee = employeeListPage.SearchEmployee(employeeCreatedData[0], "single");

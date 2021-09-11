@@ -31,8 +31,6 @@ namespace Tests
 
             bool result=loginPage.SuccessLoginWithValidCredentials("admin", "password");
             Assert.That(result, Is.True, "User is not logged in");
-
-
         }
     }
 }

@@ -28,7 +28,15 @@ namespace Tests.Pages
             return new HomePage(Driver);
         }
 
-
+        public HomePage IfLoggedOff(string username,string password)
+        {
+            if (loginLink.Displayed)
+            {
+                loginLink.Click();
+                SuccessLoginWithValidCredentials(username,password); 
+            }
+            return new HomePage(Driver);
+        }
 
         public bool SuccessLoginWithValidCredentials(string username, string password)
         {
