@@ -71,6 +71,13 @@ namespace Tests.Pages
             }
         }
 
+        public bool CheckIfEmployeeDeleted(string name)
+        {
+            List<IWebElement> employees = Driver.FindElements(By.XPath("//table[@class='table']/tbody/tr/td[1]")).ToList();
+            if (employees.Count > 0) { TakeScrenshot(); return false; }
+            return true;
+        }
+
         public void TakeScrenshot()
         {
             try

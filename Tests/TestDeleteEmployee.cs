@@ -18,6 +18,9 @@ namespace Tests
 
             LoginPage loginPage = new LoginPage(Driver);
             loginPage.IfLoggedOff("admin", "password");
+
+            CreatePage createUser = new CreatePage(Driver);
+
         }
 
         [OneTimeTearDown]
@@ -38,7 +41,7 @@ namespace Tests
             deletePage.DeleteEmployee(employeeData[0]);
             employeeListPage.SearchEmployee(employeeData[0], "single");
 
-            bool deleteResult = employeeListPage.CheckIfEmpDeleted(employeeData[0]);
+            bool deleteResult = employeeListPage.CheckIfEmployeeDeleted(employeeData[0]);
             Assert.IsTrue(deleteResult, "User is not deleted");
         }
     }
