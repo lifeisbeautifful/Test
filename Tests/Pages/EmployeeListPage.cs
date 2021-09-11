@@ -78,6 +78,12 @@ namespace Tests.Pages
             }
         }
 
+        public CreatePage TestEditLink()
+        {
+            IWebElement editlnk = Driver.FindElement(By.LinkText("Edit"));
+            editlnk.Click();
+            return new CreatePage(Driver);
+        }
         public bool CheckIfEmployeeDeleted(string name)
         {
             List<IWebElement> employees = Driver.FindElements(By.XPath("//table[@class='table']/tbody/tr/td[1]")).ToList();
