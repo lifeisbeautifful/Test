@@ -27,6 +27,9 @@ namespace Tests
         [Test]
         public void SuccessCreateNewEmployee()
         {
+            EmployeeListPage employeeListPage = new EmployeeListPage(Driver);
+            var page = employeeListPage.EmployeePageNavigate();
+            Assert.AreEqual(page,employeeListPage);
             CreatePage createPage = new CreatePage(Driver);
             createPage.OpenCreatePage();
         }
