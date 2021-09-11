@@ -30,6 +30,7 @@ namespace Tests.Pages
         {
             CreatePage createPage = new CreatePage(Driver);
             EmployeePageNavigate();
+            createPage.OpenCreatePage();
             createPage.CreateEditEmployee(userData, fieldInputs);
 
         }

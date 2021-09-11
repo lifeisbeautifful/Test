@@ -9,6 +9,8 @@ namespace Tests
     public class TestDeleteEmployee:Drivers
     {
         private string urlHome = "http://eaapp.somee.com/";
+        string[] employeeData = { "Oksana", "4000", "2", "4", "a@mailforspam.com" };
+        string[] employeeEditedData = { "Name", "3000", "1", "3", "a@mailforspam.com" };
 
         [OneTimeSetUp]
         public void Setup()
@@ -19,7 +21,8 @@ namespace Tests
             LoginPage loginPage = new LoginPage(Driver);
             loginPage.IfLoggedOff("admin", "password");
 
-            CreatePage createUser = new CreatePage(Driver);
+            EmployeeListPage employeeListPage = new EmployeeListPage(Driver);
+            employeeListPage.CreateUser(employeeEditedData, employeeData);
 
         }
 
@@ -32,7 +35,6 @@ namespace Tests
         [Test]
         public void DeleteUser()
         {
-            string[] employeeData = { "Oksana", "4000", "2", "4", "a@mailforspam.com" };
             EmployeeListPage employeeListPage = new EmployeeListPage(Driver);
             DeletePage deletePage = new DeletePage(Driver);
 
