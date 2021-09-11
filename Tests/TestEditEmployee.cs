@@ -23,7 +23,6 @@ namespace Tests
 
             EmployeeListPage employeeListPage = new EmployeeListPage(Driver);
             employeeListPage.CreateUser(employeeEditedData, employeeData);
-
         }
 
         [OneTimeTearDown]

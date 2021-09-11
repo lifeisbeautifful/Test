@@ -24,7 +24,7 @@ namespace Tests.Pages
 
         public HomePage IfLoggedIn()
         {
-            if (!loginLink.Displayed) { logOffLink.Click(); }
+            if (logOffLink.Displayed) { logOffLink.Click(); }
             return new HomePage(Driver);
         }
 
@@ -40,8 +40,8 @@ namespace Tests.Pages
 
         public bool SuccessLoginWithValidCredentials(string username, string password)
         {
-            this.usernameField.SendKeys(username);
-            this.passwordField.SendKeys(password);
+            usernameField.SendKeys(username);
+            passwordField.SendKeys(password);
             loginButton.Click();
             return logOffLink.Displayed;
         }
