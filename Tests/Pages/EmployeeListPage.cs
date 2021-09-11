@@ -26,7 +26,13 @@ namespace Tests.Pages
             return CreateNewButton.Displayed;
         }
 
+        public void CreateUser(string[] userData, params string[] fieldInputs)
+        {
+            CreatePage createPage = new CreatePage(Driver);
+            EmployeePageNavigate();
+            createPage.CreateEditEmployee(userData, fieldInputs);
 
+        }
         public List<IWebElement> SearchEmployee(string data, string quantity)
         {
             IWebElement searchField = Driver.FindElement(By.Name("searchTerm"));
