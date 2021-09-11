@@ -1,6 +1,7 @@
 ﻿using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Tests.Pages
@@ -17,10 +18,73 @@ namespace Tests.Pages
         private IWebElement SearchInput => Driver.FindElement(By.XPath("//input[@type='submit']"));
         private IWebElement CreateNewButton => Driver.FindElement(By.XPath("//a[text()='Create New']"));
 
+        public bool IsAt => CreateNewButton.Displayed;
+
         public bool EmployeePageNavigate()
         {
             EmployeeList.Click();
             return CreateNewButton.Displayed;
         }
+
+
+        public List<IWebElement> SearchEmployee(string data, string quantity)
+        {
+            IWebElement searchField = Driver.FindElement(By.Name("searchTerm"));
+            IWebElement searchBtn = Driver.FindElement(By.XPath("//input[@type='submit']"));
+            searchField.SendKeys(data);
+            searchBtn.Click();
+
+            List<IWebElement> employeesData = Driver.FindElements(By.XPath("//table[@class='table']/tbody/tr/td")).ToList();
+            List<IWebElement> employeesNames = Driver.FindElements(By.XPath("//table[@class='table']/tbody/tr/td[1]")).ToList();
+
+            if (quantity == "mult") { return employeesNames; }
+            return employeesData;
+        }
+
+        public bool CheckFoundEmpData(List<IWebElement> data, params string[] empData)
+        {
+            if (empData[0] == "mult")
+            {
+                for (int i = 0; i < data.Count; i++)
+                {
+                    if (data[i].Text.Contains(empData[1]))
+                    {
+                        continue;
+                    }
+                    TakeScrenshot();
+                    return false;
+                }
+                return true;
+            }
+            else
+            {
+                for (int i = 0; i < empData.Length; i++)
+                {
+                    if (empData[i] == data[i].Text) { continue; }
+                    Console.WriteLine($"Created user info does not match with entered data at index {i}");
+                    Console.WriteLine($"data.Text = {data[i].Text}");
+                    Console.WriteLine($"empData = {empData[i]}");
+                    TakeScrenshot();
+                    return false;
+                }
+                return true;
+            }
+        }
+
+        public void TakeScrenshot()
+        {
+            try
+            {
+                Screenshot ss = ((ITakesScreenshot)Driver).GetScreenshot();
+                ss.SaveAsFile(@"C:\Users\ognyp\Desktop\SelScreens\FoundEmpScr.jpeg");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                throw;
+            }
+        }
     }
+
 }
+

@@ -27,11 +27,21 @@ namespace Tests
         [Test]
         public void SuccessCreateNewEmployee()
         {
+            string[] employeeCreatedData = { "Oksana", "4000", "2", "4", "a@mailforspam.com" };
+            //string[] employeeEditedData = { "Name", "3000", "1", "3", "a@mailforspam.com" };
+
             EmployeeListPage employeeListPage = new EmployeeListPage(Driver);
             var page = employeeListPage.EmployeePageNavigate();
             Assert.AreEqual(page,true,"User is not navigated to 'Employee List' page");
+
             CreatePage createPage = new CreatePage(Driver);
-            createPage.OpenCreatePage();
+            createPage.OpenCreatePage()
+                      .CreateEditEmployee(employeeCreatedData);
+            Assert.IsTrue(employeeListPage.IsAt, "User is not navigated back to 'Employee List' page from 'Create' page");
+
+            var foundCreatedEmployee = employeeListPage.SearchEmployee(employeeCreatedData[0], "single");
+            Assert.IsTrue(employeeListPage.CheckFoundEmpData(foundCreatedEmployee, employeeCreatedData), "Found user data does " +
+               "not match with search criteria");
         }
     }
 }
