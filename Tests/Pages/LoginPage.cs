@@ -13,7 +13,7 @@ namespace Tests.Pages
         {
             Driver = driver;
         }
-
+        private bool IsAt => logOffLink.Displayed;
         private IWebElement logOffLink => Driver.FindElement(By.LinkText("Log off"));
         private IWebElement usernameField => Driver.FindElement(By.ClassName("form-control"));
         private IWebElement passwordField => Driver.FindElement(By.Name("Password"));
@@ -35,7 +35,7 @@ namespace Tests.Pages
             usernameField.SendKeys(username);
             passwordField.SendKeys(password);
             loginButton.Click();
-            return logOffLink.Displayed;
+            return IsAt;
         }
     }
 }
