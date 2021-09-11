@@ -7,8 +7,6 @@ namespace Tests.Pages
 {
     public class LoginPage
     {
-        private string urlLogin = "http://eaapp.somee.com/Account/Login";
-
         private IWebDriver Driver;
 
         public LoginPage(IWebDriver driver)

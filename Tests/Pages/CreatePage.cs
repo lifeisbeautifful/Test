@@ -15,12 +15,11 @@ namespace Tests.Pages
             Driver = driver;
         }
 
-        private IWebElement CreateNewBtn => Driver.FindElement(By.XPath("//a[text()='Create New']"));
-        private IWebElement CreateLnk => Driver.FindElement(By.XPath("//input[@type='submit']"));
+        private IWebElement CreateNewButton => Driver.FindElement(By.XPath("//a[text()='Create New']"));
 
         public CreatePage OpenCreatePage()
         {
-            CreateNewBtn.Click();
+            CreateNewButton.Click();
             return new CreatePage(Driver);
         }
 
