@@ -15,31 +15,30 @@ namespace Tests.Pages
         }
 
         private IWebElement EmployeeList => Driver.FindElement(By.LinkText("Employee List"));
-        private IWebElement SearchInput => Driver.FindElement(By.XPath("//input[@type='submit']"));
         private IWebElement CreateNewButton => Driver.FindElement(By.XPath("//a[text()='Create New']"));
+        IWebElement searchField => Driver.FindElement(By.Name("searchTerm"));
+        IWebElement searchButton => Driver.FindElement(By.XPath("//input[@type='submit']"));
 
         public bool IsAt => CreateNewButton.Displayed;
 
         public bool EmployeePageNavigate()
         {
             EmployeeList.Click();
-            return CreateNewButton.Displayed;
+            return IsAt;
         }
 
         public void CreateUser(string[] userData, params string[] fieldInputs)
         {
             CreatePage createPage = new CreatePage(Driver);
             EmployeePageNavigate();
-            createPage.OpenCreatePage();
-            createPage.CreateEditEmployee(userData, fieldInputs);
-
+            createPage.OpenCreatePage()
+                      .CreateEditEmployee(userData, fieldInputs);
         }
+
         public List<IWebElement> SearchEmployee(string data, string quantity)
         {
-            IWebElement searchField = Driver.FindElement(By.Name("searchTerm"));
-            IWebElement searchBtn = Driver.FindElement(By.XPath("//input[@type='submit']"));
             searchField.SendKeys(data);
-            searchBtn.Click();
+            searchButton.Click();
 
             List<IWebElement> employeesData = Driver.FindElements(By.XPath("//table[@class='table']/tbody/tr/td")).ToList();
             List<IWebElement> employeesNames = Driver.FindElements(By.XPath("//table[@class='table']/tbody/tr/td[1]")).ToList();
@@ -105,6 +104,5 @@ namespace Tests.Pages
             }
         }
     }
-
 }
 

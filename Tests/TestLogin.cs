@@ -26,7 +26,6 @@ namespace Tests
             LoginPage loginPage = new LoginPage(Driver);
 
             Navigate(urlHome);
-            loginPage.IfLoggedIn();
             homePage.NavigateToLoginPage();
 
             bool result=loginPage.SuccessLoginWithValidCredentials("admin", "password");

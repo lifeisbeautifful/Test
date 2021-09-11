@@ -22,12 +22,6 @@ namespace Tests.Pages
         private IWebElement loginButton => Driver.FindElement(By.XPath("//input[@type='submit']"));
         private IWebElement loginLink => Driver.FindElement(By.Id("loginLink"));
 
-        public HomePage IfLoggedIn()
-        {
-            if (logOffLink.Displayed) { logOffLink.Click(); }
-            return new HomePage(Driver);
-        }
-
         public HomePage IfLoggedOff(string username,string password)
         {
             if (loginLink.Displayed)
