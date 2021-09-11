@@ -15,11 +15,11 @@ namespace Tests.Pages
 
         public void DeleteEmployee(string data)
         {
-            IWebElement deleteLnk = Driver.FindElement(By.LinkText("Delete"));
-            deleteLnk.Click();
+            IWebElement deleteLink = Driver.FindElement(By.LinkText("Delete"));
+            deleteLink.Click();
 
-            IWebElement deleteBtn = Driver.FindElement(By.XPath("//div[@class='form-actions no-color']/input[@type='submit']"));
-            deleteBtn.Click();
+            IWebElement deleteButton = Driver.FindElement(By.XPath("//div[@class='form-actions no-color']/input[@type='submit']"));
+            deleteButton.Click();
         }
     }
 }
