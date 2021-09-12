@@ -22,7 +22,7 @@ namespace Tests
             loginPage.IfLoggedOff("admin", "password");
 
             EmployeeListPage employeeListPage = new EmployeeListPage(Driver);
-            employeeListPage.CreateUser(employeeEditedData, employeeData);
+            employeeListPage.SetOrChangeUserData(employeeEditedData, employeeData);
         }
 
         [OneTimeTearDown]

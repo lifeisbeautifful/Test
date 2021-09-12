@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Tests.Pages
 {
-    public class EmployeeListPage
+    public class EmployeeListPage:IsetUserData
     {
         private IWebDriver Driver;
         public EmployeeListPage(IWebDriver driver)
@@ -27,13 +27,13 @@ namespace Tests.Pages
             return IsAt;
         }
 
-        public void CreateUser(string[] userData, params string[] fieldInputs)
-        {
-            CreatePage createPage = new CreatePage(Driver);
-            EmployeePageNavigate();
-            createPage.OpenCreatePage()
-                      .SetOrChangeUserData(userData, fieldInputs);
-        }
+        //public void CreateUser(string[] userData, params string[] fieldInputs)
+        //{
+        //    CreatePage createPage = new CreatePage(Driver);
+        //    EmployeePageNavigate();
+        //    createPage.OpenCreatePage()
+        //              .SetOrChangeUserData(userData, fieldInputs);
+        //}
 
         public List<IWebElement> SearchEmployee(string data, string quantity)
         {
@@ -102,6 +102,14 @@ namespace Tests.Pages
                 Console.WriteLine(ex.Message);
                 throw;
             }
+        }
+
+        public void SetOrChangeUserData(string[] userData, params string[] additionData)
+        {
+            CreatePage createPage = new CreatePage(Driver);
+            EmployeePageNavigate();
+            createPage.OpenCreatePage()
+                      .SetOrChangeUserData(userData, additionData);
         }
     }
 }

@@ -36,7 +36,6 @@ namespace Tests
             var employees = employeeListPage.SearchEmployee("Test", "mult");
             bool result = employeeListPage.CheckFoundEmpData(employees, "mult", "Test");
             Assert.That(result, Is.True, "Not all found users follow search criteria");
-        }
-            
+        }    
     }
 }
