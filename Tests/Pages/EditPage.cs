@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Tests.Pages
 {
-    public class EditPage
+    public class EditPage:IsetUserData
     {
         private IWebDriver Driver { get; set; }
         public EditPage(IWebDriver driver)
@@ -14,7 +14,7 @@ namespace Tests.Pages
             Driver = driver;
         }
 
-        public void EditEmployee(string[] newUserData, params string[] oldUserData)
+        public void SetOrChangeUserData(string[] newUserData, params string[] oldUserData)
         {
             List<IWebElement> inputs = Driver.FindElements(By.TagName("input")).ToList();
             int i = 0;
@@ -37,5 +37,5 @@ namespace Tests.Pages
                 }
             }
         }
-        }
+    }
 }
