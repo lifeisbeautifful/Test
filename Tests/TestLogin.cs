@@ -19,6 +19,9 @@ namespace Tests
             Driver.Close();
         }
 
+        /// <summary>
+        /// Login as admin user with valid credentials
+        /// </summary>
         [Test]
         public void SuccessLoginWithValidCredentials()
         {

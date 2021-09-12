@@ -26,6 +26,9 @@ namespace Tests
             Driver.Close();
         }
 
+        /// <summary>
+        /// Create new user with data from employeeCreatedData array
+        /// </summary>
         [Test]
         public void SuccessCreateNewEmployee()
         {

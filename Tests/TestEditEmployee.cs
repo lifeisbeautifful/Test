@@ -33,6 +33,9 @@ namespace Tests
             Driver.Close();
         }
 
+        /// <summary>
+        /// Edit created in 'SetUp' employee 
+        /// </summary>
         [Test]
         public void EditEmployeeData()
         {

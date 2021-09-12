@@ -29,6 +29,9 @@ namespace Tests
             Driver.Close();
         }
 
+        /// <summary>
+        /// Search for all users that contain "Test" in name
+        /// </summary>
         [Test]
         public void PerformSearch()
         {

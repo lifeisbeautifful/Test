@@ -31,6 +31,9 @@ namespace Tests
             Driver.Close();
         }
 
+        /// <summary>
+        /// Delete created in 'SetUp' employee
+        /// </summary>
         [Test]
         public void DeleteUser()
         {
