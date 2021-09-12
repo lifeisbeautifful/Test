@@ -38,11 +38,12 @@ namespace Tests
         {
             CreatePage createPage = new CreatePage(Driver);
             EmployeeListPage employeeListPage = new EmployeeListPage(Driver);
+            EditPage editPage = new EditPage(Driver);
 
             employeeListPage.EmployeePageNavigate();
             employeeListPage.SearchEmployee(employeeData[0], "single");
-            employeeListPage.TestEditLink()
-                            .SetOrChangeUserData(employeeEditedData, employeeData);
+            employeeListPage.TestEditLink();
+            editPage.SetOrChangeUserData(employeeEditedData, employeeData);
             Assert.IsTrue(employeeListPage.IsAt, "User is not navigated back to 'Employee List' page from 'Edit' page");
 
             var foundEditedEmployee = employeeListPage.SearchEmployee(employeeEditedData[0], "single");
