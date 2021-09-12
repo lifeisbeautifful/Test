@@ -27,14 +27,6 @@ namespace Tests.Pages
             return IsAt;
         }
 
-        //public void CreateUser(string[] userData, params string[] fieldInputs)
-        //{
-        //    CreatePage createPage = new CreatePage(Driver);
-        //    EmployeePageNavigate();
-        //    createPage.OpenCreatePage()
-        //              .SetOrChangeUserData(userData, fieldInputs);
-        //}
-
         public List<IWebElement> SearchEmployee(string data, string quantity)
         {
             searchField.SendKeys(data);
