@@ -42,7 +42,7 @@ namespace Tests
             employeeListPage.EmployeePageNavigate();
             employeeListPage.SearchEmployee(employeeData[0], "single");
             employeeListPage.TestEditLink()
-                            .CreateEditEmployee(employeeEditedData, employeeData);
+                            .SetOrChangeUserData(employeeEditedData, employeeData);
             Assert.IsTrue(employeeListPage.IsAt, "User is not navigated back to 'Employee List' page from 'Edit' page");
 
             var foundEditedEmployee = employeeListPage.SearchEmployee(employeeEditedData[0], "single");

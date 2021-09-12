@@ -38,7 +38,7 @@ namespace Tests
 
             CreatePage createPage = new CreatePage(Driver);
             createPage.OpenCreatePage()
-                      .CreateEditEmployee(employeeEditedData,employeeCreatedData);
+                      .SetOrChangeUserData(employeeEditedData,employeeCreatedData);
             Assert.IsTrue(employeeListPage.IsAt, "User is not navigated back to 'Employee List' page from 'Create' page");
 
             var foundCreatedEmployee = employeeListPage.SearchEmployee(employeeCreatedData[0], "single");

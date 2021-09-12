@@ -32,7 +32,7 @@ namespace Tests.Pages
             CreatePage createPage = new CreatePage(Driver);
             EmployeePageNavigate();
             createPage.OpenCreatePage()
-                      .CreateEditEmployee(userData, fieldInputs);
+                      .SetOrChangeUserData(userData, fieldInputs);
         }
 
         public List<IWebElement> SearchEmployee(string data, string quantity)
