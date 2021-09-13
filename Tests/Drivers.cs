@@ -9,7 +9,7 @@ namespace Tests
 {
     public class Drivers
     {
-        public IWebDriver Driver { get; set; }
+        protected IWebDriver Driver { get; set; }
 
         public enum Browsers
         {
