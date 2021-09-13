@@ -16,8 +16,8 @@ namespace Tests.Pages
 
         private IWebElement EmployeeList => Driver.FindElement(By.LinkText("Employee List"));
         private IWebElement CreateNewButton => Driver.FindElement(By.XPath("//a[text()='Create New']"));
-        IWebElement searchField => Driver.FindElement(By.Name("searchTerm"));
-        IWebElement searchButton => Driver.FindElement(By.CssSelector("input[value='Search']"));
+        private IWebElement searchField => Driver.FindElement(By.Name("searchTerm"));
+        private IWebElement searchButton => Driver.FindElement(By.CssSelector("input[value='Search']"));
 
         public bool IsAt => CreateNewButton.Displayed;
 
