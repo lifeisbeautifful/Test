@@ -14,12 +14,12 @@ namespace Tests.Pages
             Driver = driver;
         }
 
-        private IWebElement loginLink => Driver.FindElement(By.Id("loginLink"));
+        private IWebElement LoginLink => Driver.FindElement(By.Id("loginLink"));
         
 
         public LoginPage NavigateToLoginPage()
         {
-            loginLink.Click();
+            LoginLink.Click();
             return new LoginPage(Driver);
         }
     }

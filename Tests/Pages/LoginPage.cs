@@ -13,18 +13,18 @@ namespace Tests.Pages
         {
             Driver = driver;
         }
-        private bool IsAt => logOffLink.Displayed;
-        private IWebElement logOffLink => Driver.FindElement(By.LinkText("Log off"));
-        private IWebElement usernameField => Driver.FindElement(By.ClassName("form-control"));
-        private IWebElement passwordField => Driver.FindElement(By.Name("Password"));
-        private IWebElement loginButton => Driver.FindElement(By.XPath("//input[@type='submit']"));
-        private IWebElement loginLink => Driver.FindElement(By.Id("loginLink"));
+        private bool IsAt => LogOffLink.Displayed;
+        private IWebElement LogOffLink => Driver.FindElement(By.LinkText("Log off"));
+        private IWebElement UsernameField => Driver.FindElement(By.ClassName("form-control"));
+        private IWebElement PasswordField => Driver.FindElement(By.Name("Password"));
+        private IWebElement LoginButton => Driver.FindElement(By.XPath("//input[@type='submit']"));
+        private IWebElement LoginLink => Driver.FindElement(By.Id("loginLink"));
 
         public HomePage IfLoggedOff(string username,string password)
         {
-            if (loginLink.Displayed)
+            if (LoginLink.Displayed)
             {
-                loginLink.Click();
+                LoginLink.Click();
                 SuccessLoginWithValidCredentials(username,password); 
             }
             return new HomePage(Driver);
@@ -32,9 +32,9 @@ namespace Tests.Pages
 
         public bool SuccessLoginWithValidCredentials(string username, string password)
         {
-            usernameField.SendKeys(username);
-            passwordField.SendKeys(password);
-            loginButton.Click();
+            UsernameField.SendKeys(username);
+            PasswordField.SendKeys(password);
+            LoginButton.Click();
             return IsAt;
         }
     }

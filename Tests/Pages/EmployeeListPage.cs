@@ -16,8 +16,8 @@ namespace Tests.Pages
 
         private IWebElement EmployeeList => Driver.FindElement(By.LinkText("Employee List"));
         private IWebElement CreateNewButton => Driver.FindElement(By.XPath("//a[text()='Create New']"));
-        private IWebElement searchField => Driver.FindElement(By.Name("searchTerm"));
-        private IWebElement searchButton => Driver.FindElement(By.CssSelector("input[value='Search']"));
+        private IWebElement SearchField => Driver.FindElement(By.Name("searchTerm"));
+        private IWebElement SearchButton => Driver.FindElement(By.CssSelector("input[value='Search']"));
 
         public bool IsAt => CreateNewButton.Displayed;
 
@@ -29,8 +29,8 @@ namespace Tests.Pages
 
         public List<IWebElement> SearchEmployee(string data, string quantity)
         {
-            searchField.SendKeys(data);
-            searchButton.Click();
+            SearchField.SendKeys(data);
+            SearchButton.Click();
 
             List<IWebElement> employeesData = Driver.FindElements(By.XPath("//table[@class='table']/tbody/tr/td")).ToList();
             List<IWebElement> employeesNames = Driver.FindElements(By.XPath("//table[@class='table']/tbody/tr/td[1]")).ToList();
