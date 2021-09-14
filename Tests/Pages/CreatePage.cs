@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Tests.Pages
 {
-    public class CreatePage:IsetUserData
+    public class CreatePage:ISetUserData
     {
         private IWebDriver Driver { get; set; }
 

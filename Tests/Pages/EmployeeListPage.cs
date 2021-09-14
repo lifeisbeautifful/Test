@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Tests.Pages
 {
-    public class EmployeeListPage:IsetUserData
+    public class EmployeeListPage:ISetUserData
     {
         private IWebDriver Driver;
         public EmployeeListPage(IWebDriver driver)
