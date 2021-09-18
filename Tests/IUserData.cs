@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Tests
 {
-    public interface ISetUserData
+    public interface IUserData
     {
         public void SetOrChangeUserData(string[] newUserData, params string[] oldUserData);
     }

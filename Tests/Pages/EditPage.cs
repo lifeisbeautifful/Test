@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Tests.Pages
 {
-    public class EditPage:ISetUserData
+    public class EditPage:IUserData
     {
         private IWebDriver Driver { get; set; }
         public EditPage(IWebDriver driver)
