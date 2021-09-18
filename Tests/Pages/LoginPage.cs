@@ -20,14 +20,14 @@ namespace Tests.Pages
         private IWebElement LoginButton => Driver.FindElement(By.XPath("//input[@type='submit']"));
         private IWebElement LoginLink => Driver.FindElement(By.Id("loginLink"));
 
-        public HomePage IfLoggedOff(string username,string password)
+        public HomePage Login(string username,string password)
         {
             if (LoginLink.Displayed)
             {
                 LoginLink.Click();
                 SuccessLoginWithValidCredentials(username,password); 
             }
-            return new HomePage(Driver);
+            return new HomePage(Driver);//return true/false якщо не залогінена, зробити 1 м-д
         }
 
         public bool SuccessLoginWithValidCredentials(string username, string password)

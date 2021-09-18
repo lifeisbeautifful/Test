@@ -6,9 +6,10 @@ using System.Text;
 
 namespace Tests.Pages
 {
-    public class EmployeeListPage:ISetUserData
+    public class EmployeeListPage : ISetUserData
     {
         private IWebDriver Driver;
+
         public EmployeeListPage(IWebDriver driver)
         {
             Driver = driver;
@@ -19,7 +20,7 @@ namespace Tests.Pages
         private IWebElement SearchField => Driver.FindElement(By.Name("searchTerm"));
         private IWebElement SearchButton => Driver.FindElement(By.CssSelector("input[value='Search']"));
 
-        public bool IsAt => CreateNewButton.Displayed;
+        public bool IsAt => CreateNewButton.Displayed;//вертає ексепшин треба, щоб фолс через try/catch
 
         public bool EmployeePageNavigate()
         {
@@ -75,6 +76,7 @@ namespace Tests.Pages
             editlnk.Click();
             return new CreatePage(Driver);
         }
+
         public bool CheckIfEmployeeDeleted(string name)
         {
             List<IWebElement> employees = Driver.FindElements(By.XPath("//table[@class='table']/tbody/tr/td[1]")).ToList();

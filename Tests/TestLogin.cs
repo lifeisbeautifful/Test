@@ -1,4 +1,4 @@
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using Tests.Pages;
 
 namespace Tests
@@ -10,7 +10,7 @@ namespace Tests
         [OneTimeSetUp]
         public void Setup()
         {
-            ChooseDriver(Browsers.Chrome);
+            ChooseDriver(Browsers.Chrome);//чекнути чи залогінено
         }
 
         [OneTimeTearDown]

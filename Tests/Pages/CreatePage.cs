@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Tests.Pages
 {
-    public class CreatePage:ISetUserData
+    public class CreatePage : ISetUserData
     {
         private IWebDriver Driver { get; set; }
 
@@ -23,7 +23,7 @@ namespace Tests.Pages
             return new CreatePage(Driver);
         }
 
-        public void SetOrChangeUserData(string[] addition,params string[]userData)
+        public void SetOrChangeUserData(string[] addition, params string[]userData)
         {
             List<IWebElement> inputs = Driver.FindElements(By.TagName("input")).ToList();
             int i = 0;

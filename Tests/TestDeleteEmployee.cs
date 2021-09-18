@@ -19,7 +19,7 @@ namespace Tests
             Navigate(urlHome);
 
             LoginPage loginPage = new LoginPage(Driver);
-            loginPage.IfLoggedOff("admin", "password");
+            loginPage.Login("admin", "password");
 
             EmployeeListPage employeeListPage = new EmployeeListPage(Driver);
             employeeListPage.SetOrChangeUserData(employeeEditedData, employeeData);
