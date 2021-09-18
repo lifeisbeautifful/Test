@@ -15,7 +15,8 @@ namespace Tests
             Navigate(urlHome);
 
             LoginPage loginPage = new LoginPage(Driver);
-            loginPage.Login("admin", "password");
+            
+            loginPage.Login();
         }
 
         [OneTimeTearDown]

@@ -8,10 +8,12 @@ namespace Tests.Pages
     public class LoginPage
     {
         private IWebDriver Driver;
+        //UserData Data = new UserData();
 
         public LoginPage(IWebDriver driver)
         {
             Driver = driver;
+           
         }
         private bool IsAt => LogOffLink.Displayed;
         private IWebElement LogOffLink => Driver.FindElement(By.LinkText("Log off"));
@@ -20,12 +22,13 @@ namespace Tests.Pages
         private IWebElement LoginButton => Driver.FindElement(By.XPath("//input[@type='submit']"));
         private IWebElement LoginLink => Driver.FindElement(By.Id("loginLink"));
 
-        public HomePage Login(string username,string password)
+        public HomePage Login()
         {
+            
             if (LoginLink.Displayed)
             {
                 LoginLink.Click();
-                SuccessLoginWithValidCredentials(username,password); 
+                SuccessLoginWithValidCredentials(UserData.UserName, UserData.Password); 
             }
             return new HomePage(Driver);//return true/false якщо не залогінена, зробити 1 м-д
         }

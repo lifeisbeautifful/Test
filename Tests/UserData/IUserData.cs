@@ -7,8 +7,8 @@ namespace Tests
 {
     public interface IUserData
     {
-        public IWebElement UserName { get; }
-        public IWebElement Password { get; }
+        public static string UserName { get; }
+        public static string Password { get; }
         public IWebElement Name { get; }
         public IWebElement Salary { get; }
         public IWebElement DurationWorked { get; }

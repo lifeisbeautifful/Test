@@ -27,6 +27,7 @@ namespace Tests
         {
             HomePage homePage = new HomePage(Driver);
             LoginPage loginPage = new LoginPage(Driver);
+            
 
             Navigate(urlHome);
             homePage.NavigateToLoginPage();

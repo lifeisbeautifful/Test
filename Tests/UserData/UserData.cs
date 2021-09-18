@@ -14,8 +14,9 @@ namespace Tests
             Driver = driver;
         }
 
-        public IWebElement UserName => Driver.FindElement(By.ClassName("form-control"));
-        public IWebElement Password => Driver.FindElement(By.Name("Password"));
+       
+        public static string UserName => "admin";
+        public static string Password => "password";
         public IWebElement Name => Driver.FindElement(By.Id("Name"));
         public IWebElement Salary => Driver.FindElement(By.Id("Salary"));
         public IWebElement DurationWorked => Driver.FindElement(By.Id("DurationWorked"));
