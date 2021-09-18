@@ -17,10 +17,10 @@ namespace Tests
        
         public static string UserName => "admin";
         public static string Password => "password";
-        public IWebElement Name => Driver.FindElement(By.Id("Name"));
-        public IWebElement Salary => Driver.FindElement(By.Id("Salary"));
-        public IWebElement DurationWorked => Driver.FindElement(By.Id("DurationWorked"));
-        public IWebElement Grade => Driver.FindElement(By.Id("Grade"));
-        public IWebElement Email => Driver.FindElement(By.Id("Email"));
+        public static string Name => "Oksana";
+        public static double Salary => 4000;
+        public static int DurationWorked => 2;
+        public static int Grade => 4;
+        public static string Email => "a@mailforspam.com";
     }
 }

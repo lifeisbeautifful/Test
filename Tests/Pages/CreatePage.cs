@@ -16,6 +16,12 @@ namespace Tests.Pages
         }
 
         private IWebElement CreateNewButton => Driver.FindElement(By.XPath("//a[text()='Create New']"));
+        private IWebElement NameInput => Driver.FindElement(By.Id("Name"));
+        private IWebElement SalaryInput => Driver.FindElement(By.Id("Salary"));
+        private IWebElement DurationWorkedInput => Driver.FindElement(By.Id("DurationWorked"));
+        private IWebElement GradeInput => Driver.FindElement(By.Id("Grade"));
+        private IWebElement EmailInput => Driver.FindElement(By.Id("Email"));
+        private IWebElement CreateButton => Driver.FindElement(By.CssSelector("input[type='Submit']"));
 
         public CreatePage OpenCreatePage()
         {
@@ -23,24 +29,14 @@ namespace Tests.Pages
             return new CreatePage(Driver);
         }
 
-        public void SetOrChangeUserData(string[] addition, params string[]userData)
+        public void SetOrChangeUserData()
         {
-            List<IWebElement> inputs = Driver.FindElements(By.TagName("input")).ToList();
-            int i = 0;
-
-            for (int j = 0; j < inputs.Count; j++)
-            {
-                if (inputs[j].GetAttribute("value") == "")
-                {
-                    inputs[j].SendKeys(userData[i]);
-                    i++;
-                }
-
-                if (j == inputs.Count - 1)
-                {
-                    inputs[j].Click();
-                }
-            }
+            NameInput.SendKeys(UserData.Name);
+            SalaryInput.SendKeys(UserData.Salary.ToString());
+            DurationWorkedInput.SendKeys(UserData.DurationWorked.ToString());
+            GradeInput.SendKeys(UserData.Grade.ToString());
+            EmailInput.SendKeys(UserData.Email);
+            CreateButton.Click();
         }
     }
 }

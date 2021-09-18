@@ -103,7 +103,7 @@ namespace Tests.Pages
             CreatePage createPage = new CreatePage(Driver);
             EmployeePageNavigate();
             createPage.OpenCreatePage()
-                      .SetOrChangeUserData(userData, additionData);
+                      .SetOrChangeUserData();
         }
     }
 }

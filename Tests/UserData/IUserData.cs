@@ -9,11 +9,11 @@ namespace Tests
     {
         public static string UserName { get; }
         public static string Password { get; }
-        public IWebElement Name { get; }
-        public IWebElement Salary { get; }
-        public IWebElement DurationWorked { get; }
-        public IWebElement Grade { get; }
-        public IWebElement Email { get; }
+        public static string Name { get; }
+        public static double Salary { get; }
+        public static int DurationWorked { get; }
+        public static int Grade { get; }
+        public static string Email { get; }
         //public void SetOrChangeUserData(string[] newUserData, params string[] oldUserData);
     }
 }
