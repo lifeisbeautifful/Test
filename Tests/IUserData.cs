@@ -7,13 +7,13 @@ namespace Tests
 {
     public interface IUserData
     {
-        public IWebElement UserName { get; set; }
-        public IWebElement Password { get; set; }
-        public IWebElement Name { get; set; }
-        public IWebElement Salary { get; set; }
-        public IWebElement DurationWorked { get; set; }
-        public IWebElement Grade { get; set; }
-        public IWebElement Email { get; set; }
-        public void SetOrChangeUserData(string[] newUserData, params string[] oldUserData);
+        public IWebElement UserName { get; }
+        public IWebElement Password { get; }
+        public IWebElement Name { get; }
+        public IWebElement Salary { get; }
+        public IWebElement DurationWorked { get; }
+        public IWebElement Grade { get; }
+        public IWebElement Email { get; }
+        //public void SetOrChangeUserData(string[] newUserData, params string[] oldUserData);
     }
 }
