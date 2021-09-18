@@ -6,7 +6,7 @@ using Tests.Pages;
 
 namespace Tests
 {
-    public class TestSearch:Drivers
+    public class SearchTest:Drivers
     {
         private string urlHome = "http://eaapp.somee.com/";
 

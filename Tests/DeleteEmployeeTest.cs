@@ -6,7 +6,7 @@ using Tests.Pages;
 
 namespace Tests
 {
-    public class TestEditEmployee:Drivers
+    public class DeleteEmployeeTest:Drivers
     {
         private string urlHome = "http://eaapp.somee.com/";
         string[] employeeData = { "Oksana", "4000", "2", "4", "a@mailforspam.com" };
@@ -28,29 +28,25 @@ namespace Tests
         [OneTimeTearDown]
         public void OneTimeTearDown()
         {
-            DeletePage deletePage = new DeletePage(Driver);
-            deletePage.DeleteEmployee(employeeEditedData[0]);
             Driver.Close();
         }
 
         /// <summary>
-        /// Edit created in 'SetUp' employee 
+        /// Delete created in 'SetUp' employee
         /// </summary>
         [Test]
-        public void EditEmployeeData()
+        public void DeleteUser()
         {
-            CreatePage createPage = new CreatePage(Driver);
             EmployeeListPage employeeListPage = new EmployeeListPage(Driver);
-            EditPage editPage = new EditPage(Driver);
+            DeletePage deletePage = new DeletePage(Driver);
 
             employeeListPage.EmployeePageNavigate();
             employeeListPage.SearchEmployee(employeeData[0], "single");
-            employeeListPage.TestEditLink();
-            editPage.SetOrChangeUserData(employeeEditedData, employeeData);
-            Assert.IsTrue(employeeListPage.IsAt, "User is not navigated back to 'Employee List' page from 'Edit' page");
+            deletePage.DeleteEmployee(employeeData[0]);
+            employeeListPage.SearchEmployee(employeeData[0], "single");
 
-            var foundEditedEmployee = employeeListPage.SearchEmployee(employeeEditedData[0], "single");
-            Assert.IsTrue(employeeListPage.CheckFoundEmpData(foundEditedEmployee, employeeEditedData));
+            bool deleteResult = employeeListPage.CheckIfEmployeeDeleted(employeeData[0]);
+            Assert.IsTrue(deleteResult, "User is not deleted");
         }
     }
 }

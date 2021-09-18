@@ -4,7 +4,7 @@ using Tests.Pages;
 
 namespace Tests
 {
-    public class TestCreateNewEmployee:Drivers
+    public class CreateNewEmployeeTest:Drivers
     {
         private string urlHome = "http://eaapp.somee.com/";
 
