@@ -8,6 +8,7 @@ namespace Tests.Pages
     public class DeletePage
     {
         private IWebDriver Driver { get; set; }
+
         public DeletePage(IWebDriver driver)
         {
             Driver = driver;

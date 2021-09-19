@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using NUnit.Framework;
 using Tests.Pages;
+using Tests.UserData;
 
 namespace Tests
 {
@@ -10,9 +11,9 @@ namespace Tests
     {
         private string urlHome = "http://eaapp.somee.com/";
         private string urlCreateEmployee = "http://eaapp.somee.com/Employee/Create";
-        string[] employeeData = { "Oksana", "4000", "2", "4", "a@mailforspam.com" };
-        string[] employeeEditedData = { "Name", "3000", "1", "3", "a@mailforspam.com" };
-
+        private UsersData data;
+        private RandomUsersData editedData;
+       
         [OneTimeSetUp]
         public void Setup()
         {
@@ -20,20 +21,21 @@ namespace Tests
             Navigate(urlHome);
 
             LoginPage loginPage = new LoginPage(Driver);
-           
             loginPage.Login();
+
             Navigate(urlCreateEmployee);
             CreatePage createPage = new CreatePage(Driver);
-            UserData data = new UserData();
+
+            data = new UsersData();
+            editedData = new RandomUsersData();
             createPage.SetUserData(data);
-            //employeeListPage.SetOrChangeUserData(employeeEditedData, employeeData);
         }
 
         [OneTimeTearDown]
         public void OneTimeTearDown()
         {
             DeletePage deletePage = new DeletePage(Driver);
-            deletePage.DeleteEmployee(employeeEditedData[0]);
+            deletePage.DeleteEmployee(editedData.Name);
             Driver.Close();
         }
 
@@ -45,16 +47,16 @@ namespace Tests
         {
             CreatePage createPage = new CreatePage(Driver);
             EmployeeListPage employeeListPage = new EmployeeListPage(Driver);
-            UserData data = new UserData();
-
+         
             employeeListPage.EmployeePageNavigate();
-            employeeListPage.SearchEmployee(employeeData[0], "single");
+            employeeListPage.SearchEmployee(data.Name, "single");
             employeeListPage.TestEditLink();
-            createPage.SetUserData(data);
+            createPage.SetUserData(editedData);
+            var editedUserData = editedData.SetRandomUserData();
             Assert.IsTrue(employeeListPage.IsAt, "User is not navigated back to 'Employee List' page from 'Edit' page");
 
-            var foundEditedEmployee = employeeListPage.SearchEmployee(employeeData[0], "single");
-            Assert.IsTrue(employeeListPage.CheckFoundEmpData(foundEditedEmployee, employeeData));
+            var foundEditedEmployee = employeeListPage.SearchEmployee(editedUserData[0], "single");
+            Assert.IsTrue(employeeListPage.CheckFoundEmployeeInputData(editedUserData,foundEditedEmployee));
         }
     }
 }

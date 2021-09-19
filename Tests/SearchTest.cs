@@ -17,7 +17,7 @@ namespace Tests
             Navigate(urlHome);
 
             LoginPage loginPage = new LoginPage(Driver);
-            
+
             loginPage.Login();
 
             EmployeeListPage employeeListPage = new EmployeeListPage(Driver);
@@ -38,7 +38,7 @@ namespace Tests
         {
             EmployeeListPage employeeListPage = new EmployeeListPage(Driver);
             var employees = employeeListPage.SearchEmployee("Test", "mult");
-            bool result = employeeListPage.CheckFoundEmpData(employees, "mult", "Test");
+            bool result = employeeListPage.CheckFoundEmployeeNames(employees, "Test");
             Assert.That(result, Is.True, "Not all found users follow search criteria");
         }    
     }

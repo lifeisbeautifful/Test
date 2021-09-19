@@ -19,6 +19,7 @@ namespace Tests.Pages
         private IWebElement CreateNewButton => Driver.FindElement(By.XPath("//a[text()='Create New']"));
         private IWebElement SearchField => Driver.FindElement(By.Name("searchTerm"));
         private IWebElement SearchButton => Driver.FindElement(By.CssSelector("input[value='Search']"));
+        private IWebElement editlnk => Driver.FindElement(By.LinkText("Edit"));
 
         public bool IsAt => CreateNewButton.Displayed;//вертає ексепшин треба, щоб фолс через try/catch
 
@@ -40,11 +41,11 @@ namespace Tests.Pages
             return employeesData;
         }
 
-        private bool CheckFoundEmployeeNames(List<IWebElement> data, params string[] empData)
+        public bool CheckFoundEmployeeNames(List<IWebElement> data, params string[] empData)
         {
             for (int i = 0; i < data.Count; i++)
             {
-                if (data[i].Text.Contains(empData[1]))
+                if (data[i].Text.Contains(empData[0]))
                 {
                     continue;
                 }
@@ -53,54 +54,23 @@ namespace Tests.Pages
             }
             return true;
         }
-         private bool CheckFoundEmployeeData(List<IWebElement> data, params string[] empData)
+
+         public bool CheckFoundEmployeeInputData(List<string>expectedData, List<IWebElement>actualData)
         {
-            for (int i = 0; i < empData.Length; i++)
+            for (int i = 0; i < expectedData.Count; i++)
             {
-                if (empData[i] == data[i].Text) { continue; }
+                if (expectedData[i] == actualData[i].Text) { continue; }
                 Console.WriteLine($"Created user info does not match with entered data at index {i}");
-                Console.WriteLine($"data.Text = {data[i].Text}");
-                Console.WriteLine($"empData = {empData[i]}");
+                Console.WriteLine($"data.Text = {actualData[i].Text}");
+                Console.WriteLine($"empData = {expectedData[i]}");
                 TakeScrenshot();
                 return false;
             }
             return true;
         }
-        public bool CheckFoundEmpData(List<IWebElement> data, params string[] empData)
-        {
-            if (empData[0] == "mult")
-            {
-                return CheckFoundEmployeeNames(data, empData);
-            //    for (int i = 0; i < data.Count; i++)
-            //    {
-            //        if (data[i].Text.Contains(empData[1]))
-            //        {
-            //            continue;
-            //        }
-            //        TakeScrenshot();
-            //        return false;
-            //    }
-            //    return true;
-            }
-            else
-            {
-                return CheckFoundEmployeeData(data, empData);
-            //    for (int i = 0; i < empData.Length; i++)
-            //    {
-            //        if (empData[i] == data[i].Text) { continue; }
-            //        Console.WriteLine($"Created user info does not match with entered data at index {i}");
-            //        Console.WriteLine($"data.Text = {data[i].Text}");
-            //        Console.WriteLine($"empData = {empData[i]}");
-            //        TakeScrenshot();
-            //        return false;
-            //    }
-            //    return true;
-            }
-        }
 
         public CreatePage TestEditLink()
         {
-            IWebElement editlnk = Driver.FindElement(By.LinkText("Edit"));
             editlnk.Click();
             return new CreatePage(Driver);
         }

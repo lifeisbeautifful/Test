@@ -16,7 +16,6 @@ namespace Tests.Pages
 
         private IWebElement LoginLink => Driver.FindElement(By.Id("loginLink"));
         
-
         public LoginPage NavigateToLoginPage()
         {
             LoginLink.Click();
