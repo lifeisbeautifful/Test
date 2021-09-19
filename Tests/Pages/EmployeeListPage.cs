@@ -40,33 +40,61 @@ namespace Tests.Pages
             return employeesData;
         }
 
+        private bool CheckFoundEmployeeNames(List<IWebElement> data, params string[] empData)
+        {
+            for (int i = 0; i < data.Count; i++)
+            {
+                if (data[i].Text.Contains(empData[1]))
+                {
+                    continue;
+                }
+                TakeScrenshot();
+                return false;
+            }
+            return true;
+        }
+         private bool CheckFoundEmployeeData(List<IWebElement> data, params string[] empData)
+        {
+            for (int i = 0; i < empData.Length; i++)
+            {
+                if (empData[i] == data[i].Text) { continue; }
+                Console.WriteLine($"Created user info does not match with entered data at index {i}");
+                Console.WriteLine($"data.Text = {data[i].Text}");
+                Console.WriteLine($"empData = {empData[i]}");
+                TakeScrenshot();
+                return false;
+            }
+            return true;
+        }
         public bool CheckFoundEmpData(List<IWebElement> data, params string[] empData)
         {
             if (empData[0] == "mult")
             {
-                for (int i = 0; i < data.Count; i++)
-                {
-                    if (data[i].Text.Contains(empData[1]))
-                    {
-                        continue;
-                    }
-                    TakeScrenshot();
-                    return false;
-                }
-                return true;
+                return CheckFoundEmployeeNames(data, empData);
+            //    for (int i = 0; i < data.Count; i++)
+            //    {
+            //        if (data[i].Text.Contains(empData[1]))
+            //        {
+            //            continue;
+            //        }
+            //        TakeScrenshot();
+            //        return false;
+            //    }
+            //    return true;
             }
             else
             {
-                for (int i = 0; i < empData.Length; i++)
-                {
-                    if (empData[i] == data[i].Text) { continue; }
-                    Console.WriteLine($"Created user info does not match with entered data at index {i}");
-                    Console.WriteLine($"data.Text = {data[i].Text}");
-                    Console.WriteLine($"empData = {empData[i]}");
-                    TakeScrenshot();
-                    return false;
-                }
-                return true;
+                return CheckFoundEmployeeData(data, empData);
+            //    for (int i = 0; i < empData.Length; i++)
+            //    {
+            //        if (empData[i] == data[i].Text) { continue; }
+            //        Console.WriteLine($"Created user info does not match with entered data at index {i}");
+            //        Console.WriteLine($"data.Text = {data[i].Text}");
+            //        Console.WriteLine($"empData = {empData[i]}");
+            //        TakeScrenshot();
+            //        return false;
+            //    }
+            //    return true;
             }
         }
 
@@ -96,14 +124,6 @@ namespace Tests.Pages
                 Console.WriteLine(ex.Message);
                 throw;
             }
-        }
-
-        public void SetOrChangeUserData(string[] userData, params string[] additionData)
-        {
-            CreatePage createPage = new CreatePage(Driver);
-            EmployeePageNavigate();
-            createPage.OpenCreatePage()
-                      .SetOrChangeUserData();
         }
     }
 }

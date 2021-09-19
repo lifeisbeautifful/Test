@@ -29,13 +29,18 @@ namespace Tests.Pages
             return new CreatePage(Driver);
         }
 
-        public void SetOrChangeUserData()
+        public void SetUserData(IUserData data)
         {
-            NameInput.SendKeys(UserData.Name);
-            SalaryInput.SendKeys(UserData.Salary.ToString());
-            DurationWorkedInput.SendKeys(UserData.DurationWorked.ToString());
-            GradeInput.SendKeys(UserData.Grade.ToString());
-            EmailInput.SendKeys(UserData.Email);
+            NameInput.Clear();
+            NameInput.SendKeys(data.Name);
+            SalaryInput.Clear();
+            SalaryInput.SendKeys(data.Salary.ToString());
+            DurationWorkedInput.Clear();
+            DurationWorkedInput.SendKeys(data.DurationWorked.ToString());
+            GradeInput.Clear();
+            GradeInput.SendKeys(data.Grade.ToString());
+            EmailInput.Clear();
+            EmailInput.SendKeys(data.Email);
             CreateButton.Click();
         }
     }

@@ -9,6 +9,7 @@ namespace Tests
     public class EditEmployeeTest:Drivers
     {
         private string urlHome = "http://eaapp.somee.com/";
+        private string urlCreateEmployee = "http://eaapp.somee.com/Employee/Create";
         string[] employeeData = { "Oksana", "4000", "2", "4", "a@mailforspam.com" };
         string[] employeeEditedData = { "Name", "3000", "1", "3", "a@mailforspam.com" };
 
@@ -21,9 +22,11 @@ namespace Tests
             LoginPage loginPage = new LoginPage(Driver);
            
             loginPage.Login();
-
-            EmployeeListPage employeeListPage = new EmployeeListPage(Driver);
-            employeeListPage.SetOrChangeUserData(employeeEditedData, employeeData);
+            Navigate(urlCreateEmployee);
+            CreatePage createPage = new CreatePage(Driver);
+            UserData data = new UserData();
+            createPage.SetUserData(data);
+            //employeeListPage.SetOrChangeUserData(employeeEditedData, employeeData);
         }
 
         [OneTimeTearDown]
@@ -42,16 +45,16 @@ namespace Tests
         {
             CreatePage createPage = new CreatePage(Driver);
             EmployeeListPage employeeListPage = new EmployeeListPage(Driver);
-            EditPage editPage = new EditPage(Driver);
+            UserData data = new UserData();
 
             employeeListPage.EmployeePageNavigate();
             employeeListPage.SearchEmployee(employeeData[0], "single");
             employeeListPage.TestEditLink();
-            editPage.SetOrChangeUserData(employeeEditedData, employeeData);
+            createPage.SetUserData(data);
             Assert.IsTrue(employeeListPage.IsAt, "User is not navigated back to 'Employee List' page from 'Edit' page");
 
-            var foundEditedEmployee = employeeListPage.SearchEmployee(employeeEditedData[0], "single");
-            Assert.IsTrue(employeeListPage.CheckFoundEmpData(foundEditedEmployee, employeeEditedData));
+            var foundEditedEmployee = employeeListPage.SearchEmployee(employeeData[0], "single");
+            Assert.IsTrue(employeeListPage.CheckFoundEmpData(foundEditedEmployee, employeeData));
         }
     }
 }

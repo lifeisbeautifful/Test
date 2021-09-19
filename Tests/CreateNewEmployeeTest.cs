@@ -37,12 +37,13 @@ namespace Tests
             string[] employeeEditedData = { "Name", "3000", "1", "3", "a@mailforspam.com" };
 
             EmployeeListPage employeeListPage = new EmployeeListPage(Driver);
+            UserData data = new UserData();
             var page = employeeListPage.EmployeePageNavigate();
             Assert.AreEqual(page,true,"User is not navigated to 'Employee List' page");
 
             CreatePage createPage = new CreatePage(Driver);
             createPage.OpenCreatePage()
-                      .SetOrChangeUserData();
+                      .SetUserData(data);
             Assert.IsTrue(employeeListPage.IsAt, "User is not navigated back to 'Employee List' page from 'Create' page");
 
             var foundCreatedEmployee = employeeListPage.SearchEmployee(employeeCreatedData[0], "single");
