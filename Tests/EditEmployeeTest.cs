@@ -54,7 +54,7 @@ namespace Tests
             employeeListPage.TestEditLink();
             createPage.SetUserData(editedData);
             var editedUserData = editedData.SetUserInputsToList();
-            Assert.IsTrue(employeeListPage.IsAt, "User is not navigated back to 'Employee List' page from 'Edit' page");
+            Assert.IsTrue(employeeListPage.IsAt(), "User is not navigated back to 'Employee List' page from 'Edit' page");
 
             var foundEditedEmployee = employeeListPage.SearchEmployee(editedUserData[0], "single");
             Assert.IsTrue(employeeListPage.CheckFoundEmployeeInputData(editedUserData,foundEditedEmployee));

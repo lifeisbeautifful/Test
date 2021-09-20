@@ -50,7 +50,7 @@ namespace Tests
             createPage.OpenCreatePage()
                       .SetUserData(dataFromFile);
             var userData = dataFromFile.SetUserInputsToList();
-            Assert.IsTrue(employeeListPage.IsAt, "User is not navigated back to 'Employee List' page from 'Create' page");
+            Assert.IsTrue(employeeListPage.IsAt(), "User is not navigated back to 'Employee List' page from 'Create' page");
 
             var foundCreatedEmployee = employeeListPage.SearchEmployee(userData[0], "single");
             Assert.IsTrue(employeeListPage.CheckFoundEmployeeInputData(userData, foundCreatedEmployee), "Found user data does " +

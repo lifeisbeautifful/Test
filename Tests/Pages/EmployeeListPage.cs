@@ -21,12 +21,16 @@ namespace Tests.Pages
         private IWebElement SearchButton => Driver.FindElement(By.CssSelector("input[value='Search']"));
         private IWebElement editlnk => Driver.FindElement(By.LinkText("Edit"));
 
-        public bool IsAt => CreateNewButton.Displayed;//вертає ексепшин треба, щоб фолс через try/catch
+        public bool IsAt()
+        {
+            if (CreateNewButton.Displayed){ return true; }
+            return false;
+        }
 
         public bool NavigateToEmployeePage()
         {
             EmployeeList.Click();
-            return IsAt;
+            return IsAt();
         }
 
         public List<IWebElement> SearchEmployee(string data, string quantity)

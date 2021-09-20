@@ -11,7 +11,7 @@ namespace Tests.UserInputData
     [DataContract]
     public class UsersDataFromFile : IUserData
     {
-        private string serializerPath = @"C:\Users\ognyp\source\repos\Tests\UserData.json";
+        private string serializerPath = @"C:\Users\ognyp\source\UserData.json";
         private List<string> UserInputData = new List<string>();
 
         [DataMember]
