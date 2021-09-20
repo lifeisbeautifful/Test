@@ -1,4 +1,5 @@
 ﻿using NUnit.Framework;
+using Tests.DriverHelper;
 using Tests.Pages;
 
 namespace Tests
@@ -16,6 +17,13 @@ namespace Tests
             ChooseDriver(Browsers.Chrome);//чекнути чи залогінено
             homePage = new HomePage(Driver);
             loginPage = new LoginPage(Driver);
+        }
+
+        [TearDown]
+        public void TearDown()
+        {
+            TakeScreenShot screenShot = new TakeScreenShot(Driver);
+            screenShot.ScreenShot();
         }
 
         [OneTimeTearDown]

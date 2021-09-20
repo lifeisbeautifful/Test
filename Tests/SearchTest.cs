@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using NUnit.Framework;
+using Tests.DriverHelper;
 using Tests.Pages;
 
 namespace Tests
@@ -23,6 +24,13 @@ namespace Tests
 
             employeeListPage = new EmployeeListPage(Driver);
             employeeListPage.NavigateToEmployeePage();
+        }
+
+        [TearDown]
+        public void TearDown()
+        {
+            TakeScreenShot screenShot = new TakeScreenShot(Driver);
+            screenShot.ScreenShot();
         }
 
         [OneTimeTearDown]

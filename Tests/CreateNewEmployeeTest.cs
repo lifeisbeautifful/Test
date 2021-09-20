@@ -1,6 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Reflection;
 using NUnit.Framework;
+using NUnit.Framework.Interfaces;
+using OpenQA.Selenium;
+using Tests.DriverHelper;
 using Tests.Pages;
 using Tests.UserInputData;
 
@@ -28,6 +33,13 @@ namespace Tests
            
             dataFromFile = new UsersDataFromFile();
             dataFromFile.DeSerializeInputDataFromFile();
+        }
+
+        [TearDown]
+        public void TearDown()
+        {
+            TakeScreenShot screenShot = new TakeScreenShot(Driver);
+            screenShot.ScreenShot();
         }
 
         [OneTimeTearDown]

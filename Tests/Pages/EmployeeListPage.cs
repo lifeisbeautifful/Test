@@ -53,7 +53,6 @@ namespace Tests.Pages
                 {
                     continue;
                 }
-                TakeScrenshot();
                 return false;
             }
             return true;
@@ -67,7 +66,6 @@ namespace Tests.Pages
                 Console.WriteLine($"Created user info does not match with entered data at index {i}");
                 Console.WriteLine($"data.Text = {actualData[i].Text}");
                 Console.WriteLine($"empData = {expectedData[i]}");
-                TakeScrenshot();
                 return false;
             }
             return true;
@@ -79,25 +77,11 @@ namespace Tests.Pages
             return new CreatePage(Driver);
         }
 
-        public bool CheckIfEmployeeDeleted(string name)
+        public bool CheckIfEmployeeDeleted()
         {
             List<IWebElement> employees = Driver.FindElements(By.XPath("//table[@class='table']/tbody/tr/td[1]")).ToList();
-            if (employees.Count > 0) { TakeScrenshot(); return false; }
+            if (employees.Count > 0) { return false; }
             return true;
-        }
-
-        public void TakeScrenshot()
-        {
-            try
-            {
-                Screenshot ss = ((ITakesScreenshot)Driver).GetScreenshot();
-                ss.SaveAsFile(@"C:\Users\ognyp\Desktop\SelScreens\FoundEmpScr.jpeg");
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-                throw;
-            }
         }
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using NUnit.Framework;
+using Tests.DriverHelper;
 using Tests.Pages;
 using Tests.UserData;
 
@@ -35,6 +36,13 @@ namespace Tests
             createPage.SetUserData(data);
         }
 
+        [TearDown]
+        public void TearDown()
+        {
+            TakeScreenShot screenShot = new TakeScreenShot(Driver);
+            screenShot.ScreenShot();
+        }
+
         [OneTimeTearDown]
         public void OneTimeTearDown()
         {
@@ -52,7 +60,7 @@ namespace Tests
             deletePage.DeleteEmployee(data.Name);
             employeeListPage.SearchEmployee(data.Name, "single");
 
-            bool deleteResult = employeeListPage.CheckIfEmployeeDeleted(data.Name);
+            bool deleteResult = employeeListPage.CheckIfEmployeeDeleted();
             Assert.IsTrue(deleteResult, "User is not deleted");
         }
     }
