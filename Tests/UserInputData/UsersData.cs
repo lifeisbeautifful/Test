@@ -17,7 +17,7 @@ namespace Tests
 
         private List<string> UserInputData = new List<string>();
 
-        public List<string> GetUserData()
+        public List<string> SetUserInputsToList()
         {
             UserInputData.Add(Name);
             UserInputData.Add(Salary.ToString());

@@ -11,7 +11,11 @@ namespace Tests
     {
         private string urlHome = "http://eaapp.somee.com/";
         private string urlCreatePage = "http://eaapp.somee.com/Employee/Create";
+
         private UsersData data;
+        private EmployeeListPage employeeListPage;
+        private CreatePage createPage;
+        private DeletePage deletePage;
        
         [OneTimeSetUp]
         public void Setup()
@@ -23,7 +27,10 @@ namespace Tests
             loginPage.Login();
 
             Navigate(urlCreatePage);
-            CreatePage createPage = new CreatePage(Driver);
+            createPage = new CreatePage(Driver);
+            employeeListPage = new EmployeeListPage(Driver);
+            deletePage = new DeletePage(Driver);
+
             data = new UsersData();
             createPage.SetUserData(data);
         }
@@ -40,10 +47,7 @@ namespace Tests
         [Test]
         public void DeleteUser()
         {
-            EmployeeListPage employeeListPage = new EmployeeListPage(Driver);
-            DeletePage deletePage = new DeletePage(Driver);
-           
-            employeeListPage.EmployeePageNavigate();
+            employeeListPage.NavigateToEmployeePage();
             employeeListPage.SearchEmployee(data.Name, "single");
             deletePage.DeleteEmployee(data.Name);
             employeeListPage.SearchEmployee(data.Name, "single");

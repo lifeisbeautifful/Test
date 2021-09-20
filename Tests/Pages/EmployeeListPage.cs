@@ -23,7 +23,7 @@ namespace Tests.Pages
 
         public bool IsAt => CreateNewButton.Displayed;//вертає ексепшин треба, щоб фолс через try/catch
 
-        public bool EmployeePageNavigate()
+        public bool NavigateToEmployeePage()
         {
             EmployeeList.Click();
             return IsAt;

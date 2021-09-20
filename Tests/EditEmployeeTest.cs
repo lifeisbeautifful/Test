@@ -11,8 +11,11 @@ namespace Tests
     {
         private string urlHome = "http://eaapp.somee.com/";
         private string urlCreateEmployee = "http://eaapp.somee.com/Employee/Create";
+
         private UsersData data;
         private RandomUsersData editedData;
+        private CreatePage createPage;
+        private EmployeeListPage employeeListPage;
        
         [OneTimeSetUp]
         public void Setup()
@@ -24,7 +27,8 @@ namespace Tests
             loginPage.Login();
 
             Navigate(urlCreateEmployee);
-            CreatePage createPage = new CreatePage(Driver);
+            createPage = new CreatePage(Driver);
+            employeeListPage = new EmployeeListPage(Driver);
 
             data = new UsersData();
             editedData = new RandomUsersData();
@@ -45,14 +49,11 @@ namespace Tests
         [Test]
         public void EditEmployeeData()
         {
-            CreatePage createPage = new CreatePage(Driver);
-            EmployeeListPage employeeListPage = new EmployeeListPage(Driver);
-         
-            employeeListPage.EmployeePageNavigate();
+            employeeListPage.NavigateToEmployeePage();
             employeeListPage.SearchEmployee(data.Name, "single");
             employeeListPage.TestEditLink();
             createPage.SetUserData(editedData);
-            var editedUserData = editedData.SetRandomUserData();
+            var editedUserData = editedData.SetUserInputsToList();
             Assert.IsTrue(employeeListPage.IsAt, "User is not navigated back to 'Employee List' page from 'Edit' page");
 
             var foundEditedEmployee = employeeListPage.SearchEmployee(editedUserData[0], "single");

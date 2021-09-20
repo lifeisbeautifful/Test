@@ -2,13 +2,17 @@
 using System.Collections.Generic;
 using NUnit.Framework;
 using Tests.Pages;
+using Tests.UserInputData;
 
 namespace Tests
 {
     public class CreateNewEmployeeTest:Drivers
     {
         private string urlHome = "http://eaapp.somee.com/";
-        private UsersData data;
+
+        private UsersDataFromFile dataFromFile;
+        private EmployeeListPage employeeListPage;
+        private CreatePage createPage;
 
         [OneTimeSetUp]
         public void Setup()
@@ -18,14 +22,19 @@ namespace Tests
 
             LoginPage loginPage = new LoginPage(Driver);
             loginPage.Login();
-            data = new UsersData();
+
+            employeeListPage = new EmployeeListPage(Driver);
+            createPage = new CreatePage(Driver);
+           
+            dataFromFile = new UsersDataFromFile();
+            dataFromFile.DeSerializeInputDataFromFile();
         }
 
         [OneTimeTearDown]
         public void OneTimeTearDown()
         {
             DeletePage deletePage = new DeletePage(Driver);
-            deletePage.DeleteEmployee(data.Name);
+            deletePage.DeleteEmployee(dataFromFile.Name);
             Driver.Close();
         }
 
@@ -35,18 +44,16 @@ namespace Tests
         [Test]
         public void SuccessCreateNewEmployee()
         {
-            EmployeeListPage employeeListPage = new EmployeeListPage(Driver);
-            var page = employeeListPage.EmployeePageNavigate();
+            var page = employeeListPage.NavigateToEmployeePage();
             Assert.AreEqual(page,true,"User is not navigated to 'Employee List' page");
 
-            CreatePage createPage = new CreatePage(Driver);
             createPage.OpenCreatePage()
-                      .SetUserData(data);
-            var userData = data.GetUserData();
+                      .SetUserData(dataFromFile);
+            var userData = dataFromFile.SetUserInputsToList();
             Assert.IsTrue(employeeListPage.IsAt, "User is not navigated back to 'Employee List' page from 'Create' page");
 
             var foundCreatedEmployee = employeeListPage.SearchEmployee(userData[0], "single");
-            Assert.IsTrue(employeeListPage.CheckFoundEmployeeInputData(userData,foundCreatedEmployee), "Found user data does " +
+            Assert.IsTrue(employeeListPage.CheckFoundEmployeeInputData(userData, foundCreatedEmployee), "Found user data does " +
                "not match with search criteria");
         }
     }

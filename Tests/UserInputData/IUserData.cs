@@ -14,5 +14,7 @@ namespace Tests
         public int DurationWorked { get; }
         public int Grade { get; }
         public string Email { get; }
+
+        public List<string> SetUserInputsToList();
     }
 }

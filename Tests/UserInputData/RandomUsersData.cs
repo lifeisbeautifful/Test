@@ -75,7 +75,7 @@ namespace Tests.UserData
             return email;
         }
 
-        public List<string> SetRandomUserData()
+        public List<string> SetUserInputsToList()
         {
             randomUserData.Add(name);
             randomUserData.Add(salary.ToString());

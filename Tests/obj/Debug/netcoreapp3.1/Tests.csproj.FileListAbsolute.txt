@@ -95,3 +95,4 @@ C:\Users\ognyp\source\repos\Tests\Tests\obj\Debug\netcoreapp3.1\Tests.csproj.Cop
 C:\Users\ognyp\source\repos\Tests\Tests\obj\Debug\netcoreapp3.1\Tests.dll
 C:\Users\ognyp\source\repos\Tests\Tests\obj\Debug\netcoreapp3.1\Tests.pdb
 C:\Users\ognyp\source\repos\Tests\Tests\obj\Debug\netcoreapp3.1\Tests.genruntimeconfig.cache
+C:\Users\ognyp\source\repos\Tests\Tests\bin\Debug\netcoreapp3.1\WebDriver.Support.dll

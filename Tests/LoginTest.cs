@@ -7,10 +7,15 @@ namespace Tests
     {
         private string urlHome = "http://eaapp.somee.com/";
 
+        private HomePage homePage;
+        private LoginPage loginPage;
+
         [OneTimeSetUp]
         public void Setup()
         {
             ChooseDriver(Browsers.Chrome);//чекнути чи залогінено
+            homePage = new HomePage(Driver);
+            loginPage = new LoginPage(Driver);
         }
 
         [OneTimeTearDown]
@@ -25,9 +30,6 @@ namespace Tests
         [Test]
         public void SuccessLoginWithValidCredentials()
         {
-            HomePage homePage = new HomePage(Driver);
-            LoginPage loginPage = new LoginPage(Driver);
-            
             Navigate(urlHome);
             homePage.NavigateToLoginPage();
 
