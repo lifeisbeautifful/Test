@@ -22,26 +22,16 @@ namespace Tests.Pages
         private IWebElement LoginLink => Driver.FindElement(By.Id("loginLink"));
 
         private bool IsAt => LogOffLink.Displayed;
+        
 
         public bool Login()
         {
-            try
-            {
-                if (LoginLink.Displayed)
-                {
-                    LoginLink.Click();
-                    UsernameField.SendKeys("admin");
-                    PasswordField.SendKeys("password");
-                    LoginButton.Click();
-                }
-                return IsAt;
-            }
-            catch(Exception)
-            {
-                Console.WriteLine("Fail to login");
-                Driver.Close();
-                return false;
-            }
+            LoginLink.Click();
+            UsernameField.SendKeys("admi");
+            PasswordField.SendKeys("password");
+            LoginButton.Click();
+            if (IsAt) { return true; }
+            return false;
         }
 
         public bool SuccessLoginWithValidCredentials(string username, string password)

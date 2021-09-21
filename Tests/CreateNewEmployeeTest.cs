@@ -22,24 +22,32 @@ namespace Tests
         [OneTimeSetUp]
         public void Setup()
         {
+           
             ChooseDriver(Browsers.Chrome);
             Navigate(urlHome);
 
             LoginPage loginPage = new LoginPage(Driver);
-            loginPage.Login();
+            if (loginPage.Login())
+            {
 
-            employeeListPage = new EmployeeListPage(Driver);
-            createPage = new CreatePage(Driver);
-           
-            dataFromFile = new UsersDataFromFile();
-            dataFromFile.DeSerializeInputDataFromFile();
+                employeeListPage = new EmployeeListPage(Driver);
+                createPage = new CreatePage(Driver);
+
+                dataFromFile = new UsersDataFromFile();
+                dataFromFile.DeSerializeInputDataFromFile();
+            }
+            else
+            {
+                //Console.WriteLine("Fail to Login");?
+                Driver.Close();
+            }
         }
 
         [TearDown]
         public void TearDown()
         {
             TakeScreenShot screenShot = new TakeScreenShot(Driver);
-            screenShot.ScreenShot();
+            screenShot.TakeScreenShotAndCloseBrowser();
         }
 
         [OneTimeTearDown]
@@ -64,8 +72,8 @@ namespace Tests
             var userData = dataFromFile.SetUserInputsToList();
             Assert.IsTrue(employeeListPage.IsAt(), "User is not navigated back to 'Employee List' page from 'Create' page");
 
-            var foundCreatedEmployee = employeeListPage.SearchEmployee(userData[0]);
-            Assert.IsTrue(employeeListPage.CheckFoundEmployeeInputData(userData, foundCreatedEmployee), "Found user data does " +
+            var foundCreatedEmployee = employeeListPage.SearchEmployee(userData[1]);
+            Assert.IsTrue(employeeListPage.CheckFoundEmployeeSingle(userData, foundCreatedEmployee), "Found user data does " +
                "not match with search criteria");
         }
     }

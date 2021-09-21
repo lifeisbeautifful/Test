@@ -40,7 +40,7 @@ namespace Tests
         public void TearDown()
         {
             TakeScreenShot screenShot = new TakeScreenShot(Driver);
-            screenShot.ScreenShot();
+            screenShot.TakeScreenShotAndCloseBrowser();
         }
 
         [OneTimeTearDown]
@@ -65,7 +65,7 @@ namespace Tests
             Assert.IsTrue(employeeListPage.IsAt(), "User is not navigated back to 'Employee List' page from 'Edit' page");
 
             var foundEditedEmployee = employeeListPage.SearchEmployee(editedUserData[0]);
-            Assert.IsTrue(employeeListPage.CheckFoundEmployeeInputData(editedUserData,foundEditedEmployee));
+            Assert.IsTrue(employeeListPage.CheckFoundEmployeeSingle(editedUserData,foundEditedEmployee));
         }
     }
 }

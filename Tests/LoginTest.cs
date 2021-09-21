@@ -25,7 +25,7 @@ namespace Tests
         public void TearDown()
         {
             TakeScreenShot screenShot = new TakeScreenShot(Driver);
-            screenShot.ScreenShot();
+            screenShot.TakeScreenShotAndCloseBrowser();
         }
 
         [OneTimeTearDown]

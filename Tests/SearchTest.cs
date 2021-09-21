@@ -30,7 +30,7 @@ namespace Tests
         public void TearDown()
         {
             TakeScreenShot screenShot = new TakeScreenShot(Driver);
-            screenShot.ScreenShot();
+            screenShot.TakeScreenShotAndCloseBrowser();
         }
 
         [OneTimeTearDown]
@@ -46,7 +46,7 @@ namespace Tests
         public void PerformSearch()
         {
             var employees = employeeListPage.SearchEmployee("Karthik");
-            bool result = employeeListPage.CheckFoundEmployeeNames(employees, "Karthik");
+            bool result = employeeListPage.CheckFoundEmployeeMultiple(employees, "Karthik");
             Assert.That(result, Is.True, "Not all found users follow search criteria");
         }    
     }

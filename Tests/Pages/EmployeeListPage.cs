@@ -43,17 +43,20 @@ namespace Tests.Pages
             return employeesData;
         }
 
-        public bool CheckFoundEmployeeNames(List<IWebElement> data, string search)
+        public bool CheckFoundEmployeeMultiple(List<IWebElement> data, string search)
         {
             List<string> fEmployeesData = new List<string>();
+            //Create list of IWebelements ('FoundEmployeesData') with all data which user see while search was performed
             List<IWebElement> foundEmployeesData = Driver.FindElements(By.XPath("//table[@class='table']/tbody/tr//td")).ToList();
 
+            //Save all data from 'FoundEmployeesData' to string List
             for(int i = 0; i < foundEmployeesData.Count; i++)
             {
                 fEmployeesData.Add(foundEmployeesData[i].Text);
             }
 
             Driver.Navigate().Back();
+            //Save all user data from DB to 'allEmployeesData' list
             List<IWebElement> allEmployeesData = Driver.FindElements(By.XPath("//table[@class='table']/tbody/tr//td")).ToList();
             int j = 0;
 
@@ -78,8 +81,7 @@ namespace Tests.Pages
             return true;
         }
 
-
-         public bool CheckFoundEmployeeInputData(List<string>expectedData, List<IWebElement>actualData)
+         public bool CheckFoundEmployeeSingle(List<string>expectedData, List<IWebElement>actualData)
         {
             for (int i = 0; i < 5; i++)
             {
