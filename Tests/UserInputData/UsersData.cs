@@ -7,8 +7,8 @@ namespace Tests
 {
     public class UsersData : IUserData
     {
-        public static string UserName => "admin";
-        public static string Password => "password";
+        public string UserName => "admin";
+        public string Password => "password";
         public string Name => "Oksana";
         public double Salary => 4000;
         public int DurationWorked => 2;

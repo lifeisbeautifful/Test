@@ -45,8 +45,8 @@ namespace Tests
         [Test]
         public void PerformSearch()
         {
-            var employees = employeeListPage.SearchEmployee("Test", "mult");
-            bool result = employeeListPage.CheckFoundEmployeeNames(employees, "Test");
+            var employees = employeeListPage.SearchEmployee("Karthik");
+            bool result = employeeListPage.CheckFoundEmployeeNames(employees, "Karthik");
             Assert.That(result, Is.True, "Not all found users follow search criteria");
         }    
     }

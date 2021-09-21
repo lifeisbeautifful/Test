@@ -56,9 +56,9 @@ namespace Tests
         public void DeleteUser()
         {
             employeeListPage.NavigateToEmployeePage();
-            employeeListPage.SearchEmployee(data.Name, "single");
+            employeeListPage.SearchEmployee(data.Name);
             deletePage.DeleteEmployee(data.Name);
-            employeeListPage.SearchEmployee(data.Name, "single");
+            employeeListPage.SearchEmployee(data.Name);
 
             bool deleteResult = employeeListPage.CheckIfEmployeeDeleted();
             Assert.IsTrue(deleteResult, "User is not deleted");

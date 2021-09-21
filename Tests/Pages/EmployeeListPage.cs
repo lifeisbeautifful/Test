@@ -19,7 +19,7 @@ namespace Tests.Pages
         private IWebElement CreateNewButton => Driver.FindElement(By.XPath("//a[text()='Create New']"));
         private IWebElement SearchField => Driver.FindElement(By.Name("searchTerm"));
         private IWebElement SearchButton => Driver.FindElement(By.CssSelector("input[value='Search']"));
-        private IWebElement editlnk => Driver.FindElement(By.LinkText("Edit"));
+        private IWebElement Editlnk => Driver.FindElement(By.LinkText("Edit"));
 
         public bool IsAt()
         {
@@ -33,34 +33,55 @@ namespace Tests.Pages
             return IsAt();
         }
 
-        public List<IWebElement> SearchEmployee(string data, string quantity)
+        public List<IWebElement> SearchEmployee(string data)
         {
             SearchField.SendKeys(data);
             SearchButton.Click();
 
+            
             List<IWebElement> employeesData = Driver.FindElements(By.XPath("//table[@class='table']/tbody/tr/td")).ToList();
-            List<IWebElement> employeesNames = Driver.FindElements(By.XPath("//table[@class='table']/tbody/tr/td[1]")).ToList();
-
-            if (quantity == "mult") { return employeesNames; }
             return employeesData;
         }
 
-        public bool CheckFoundEmployeeNames(List<IWebElement> data, params string[] empData)
+        public bool CheckFoundEmployeeNames(List<IWebElement> data, string search)
         {
-            for (int i = 0; i < data.Count; i++)
+            List<string> fEmployeesData = new List<string>();
+            List<IWebElement> foundEmployeesData = Driver.FindElements(By.XPath("//table[@class='table']/tbody/tr//td")).ToList();
+
+            for(int i = 0; i < foundEmployeesData.Count; i++)
             {
-                if (data[i].Text.Contains(empData[0]))
+                fEmployeesData.Add(foundEmployeesData[i].Text);
+            }
+
+            Driver.Navigate().Back();
+            List<IWebElement> allEmployeesData = Driver.FindElements(By.XPath("//table[@class='table']/tbody/tr//td")).ToList();
+            int j = 0;
+
+            for (int i = 0; i < allEmployeesData.Count; i++)
+            {
+                if (allEmployeesData[i].Text.Contains(search) && !allEmployeesData[i].Text.Contains("@"))
                 {
-                    continue;
+                    for (int k = 0; k < 6; k++)
+                    {
+                        if (allEmployeesData[i].Text == fEmployeesData[j])
+                        {
+                            if (k < 5) 
+                            { i++; }
+
+                            j++;
+                            continue;
+                        }
+                        return false;
+                    }
                 }
-                return false;
             }
             return true;
         }
 
+
          public bool CheckFoundEmployeeInputData(List<string>expectedData, List<IWebElement>actualData)
         {
-            for (int i = 0; i < expectedData.Count; i++)
+            for (int i = 0; i < 5; i++)
             {
                 if (expectedData[i] == actualData[i].Text) { continue; }
                 Console.WriteLine($"Created user info does not match with entered data at index {i}");
@@ -73,7 +94,7 @@ namespace Tests.Pages
 
         public CreatePage TestEditLink()
         {
-            editlnk.Click();
+            Editlnk.Click();
             return new CreatePage(Driver);
         }
 

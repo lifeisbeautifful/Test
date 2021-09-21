@@ -58,13 +58,13 @@ namespace Tests
         public void EditEmployeeData()
         {
             employeeListPage.NavigateToEmployeePage();
-            employeeListPage.SearchEmployee(data.Name, "single");
+            employeeListPage.SearchEmployee(data.Name);
             employeeListPage.TestEditLink();
             createPage.SetUserData(editedData);
             var editedUserData = editedData.SetUserInputsToList();
             Assert.IsTrue(employeeListPage.IsAt(), "User is not navigated back to 'Employee List' page from 'Edit' page");
 
-            var foundEditedEmployee = employeeListPage.SearchEmployee(editedUserData[0], "single");
+            var foundEditedEmployee = employeeListPage.SearchEmployee(editedUserData[0]);
             Assert.IsTrue(employeeListPage.CheckFoundEmployeeInputData(editedUserData,foundEditedEmployee));
         }
     }

@@ -18,8 +18,8 @@ namespace Tests.UserData
         private List<string> randomUserData = new List<string>();
         Random random = new Random();
 
-        public static string UserName => "admin";
-        public static string Password => "password";
+        public string UserName => "admin";
+        public string Password => "password";
 
         public string Name => GetRandomName();
         public double Salary => GetRandomSalary();

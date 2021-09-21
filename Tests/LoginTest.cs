@@ -10,6 +10,7 @@ namespace Tests
 
         private HomePage homePage;
         private LoginPage loginPage;
+        private UsersData data;
 
         [OneTimeSetUp]
         public void Setup()
@@ -17,6 +18,7 @@ namespace Tests
             ChooseDriver(Browsers.Chrome);//чекнути чи залогінено
             homePage = new HomePage(Driver);
             loginPage = new LoginPage(Driver);
+            data = new UsersData();
         }
 
         [TearDown]
@@ -41,7 +43,7 @@ namespace Tests
             Navigate(urlHome);
             homePage.NavigateToLoginPage();
 
-            bool result=loginPage.SuccessLoginWithValidCredentials("admin", "password");
+            bool result=loginPage.SuccessLoginWithValidCredentials(data.UserName, data.Password);
             Assert.That(result, Is.True, "User is not logged in");
         }
     }

@@ -14,6 +14,8 @@ namespace Tests.UserInputData
         private string serializerPath = @"C:\Users\ognyp\source\UserData.json";
         private List<string> UserInputData = new List<string>();
 
+        public string UserName => "admin";
+        public string Password => "password";
         [DataMember]
         public string Name { get; set; }
 
