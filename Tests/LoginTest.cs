@@ -43,7 +43,7 @@ namespace Tests
             Navigate(urlHome);
             homePage.NavigateToLoginPage();
 
-            bool result=loginPage.SuccessLoginWithValidCredentials(data.UserName, data.Password);
+            bool result = loginPage.Login(data);
             Assert.That(result, Is.True, "User is not logged in");
         }
     }

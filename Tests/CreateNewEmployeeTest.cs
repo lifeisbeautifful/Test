@@ -27,7 +27,7 @@ namespace Tests
             Navigate(urlHome);
 
             LoginPage loginPage = new LoginPage(Driver);
-            if (loginPage.Login())
+            if (loginPage.Login(dataFromFile))
             {
 
                 employeeListPage = new EmployeeListPage(Driver);

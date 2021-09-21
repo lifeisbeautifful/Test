@@ -25,7 +25,7 @@ namespace Tests
             Navigate(urlHome);
 
             LoginPage loginPage = new LoginPage(Driver);
-            loginPage.Login();
+            loginPage.Login(data);
 
             Navigate(urlCreatePage);
             createPage = new CreatePage(Driver);

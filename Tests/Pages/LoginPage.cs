@@ -23,23 +23,14 @@ namespace Tests.Pages
 
         private bool IsAt => LogOffLink.Displayed;
         
-
-        public bool Login()
+        public bool Login(IUserData data)
         {
             LoginLink.Click();
-            UsernameField.SendKeys("admi");
-            PasswordField.SendKeys("password");
+            UsernameField.SendKeys(data.UserName);
+            PasswordField.SendKeys(data.Password);
             LoginButton.Click();
             if (IsAt) { return true; }
             return false;
-        }
-
-        public bool SuccessLoginWithValidCredentials(string username, string password)
-        {
-            UsernameField.SendKeys(username);
-            PasswordField.SendKeys(password);
-            LoginButton.Click();
-            return IsAt;
         }
     }
 }

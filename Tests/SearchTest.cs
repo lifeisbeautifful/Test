@@ -12,15 +12,17 @@ namespace Tests
         private string urlHome = "http://eaapp.somee.com/";
 
         private EmployeeListPage employeeListPage;
+        private UsersData data;
 
         [OneTimeSetUp]
         public void Setup()
         {
             ChooseDriver(Browsers.Chrome);
             Navigate(urlHome);
+            data = new UsersData();
 
             LoginPage loginPage = new LoginPage(Driver);
-            loginPage.Login();
+            loginPage.Login(data);
 
             employeeListPage = new EmployeeListPage(Driver);
             employeeListPage.NavigateToEmployeePage();
