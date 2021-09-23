@@ -18,7 +18,7 @@ namespace Tests.DriverHelper
             Driver = driver;
         }
 
-        public void TakeScreenShotAndCloseBrowser()
+        public void ScreenShot()
         {
             if (TestContext.CurrentContext.Result.Outcome.Equals(ResultState.Failure))
             {
@@ -29,8 +29,6 @@ namespace Tests.DriverHelper
                 ITakesScreenshot screenshot = (ITakesScreenshot)Driver;
                 Screenshot screen = screenshot.GetScreenshot();
                 screen.SaveAsFile(screenshotPath.FullName, ScreenshotImageFormat.Png);
-
-                Driver.Quit();
             }
         }
     }

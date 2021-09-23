@@ -38,7 +38,6 @@ namespace Tests.Pages
             SearchField.SendKeys(data);
             SearchButton.Click();
 
-            
             List<IWebElement> employeesData = Driver.FindElements(By.XPath("//table[@class='table']/tbody/tr/td")).ToList();
             return employeesData;
         }
@@ -62,7 +61,7 @@ namespace Tests.Pages
 
             for (int i = 0; i < allEmployeesData.Count; i++)
             {
-                if (allEmployeesData[i].Text.Contains(search) && !allEmployeesData[i].Text.Contains("@"))
+                if (allEmployeesData[i].Text.StartsWith(search) && !allEmployeesData[i].Text.Contains("@"))
                 {
                     for (int k = 0; k < 6; k++)
                     {

@@ -22,7 +22,15 @@ namespace Tests
             data = new UsersData();
 
             LoginPage loginPage = new LoginPage(Driver);
-            loginPage.Login(data);
+
+            try
+            {
+                loginPage.CheckIfUserLoggedIn();
+            }
+            catch (Exception ex)
+            {
+                loginPage.Login(data);
+            }
 
             employeeListPage = new EmployeeListPage(Driver);
             employeeListPage.NavigateToEmployeePage();
@@ -32,7 +40,7 @@ namespace Tests
         public void TearDown()
         {
             TakeScreenShot screenShot = new TakeScreenShot(Driver);
-            screenShot.TakeScreenShotAndCloseBrowser();
+            screenShot.ScreenShot();
         }
 
         [OneTimeTearDown]
@@ -47,8 +55,8 @@ namespace Tests
         [Test]
         public void PerformSearch()
         {
-            var employees = employeeListPage.SearchEmployee("Karthik");
-            bool result = employeeListPage.CheckFoundEmployeeMultiple(employees, "Karthik");
+            var employees = employeeListPage.SearchEmployee("Test");
+            bool result = employeeListPage.CheckFoundEmployeeMultiple(employees, "Test");
             Assert.That(result, Is.True, "Not all found users follow search criteria");
         }    
     }

@@ -8,15 +8,13 @@ namespace Tests
     {
         private string urlHome = "http://eaapp.somee.com/";
 
-        private HomePage homePage;
         private LoginPage loginPage;
         private UsersData data;
 
         [OneTimeSetUp]
         public void Setup()
         {
-            ChooseDriver(Browsers.Chrome);//чекнути чи залогінено
-            homePage = new HomePage(Driver);
+            ChooseDriver(Browsers.Chrome);
             loginPage = new LoginPage(Driver);
             data = new UsersData();
         }
@@ -25,13 +23,13 @@ namespace Tests
         public void TearDown()
         {
             TakeScreenShot screenShot = new TakeScreenShot(Driver);
-            screenShot.TakeScreenShotAndCloseBrowser();
+            screenShot.ScreenShot();
         }
 
         [OneTimeTearDown]
         public void OneTimeTearDown()
         {
-            Driver.Close();
+            Driver.Quit();
         }
 
         /// <summary>
@@ -41,10 +39,9 @@ namespace Tests
         public void SuccessLoginWithValidCredentials()
         {
             Navigate(urlHome);
-            homePage.NavigateToLoginPage();
-
-            bool result = loginPage.Login(data);
-            Assert.That(result, Is.True, "User is not logged in");
+           
+            loginPage.Login(data);
+            Assert.That(loginPage.CheckIfUserLoggedIn(), Is.True, "User is not logged in");
         }
     }
 }

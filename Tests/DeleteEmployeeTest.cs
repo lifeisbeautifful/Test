@@ -24,15 +24,23 @@ namespace Tests
             ChooseDriver(Browsers.Chrome);
             Navigate(urlHome);
 
-            LoginPage loginPage = new LoginPage(Driver);
-            loginPage.Login(data);
-
-            Navigate(urlCreatePage);
             createPage = new CreatePage(Driver);
             employeeListPage = new EmployeeListPage(Driver);
             deletePage = new DeletePage(Driver);
-
             data = new UsersData();
+
+            LoginPage loginPage = new LoginPage(Driver);
+
+            try
+            {
+                loginPage.CheckIfUserLoggedIn();
+            }
+            catch (Exception ex)
+            {
+                loginPage.Login(data);
+            }
+            
+            Navigate(urlCreatePage);
             createPage.SetUserData(data);
         }
 
@@ -40,7 +48,7 @@ namespace Tests
         public void TearDown()
         {
             TakeScreenShot screenShot = new TakeScreenShot(Driver);
-            screenShot.TakeScreenShotAndCloseBrowser();
+            screenShot.ScreenShot();
         }
 
         [OneTimeTearDown]

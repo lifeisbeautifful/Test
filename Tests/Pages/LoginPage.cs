@@ -23,14 +23,18 @@ namespace Tests.Pages
 
         private bool IsAt => LogOffLink.Displayed;
         
-        public bool Login(IUserData data)
+        public bool CheckIfUserLoggedIn()
+        {
+            if (IsAt) { return true; }
+            return false;
+        }
+
+        public void Login(IUserData data)
         {
             LoginLink.Click();
             UsernameField.SendKeys(data.UserName);
             PasswordField.SendKeys(data.Password);
             LoginButton.Click();
-            if (IsAt) { return true; }
-            return false;
         }
     }
 }

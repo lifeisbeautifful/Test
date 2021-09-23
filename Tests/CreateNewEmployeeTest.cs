@@ -22,24 +22,24 @@ namespace Tests
         [OneTimeSetUp]
         public void Setup()
         {
-           
             ChooseDriver(Browsers.Chrome);
             Navigate(urlHome);
 
+            employeeListPage = new EmployeeListPage(Driver);
+            createPage = new CreatePage(Driver);
+
+            dataFromFile = new UsersDataFromFile();
+            dataFromFile.DeSerializeInputDataFromFile();
+
             LoginPage loginPage = new LoginPage(Driver);
-            if (loginPage.Login(dataFromFile))
+           
+            try
             {
-
-                employeeListPage = new EmployeeListPage(Driver);
-                createPage = new CreatePage(Driver);
-
-                dataFromFile = new UsersDataFromFile();
-                dataFromFile.DeSerializeInputDataFromFile();
+                loginPage.CheckIfUserLoggedIn();
             }
-            else
+            catch (Exception ex)
             {
-                //Console.WriteLine("Fail to Login");?
-                Driver.Close();
+                loginPage.Login(dataFromFile);
             }
         }
 
@@ -47,7 +47,7 @@ namespace Tests
         public void TearDown()
         {
             TakeScreenShot screenShot = new TakeScreenShot(Driver);
-            screenShot.TakeScreenShotAndCloseBrowser();
+            screenShot.ScreenShot();
         }
 
         [OneTimeTearDown]
@@ -55,7 +55,7 @@ namespace Tests
         {
             DeletePage deletePage = new DeletePage(Driver);
             deletePage.DeleteEmployee(dataFromFile.Name);
-            Driver.Close();
+            Driver.Quit();
         }
 
         /// <summary>
@@ -72,7 +72,7 @@ namespace Tests
             var userData = dataFromFile.SetUserInputsToList();
             Assert.IsTrue(employeeListPage.IsAt(), "User is not navigated back to 'Employee List' page from 'Create' page");
 
-            var foundCreatedEmployee = employeeListPage.SearchEmployee(userData[1]);
+            var foundCreatedEmployee = employeeListPage.SearchEmployee(userData[0]);
             Assert.IsTrue(employeeListPage.CheckFoundEmployeeSingle(userData, foundCreatedEmployee), "Found user data does " +
                "not match with search criteria");
         }

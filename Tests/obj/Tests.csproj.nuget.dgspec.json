@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ognyp\\source\\repos\\Tests\\Tests\\Tests.csproj": {}
+    "C:\\Users\\ognyp\\Desktop\\MyProject\\Test\\Tests\\Tests.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ognyp\\source\\repos\\Tests\\Tests\\Tests.csproj": {
+    "C:\\Users\\ognyp\\Desktop\\MyProject\\Test\\Tests\\Tests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ognyp\\source\\repos\\Tests\\Tests\\Tests.csproj",
+        "projectUniqueName": "C:\\Users\\ognyp\\Desktop\\MyProject\\Test\\Tests\\Tests.csproj",
         "projectName": "Tests",
-        "projectPath": "C:\\Users\\ognyp\\source\\repos\\Tests\\Tests\\Tests.csproj",
+        "projectPath": "C:\\Users\\ognyp\\Desktop\\MyProject\\Test\\Tests\\Tests.csproj",
         "packagesPath": "C:\\Users\\ognyp\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ognyp\\source\\repos\\Tests\\Tests\\obj\\",
+        "outputPath": "C:\\Users\\ognyp\\Desktop\\MyProject\\Test\\Tests\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
