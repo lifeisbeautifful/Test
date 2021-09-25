@@ -57,12 +57,9 @@ namespace Tests
         public void PerformSearch()
         {
             employeeListPage.SearchEmployee("Test");
-            employeeListPage.TransferFoundDataToReadOnlyCollection();
+            employeeListPage.TransferAllFoundUIDataToReadOnlyCollection();
             employeeListPage.NavigateBack();
             var result=employeeListPage.CheckIfFoundDataMatchSearchCriteriaData("Test");        
-                                            
-
-            
             Assert.That(result, Is.True, "Not all found users follow search criteria");
         }    
     }

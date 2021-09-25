@@ -16,16 +16,13 @@ namespace Tests.Pages
             Driver = driver;
         }
 
-        private List<string> foundData = new List<string>();
-        private IWebElement EmployeeList => Driver.FindElement(By.LinkText("Employee List"));
+        private List<string> data = new List<string>();
+        private IWebElement EmployeeListLink => Driver.FindElement(By.LinkText("Employee List"));
         private IWebElement CreateNewButton => Driver.FindElement(By.XPath("//a[text()='Create New']"));
         private IWebElement SearchField => Driver.FindElement(By.Name("searchTerm"));
         private IWebElement SearchButton => Driver.FindElement(By.CssSelector("input[value='Search']"));
-        private IWebElement Editlnk => Driver.FindElement(By.LinkText("Edit"));
-        private List<IWebElement> employeesData => Driver.FindElements(By.XPath("//table[@class='table']/tbody/tr/td")).ToList();
-        private List<IWebElement> foundEmployeesData => Driver.FindElements(By.XPath("//table[@class='table']/tbody/tr//td")).ToList();
-        private List<IWebElement> allEmployeesData => Driver.FindElements(By.XPath("//table[@class='table']/tbody/tr//td")).ToList();
-        private List<IWebElement> employees => Driver.FindElements(By.XPath("//table[@class='table']/tbody/tr/td[1]")).ToList();
+        private IWebElement EditLink => Driver.FindElement(By.LinkText("Edit"));
+        private List<IWebElement> employeesDataFromUI => Driver.FindElements(By.XPath("//table[@class='table']/tbody/tr//td")).ToList();
 
         public bool IsAt()
         {
@@ -35,7 +32,7 @@ namespace Tests.Pages
 
         public bool NavigateToEmployeePage()
         {
-            EmployeeList.Click();
+            EmployeeListLink.Click();
             return IsAt();
         }
 
@@ -43,16 +40,16 @@ namespace Tests.Pages
         {
             SearchField.SendKeys(data);
             SearchButton.Click();
-            return employeesData.AsReadOnly();
+            return employeesDataFromUI.AsReadOnly();
         }
 
-        public ReadOnlyCollection<string> TransferFoundDataToReadOnlyCollection()
+        public ReadOnlyCollection<string> TransferAllFoundUIDataToReadOnlyCollection()
         {
-            for (int i = 0; i < foundEmployeesData.Count; i++)
+            for (int i = 0; i < employeesDataFromUI.Count; i++)
             {
-                foundData.Add(foundEmployeesData[i].Text);
+                data.Add(employeesDataFromUI[i].Text);
             }
-            return foundData.AsReadOnly();
+            return data.AsReadOnly();
         }
 
         public void NavigateBack()
@@ -64,13 +61,13 @@ namespace Tests.Pages
         {
             int j = 0;
 
-            for (int i = 0; i < allEmployeesData.Count; i++)
+            for (int i = 0; i < employeesDataFromUI.Count; i++)
             {
-                if (allEmployeesData[i].Text.StartsWith(searchCriteria) && !allEmployeesData[i].Text.Contains("@"))
+                if (employeesDataFromUI[i].Text.StartsWith(searchCriteria) && !employeesDataFromUI[i].Text.Contains("@"))
                 {
                     for (int k = 0; k < 6; k++)
                     {
-                        if (allEmployeesData[i].Text == foundData[j])
+                        if (employeesDataFromUI[i].Text == data[j])
                         {
                             if (k < 5)
                             { i++; }
@@ -85,28 +82,26 @@ namespace Tests.Pages
             return true;
         }
       
-        public bool CheckFoundEmployeeSingle(ReadOnlyCollection<string>expectedData, ReadOnlyCollection<IWebElement>actualData)
+        public ReadOnlyCollection<string> TransferOnlyUserInputUIDataToReadOnlyCollection()
         {
+            List<string> actualFoundData = new List<string>();
+
             for (int i = 0; i < 5; i++)
             {
-                if (expectedData[i] == actualData[i].Text) { continue; }
-                Console.WriteLine($"Created user info does not match with entered data at index {i}");
-                Console.WriteLine($"data.Text = {actualData[i].Text}");
-                Console.WriteLine($"empData = {expectedData[i]}");
-                return false;
+                actualFoundData.Add(employeesDataFromUI[i].Text);
             }
-            return true;
+            return actualFoundData.AsReadOnly();
         }
 
         public CreatePage TestEditLink()
         {
-            Editlnk.Click();
+            EditLink.Click();
             return new CreatePage(Driver);
         }
 
         public bool CheckIfEmployeeDeleted()
         {
-            if (employees.Count > 0) { return false; }
+            if (employeesDataFromUI.Count > 0) { return false; }
             return true;
         }
     }

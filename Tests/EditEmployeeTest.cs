@@ -73,8 +73,9 @@ namespace Tests
             var editedUserData = editedData.SetUserInputsToList();
             Assert.IsTrue(employeeListPage.IsAt(), "User is not navigated back to 'Employee List' page from 'Edit' page");
 
-            var foundEditedEmployee = employeeListPage.SearchEmployee(editedUserData[0]);
-            Assert.IsTrue(employeeListPage.CheckFoundEmployeeSingle(editedUserData,foundEditedEmployee));
+            employeeListPage.SearchEmployee(editedUserData[0]);
+            var foundEditedEmployeeData = employeeListPage.TransferOnlyUserInputUIDataToReadOnlyCollection();
+            CollectionAssert.AreEqual(foundEditedEmployeeData, editedUserData);
         }
     }
 }
