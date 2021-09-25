@@ -22,10 +22,26 @@ namespace Tests.Pages
         private IWebElement LoginLink => Driver.FindElement(By.Id("loginLink"));
 
         private bool IsAt => LogOffLink.Displayed;
+        //{ 
+        //    get
+        //    {
+        //        try
+        //        {
+        //            return LogOffLink.Displayed;
+        //        }catch(Exception ex)
+        //        {
+        //            return false;
+        //        }
+        //    }  
+        //} 
         
         public bool CheckIfUserLoggedIn()
         {
-            if (IsAt) { return true; }
+            if 
+                (
+                
+                IsAt
+                ) { return true; }
             return false;
         }
 

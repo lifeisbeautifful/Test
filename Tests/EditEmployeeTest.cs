@@ -41,7 +41,7 @@ namespace Tests
                 loginPage.Login(data);
             }
 
-            Navigate(urlCreateEmployee);
+            Navigate(urlCreateEmployee);//зробити
             createPage.SetUserData(data);
         }
 

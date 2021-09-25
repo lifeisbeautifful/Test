@@ -35,7 +35,7 @@ namespace Tests
            
             try
             {
-                loginPage.CheckIfUserLoggedIn();
+                loginPage.CheckIfUserLoggedIn();// name IsUserLoggedIn
             }
             catch (Exception ex)
             {

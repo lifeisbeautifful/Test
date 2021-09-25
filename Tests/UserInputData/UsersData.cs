@@ -1,6 +1,7 @@
 ﻿using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Text;
 
 namespace Tests
@@ -15,16 +16,17 @@ namespace Tests
         public int Grade => 4;
         public string Email => "a@mailforspam.com";
 
-        private List<string> UserInputData = new List<string>();
+        //private List<string> UserInputData = new List<string>();
 
-        public List<string> SetUserInputsToList()
+        public ReadOnlyCollection<string> SetUserInputsToList()//name GetUserData
         {
+            List<string> UserInputData = new List<string>();
             UserInputData.Add(Name);
             UserInputData.Add(Salary.ToString());
             UserInputData.Add(DurationWorked.ToString());
             UserInputData.Add(Grade.ToString());
             UserInputData.Add(Email);
-            return UserInputData;
+            return UserInputData.AsReadOnly();
         }
     }
 }

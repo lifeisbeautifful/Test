@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Json;
@@ -70,14 +71,14 @@ namespace Tests.UserInputData
             Email = data.Email;
         }
 
-        public List<string> SetUserInputsToList()
+        public ReadOnlyCollection<string> SetUserInputsToList()
         {
             UserInputData.Add(Name);
             UserInputData.Add(Salary.ToString());
             UserInputData.Add(DurationWorked.ToString());
             UserInputData.Add(Grade.ToString());
             UserInputData.Add(Email);
-            return UserInputData;
+            return UserInputData.AsReadOnly();
         }
     }
 }

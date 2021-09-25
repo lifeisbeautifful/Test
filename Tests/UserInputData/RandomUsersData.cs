@@ -2,6 +2,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Text;
 
 namespace Tests.UserData
@@ -75,14 +76,14 @@ namespace Tests.UserData
             return email;
         }
 
-        public List<string> SetUserInputsToList()
+        public ReadOnlyCollection<string> SetUserInputsToList()
         {
             randomUserData.Add(name);
             randomUserData.Add(salary.ToString());
             randomUserData.Add(durationWorked.ToString());
             randomUserData.Add(grade.ToString());
             randomUserData.Add(email);
-            return randomUserData;
+            return randomUserData.AsReadOnly();
         }
     }
 }

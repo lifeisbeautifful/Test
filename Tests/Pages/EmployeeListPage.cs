@@ -1,6 +1,7 @@
 ﻿using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 
@@ -33,16 +34,16 @@ namespace Tests.Pages
             return IsAt();
         }
 
-        public List<IWebElement> SearchEmployee(string data)
+        public ReadOnlyCollection<IWebElement> SearchEmployee(string data)
         {
             SearchField.SendKeys(data);
             SearchButton.Click();
 
             List<IWebElement> employeesData = Driver.FindElements(By.XPath("//table[@class='table']/tbody/tr/td")).ToList();
-            return employeesData;
+            return employeesData.AsReadOnly();
         }
 
-        public bool CheckFoundEmployeeMultiple(List<IWebElement> data, string search)
+        public bool CheckFoundEmployeeMultiple(ReadOnlyCollection<IWebElement> data, string search)
         {
             List<string> fEmployeesData = new List<string>();
             //Create list of IWebelements ('FoundEmployeesData') with all data which user see while search was performed
@@ -80,7 +81,7 @@ namespace Tests.Pages
             return true;
         }
 
-         public bool CheckFoundEmployeeSingle(List<string>expectedData, List<IWebElement>actualData)
+         public bool CheckFoundEmployeeSingle(ReadOnlyCollection<string>expectedData, ReadOnlyCollection<IWebElement>actualData)
         {
             for (int i = 0; i < 5; i++)
             {
