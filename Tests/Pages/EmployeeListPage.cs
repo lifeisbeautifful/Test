@@ -21,6 +21,14 @@ namespace Tests.Pages
         private IWebElement SearchField => Driver.FindElement(By.Name("searchTerm"));
         private IWebElement SearchButton => Driver.FindElement(By.CssSelector("input[value='Search']"));
         private IWebElement Editlnk => Driver.FindElement(By.LinkText("Edit"));
+        private List<IWebElement> employeesData => Driver.FindElements(By.XPath("//table[@class='table']/tbody/tr/td")).ToList();
+        private List<IWebElement> foundEmployeesData => Driver.FindElements(By.XPath("//table[@class='table']/tbody/tr//td")).ToList();
+        private List<IWebElement> allEmployeesData => Driver.FindElements(By.XPath("//table[@class='table']/tbody/tr//td")).ToList();
+        private List<IWebElement> employees => Driver.FindElements(By.XPath("//table[@class='table']/tbody/tr/td[1]")).ToList();
+
+
+
+
 
         public bool IsAt()
         {
@@ -38,8 +46,6 @@ namespace Tests.Pages
         {
             SearchField.SendKeys(data);
             SearchButton.Click();
-
-            List<IWebElement> employeesData = Driver.FindElements(By.XPath("//table[@class='table']/tbody/tr/td")).ToList();
             return employeesData.AsReadOnly();
         }
 
@@ -47,7 +53,6 @@ namespace Tests.Pages
         {
             List<string> fEmployeesData = new List<string>();
             //Create list of IWebelements ('FoundEmployeesData') with all data which user see while search was performed
-            List<IWebElement> foundEmployeesData = Driver.FindElements(By.XPath("//table[@class='table']/tbody/tr//td")).ToList();
 
             //Save all data from 'FoundEmployeesData' to string List
             for(int i = 0; i < foundEmployeesData.Count; i++)
@@ -57,7 +62,6 @@ namespace Tests.Pages
 
             Driver.Navigate().Back();
             //Save all user data from DB to 'allEmployeesData' list
-            List<IWebElement> allEmployeesData = Driver.FindElements(By.XPath("//table[@class='table']/tbody/tr//td")).ToList();
             int j = 0;
 
             for (int i = 0; i < allEmployeesData.Count; i++)
@@ -102,7 +106,6 @@ namespace Tests.Pages
 
         public bool CheckIfEmployeeDeleted()
         {
-            List<IWebElement> employees = Driver.FindElements(By.XPath("//table[@class='table']/tbody/tr/td[1]")).ToList();
             if (employees.Count > 0) { return false; }
             return true;
         }

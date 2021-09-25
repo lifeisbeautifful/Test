@@ -14,12 +14,13 @@ namespace Tests.Pages
             Driver = driver;
         }
 
+        private IWebElement deleteLink => Driver.FindElement(By.LinkText("Delete"));
+        private IWebElement deleteButton => Driver.FindElement(By.XPath("//div[@class='form-actions no-color']/input[@type='submit']"));
+
+
         public void DeleteEmployee(string data)
         {
-            IWebElement deleteLink = Driver.FindElement(By.LinkText("Delete"));
             deleteLink.Click();
-
-            IWebElement deleteButton = Driver.FindElement(By.XPath("//div[@class='form-actions no-color']/input[@type='submit']"));
             deleteButton.Click();
         }
     }
