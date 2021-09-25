@@ -21,27 +21,24 @@ namespace Tests.Pages
         private IWebElement LoginButton => Driver.FindElement(By.XPath("//input[@type='submit']"));
         private IWebElement LoginLink => Driver.FindElement(By.Id("loginLink"));
 
-        private bool IsAt => LogOffLink.Displayed;
-        //{ 
-        //    get
-        //    {
-        //        try
-        //        {
-        //            return LogOffLink.Displayed;
-        //        }catch(Exception ex)
-        //        {
-        //            return false;
-        //        }
-        //    }  
-        //} 
-        
-        public bool CheckIfUserLoggedIn()
+        private bool IsAt
         {
-            if 
-                (
-                
-                IsAt
-                ) { return true; }
+            get
+            {
+                try
+                {
+                    return LogOffLink.Displayed;
+                }
+                catch (NoSuchElementException)
+                {
+                    return false;
+                }
+            }
+        }
+
+        public bool IsUserLoggedIn()
+        {
+            if (IsAt) { return true; }
             return false;
         }
 

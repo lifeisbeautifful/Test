@@ -32,13 +32,9 @@ namespace Tests
             dataFromFile.DeSerializeInputDataFromFile();
 
             LoginPage loginPage = new LoginPage(Driver);
-           
-            try
-            {
-                loginPage.CheckIfUserLoggedIn();// name IsUserLoggedIn
-            }
-            catch (Exception ex)
-            {
+
+            if (!loginPage.IsUserLoggedIn())
+            { 
                 loginPage.Login(dataFromFile);
             }
         }

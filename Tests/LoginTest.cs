@@ -41,7 +41,7 @@ namespace Tests
             Navigate(urlHome);
            
             loginPage.Login(data);
-            Assert.That(loginPage.CheckIfUserLoggedIn(), Is.True, "User is not logged in");
+            Assert.That(loginPage.IsUserLoggedIn(), Is.True, "User is not logged in");
         }
     }
 }

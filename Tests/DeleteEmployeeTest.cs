@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using NUnit.Framework;
+using OpenQA.Selenium;
 using Tests.DriverHelper;
 using Tests.Pages;
 using Tests.UserData;
@@ -31,11 +32,7 @@ namespace Tests
 
             LoginPage loginPage = new LoginPage(Driver);
 
-            try
-            {
-                loginPage.CheckIfUserLoggedIn();
-            }
-            catch (Exception ex)
+            if(!loginPage.IsUserLoggedIn())
             {
                 loginPage.Login(data);
             }
