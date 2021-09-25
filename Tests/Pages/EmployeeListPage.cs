@@ -16,6 +16,7 @@ namespace Tests.Pages
             Driver = driver;
         }
 
+        private List<string> foundData = new List<string>();
         private IWebElement EmployeeList => Driver.FindElement(By.LinkText("Employee List"));
         private IWebElement CreateNewButton => Driver.FindElement(By.XPath("//a[text()='Create New']"));
         private IWebElement SearchField => Driver.FindElement(By.Name("searchTerm"));
@@ -25,10 +26,6 @@ namespace Tests.Pages
         private List<IWebElement> foundEmployeesData => Driver.FindElements(By.XPath("//table[@class='table']/tbody/tr//td")).ToList();
         private List<IWebElement> allEmployeesData => Driver.FindElements(By.XPath("//table[@class='table']/tbody/tr//td")).ToList();
         private List<IWebElement> employees => Driver.FindElements(By.XPath("//table[@class='table']/tbody/tr/td[1]")).ToList();
-
-
-
-
 
         public bool IsAt()
         {
@@ -49,30 +46,33 @@ namespace Tests.Pages
             return employeesData.AsReadOnly();
         }
 
-        public bool CheckFoundEmployeeMultiple(ReadOnlyCollection<IWebElement> data, string search)
+        public ReadOnlyCollection<string> TransferFoundDataToReadOnlyCollection()
         {
-            List<string> fEmployeesData = new List<string>();
-            //Create list of IWebelements ('FoundEmployeesData') with all data which user see while search was performed
-
-            //Save all data from 'FoundEmployeesData' to string List
-            for(int i = 0; i < foundEmployeesData.Count; i++)
+            for (int i = 0; i < foundEmployeesData.Count; i++)
             {
-                fEmployeesData.Add(foundEmployeesData[i].Text);
+                foundData.Add(foundEmployeesData[i].Text);
             }
+            return foundData.AsReadOnly();
+        }
 
+        public void NavigateBack()
+        {
             Driver.Navigate().Back();
-            //Save all user data from DB to 'allEmployeesData' list
+        }
+
+        public bool CheckIfFoundDataMatchSearchCriteriaData(string searchCriteria)
+        {
             int j = 0;
 
             for (int i = 0; i < allEmployeesData.Count; i++)
             {
-                if (allEmployeesData[i].Text.StartsWith(search) && !allEmployeesData[i].Text.Contains("@"))
+                if (allEmployeesData[i].Text.StartsWith(searchCriteria) && !allEmployeesData[i].Text.Contains("@"))
                 {
                     for (int k = 0; k < 6; k++)
                     {
-                        if (allEmployeesData[i].Text == fEmployeesData[j])
+                        if (allEmployeesData[i].Text == foundData[j])
                         {
-                            if (k < 5) 
+                            if (k < 5)
                             { i++; }
 
                             j++;
@@ -84,8 +84,8 @@ namespace Tests.Pages
             }
             return true;
         }
-
-         public bool CheckFoundEmployeeSingle(ReadOnlyCollection<string>expectedData, ReadOnlyCollection<IWebElement>actualData)
+      
+        public bool CheckFoundEmployeeSingle(ReadOnlyCollection<string>expectedData, ReadOnlyCollection<IWebElement>actualData)
         {
             for (int i = 0; i < 5; i++)
             {

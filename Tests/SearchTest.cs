@@ -5,6 +5,7 @@ using NUnit.Framework;
 using Tests.DriverHelper;
 using Tests.Pages;
 
+
 namespace Tests
 {
     public class SearchTest:Drivers
@@ -55,8 +56,13 @@ namespace Tests
         [Test]
         public void PerformSearch()
         {
-            var employees = employeeListPage.SearchEmployee("Test");
-            bool result = employeeListPage.CheckFoundEmployeeMultiple(employees, "Test");
+            employeeListPage.SearchEmployee("Test");
+            employeeListPage.TransferFoundDataToReadOnlyCollection();
+            employeeListPage.NavigateBack();
+            var result=employeeListPage.CheckIfFoundDataMatchSearchCriteriaData("Test");        
+                                            
+
+            
             Assert.That(result, Is.True, "Not all found users follow search criteria");
         }    
     }
