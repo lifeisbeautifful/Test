@@ -19,14 +19,44 @@ namespace Tests.UserData
         private List<string> randomUserData = new List<string>();
         Random random = new Random();
 
-        public string UserName => "admin";
-        public string Password => "password";
+        public string UserName
+        {
+            get { return "admin"; }
+            set {; }
+        }
+        public string Password
+        {
+            get { return "password"; }
+            set {; }
+        }
 
-        public string Name => GetRandomName();
-        public double Salary => GetRandomSalary();
-        public int DurationWorked => GetRandomDurationWorked();
-        public int Grade => GetrandomGrade();
-        public string Email => GetRandomEmail();
+        public string Name { get { return GetRandomName(); }
+            set {; } }
+        public string Salary
+        {
+            get { return GetRandomSalary().ToString(); }
+            set {; }
+        }
+        public string DurationWorked {
+            get
+            {
+                return GetRandomDurationWorked().ToString();
+            }
+            set
+            {
+                ;
+            }
+        }
+       public string Grade
+        {
+            get { return GetrandomGrade().ToString(); }
+            set {; }
+        }
+        public string Email
+        {
+            get { return GetRandomEmail(); }
+            set {; }
+        }
 
         private string GetRandomName()
         {

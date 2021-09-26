@@ -15,24 +15,32 @@ namespace Tests.UserInputData
         private string serializerPath = @"C:\Users\ognyp\source\UserData.json";
         private List<string> UserInputData = new List<string>();
 
-        public string UserName => "admin";
-        public string Password => "password";
+        public string UserName
+        {
+            get { return "admin"; }
+            set {; }
+        }
+        public string Password
+        {
+            get { return "password"; }
+            set {; }
+        }
         [DataMember]
         public string Name { get; set; }
 
         [DataMember]
-        public double Salary { get; set; }
+        public string Salary { get; set; }
 
         [DataMember]
-        public int DurationWorked { get; set; }
+        public string DurationWorked { get; set; }
 
         [DataMember]
-        public int Grade { get; set; }
+        public string Grade { get; set; }
 
         [DataMember]
         public string Email { get; set; }
 
-        public UsersDataFromFile(string name,double salary,int durationWorked,int grade,string email)
+        public UsersDataFromFile(string name,string salary,string durationWorked,string grade,string email)
         {
             Name = name;
             Salary = salary;
@@ -45,7 +53,7 @@ namespace Tests.UserInputData
 
         public void SerializeInputDataToFile()
         {
-            UsersDataFromFile data = new UsersDataFromFile("Olena",3000,3,3,"a@mailforspam.com");
+            UsersDataFromFile data = new UsersDataFromFile("Olena","3000","3","3","a@mailforspam.com");
             DataContractJsonSerializer serializer = new DataContractJsonSerializer(typeof(UsersDataFromFile));
 
             using (FileStream file=new FileStream(serializerPath, FileMode.OpenOrCreate))
@@ -79,6 +87,22 @@ namespace Tests.UserInputData
             UserInputData.Add(Grade.ToString());
             UserInputData.Add(Email);
             return UserInputData.AsReadOnly();
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (obj == null)
+            {
+                return false;
+            }
+            else
+            {
+                UsersDataFromFile data = (UsersDataFromFile)obj;
+
+                return Name == data.Name && Salary == data.Salary
+                    && DurationWorked == data.DurationWorked && Grade == data.Grade
+                    && Email == data.Email;
+            }
         }
     }
 }

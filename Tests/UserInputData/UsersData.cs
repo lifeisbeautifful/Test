@@ -3,18 +3,19 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
+using Tests.Pages;
 
 namespace Tests
 {
     public class UsersData : IUserData
     {
-        public string UserName => "admin";
-        public string Password => "password";
-        public string Name => "Oksana";
-        public double Salary => 4000;
-        public int DurationWorked => 2;
-        public int Grade => 4;
-        public string Email => "a@mailforspam.com";
+        public string UserName { get { return "admin"; }set {; } }
+        public string Password { get { return "password"; }set {; } }
+        public string Name { get { return "Oksana"; } set {; } }
+        public string Salary { get { return "4000"; } set {; } }
+        public string DurationWorked { get { return "2"; } set {; } }
+        public string Grade { get { return "4"; } set {; } }
+        public string Email { get { return "a@mailforspam.com"; }set {; } }
 
         //private List<string> UserInputData = new List<string>();
 
@@ -27,6 +28,20 @@ namespace Tests
             UserInputData.Add(Grade.ToString());
             UserInputData.Add(Email);
             return UserInputData.AsReadOnly();
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (obj == null)
+            {
+                return false;
+            }
+            else
+            {
+                UsersData data = (UsersData)obj;
+
+                return Name == data.Name;
+            }
         }
     }
 }

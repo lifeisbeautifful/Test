@@ -69,8 +69,10 @@ namespace Tests
             Assert.IsTrue(employeeListPage.IsAt(), "User is not navigated back to 'Employee List' page from 'Create' page");
 
             employeeListPage.SearchEmployee(userData[0]);
-            var foundEmployee = employeeListPage.TransferOnlyUserInputUIDataToReadOnlyCollection();
-            CollectionAssert.AreEqual(userData, foundEmployee);
+            //var foundEmployee = employeeListPage.TransferOnlyUserInputUIDataToReadOnlyCollection();
+            //CollectionAssert.AreEqual(userData, foundEmployee);
+            bool result = dataFromFile.Equals(employeeListPage.GetUserDataFromUI(dataFromFile));
+            Assert.IsTrue(result);
         }
     }
 }

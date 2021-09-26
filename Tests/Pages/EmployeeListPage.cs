@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
+using Tests.UserData;
+using Tests.UserInputData;
 
 namespace Tests.Pages
 {
@@ -93,7 +95,20 @@ namespace Tests.Pages
             return actualFoundData.AsReadOnly();
         }
 
-        public CreatePage TestEditLink()
+        public IUserData GetUserDataFromUI(IUserData data)
+        {
+            IUserData usersData=new UsersData();
+            IUserData randomUsersData = new RandomUsersData();
+            IUserData usersDataFromFile = new UsersDataFromFile();
+            data.Name = employeesDataFromUI[0].Text;
+            data.Salary = employeesDataFromUI[1].Text;
+            data.DurationWorked = employeesDataFromUI[2].Text;
+            data.Grade = employeesDataFromUI[3].Text;
+            data.Email = employeesDataFromUI[4].Text;
+            return data;
+        }
+
+            public CreatePage TestEditLink()
         {
             EditLink.Click();
             return new CreatePage(Driver);
