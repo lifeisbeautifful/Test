@@ -18,6 +18,7 @@ namespace Tests
         private UsersDataFromFile dataFromFile;
         private EmployeeListPage employeeListPage;
         private CreatePage createPage;
+        
 
         [OneTimeSetUp]
         public void Setup()
@@ -61,18 +62,21 @@ namespace Tests
         public void SuccessCreateNewEmployee()
         {
             var page = employeeListPage.NavigateToEmployeePage();
-            Assert.AreEqual(page,true,"User is not navigated to 'Employee List' page");
+            Assert.AreEqual(page, true, "User is not navigated to 'Employee List' page");
 
             createPage.OpenCreatePage()
                       .SetUserData(dataFromFile);
-            var userData = dataFromFile.SetUserInputsToList();
+            createPage.SaveUserData();       
             Assert.IsTrue(employeeListPage.IsAt(), "User is not navigated back to 'Employee List' page from 'Create' page");
+            
+            employeeListPage.SearchEmployee(dataFromFile.Name);
+            var userDataFromUI = employeeListPage.GetUserDataFromUI(new UsersDataFromFile());
 
-            employeeListPage.SearchEmployee(userData[0]);
-            //var foundEmployee = employeeListPage.TransferOnlyUserInputUIDataToReadOnlyCollection();
-            //CollectionAssert.AreEqual(userData, foundEmployee);
-            bool result = dataFromFile.Equals(employeeListPage.GetUserDataFromUI(dataFromFile));
-            Assert.IsTrue(result);
+            bool IfDataFromFileMatchDataFromUI = dataFromFile.Equals(userDataFromUI);
+            Assert.IsTrue(IfDataFromFileMatchDataFromUI, "User data from UI does not match user data set from file");
         }
+        //var userData = dataFromFile.SetUserInputsToList();
+        //var foundEmployee = employeeListPage.TransferOnlyUserInputUIDataToReadOnlyCollection();
+        //CollectionAssert.AreEqual(userData, foundEmployee);
     }
 }

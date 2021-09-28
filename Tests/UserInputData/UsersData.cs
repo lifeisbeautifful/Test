@@ -39,8 +39,12 @@ namespace Tests
             else
             {
                 UsersData data = (UsersData)obj;
-
-                return Name == data.Name;
+                if (data is UsersData)
+                {
+                    return Name == data.Name && Salary == data.Salary && DurationWorked == data.DurationWorked
+                        && Grade == data.Grade && Email == data.Email;
+                }
+                return false;
             }
         }
     }

@@ -10,13 +10,12 @@ namespace Tests.UserData
     public class RandomUsersData : IUserData
     {
         private string name;
-        private double salary;
-        private int durationWorked;
-        private int grade;
+        private string salary;
+        private string durationWorked;
+        private string grade;
         private string email;
-
+      
         private char[] letters = "ABCDEFGHIJKLMNOPQURSTUVWXYZ".ToCharArray();
-        private List<string> randomUserData = new List<string>();
         Random random = new Random();
 
         public string UserName
@@ -30,32 +29,84 @@ namespace Tests.UserData
             set {; }
         }
 
-        public string Name { get { return GetRandomName(); }
-            set {; } }
+        public string Name 
+        { 
+            get 
+            {
+                if (name == null)
+                {
+                    return GetRandomName();
+                }
+                return name;
+            }
+            set 
+            {
+               name=value; 
+            } 
+        }
         public string Salary
         {
-            get { return GetRandomSalary().ToString(); }
-            set {; }
+            get 
+            {
+                if (salary == null)
+                {
+                    salary = GetRandomSalary().ToString();
+                    return salary;
+                }
+                return salary;
+            }
+            set 
+            {
+                salary = value;
+            }
         }
-        public string DurationWorked {
+        public string DurationWorked 
+        {
             get
             {
-                return GetRandomDurationWorked().ToString();
+                if (durationWorked == null)
+                {
+                    durationWorked = GetRandomDurationWorked().ToString();
+                    return durationWorked;
+                }
+                return durationWorked;
             }
             set
             {
-                ;
+                durationWorked=value;
             }
         }
        public string Grade
         {
-            get { return GetrandomGrade().ToString(); }
-            set {; }
+            get 
+            {
+                if (grade == null)
+                {
+                    grade = GetrandomGrade().ToString();
+                    return grade;
+                }
+                return grade;
+            }
+            set 
+            {
+                grade=value;
+            }
         }
+
         public string Email
         {
-            get { return GetRandomEmail(); }
-            set {; }
+            get 
+            {
+                if (email == null)
+                {
+                    return GetRandomEmail();
+                }
+                return email;
+            }
+            set 
+            {
+               email=value ; 
+            }
         }
 
         private string GetRandomName()
@@ -70,20 +121,20 @@ namespace Tests.UserData
 
         private double GetRandomSalary()
         {
-            salary = random.Next(0, 10000);
-            return salary;
+            double randomSalary = random.Next(0, 10000);
+            return randomSalary;
         }
 
        private int GetRandomDurationWorked()
         {
-            durationWorked = random.Next(1, 10);
-            return durationWorked;
+            int randomDurationWorked = random.Next(1, 10);
+            return randomDurationWorked;
         }
 
         private int GetrandomGrade()
         {
-            grade = random.Next(0, 5);
-            return grade;
+            int randomGrade = random.Next(0, 5);
+            return randomGrade;
         }
        
        private string GetRandomEmail()
@@ -106,14 +157,41 @@ namespace Tests.UserData
             return email;
         }
 
-        public ReadOnlyCollection<string> SetUserInputsToList()
+        //public ReadOnlyCollection<string> SetUserInputsToList()
+        //{
+        //    randomUserData.Add(name);
+        //    randomUserData.Add(salary.ToString());
+        //    randomUserData.Add(durationWorked.ToString());
+        //    randomUserData.Add(grade.ToString());
+        //    randomUserData.Add(email);
+        //    return randomUserData.AsReadOnly();
+        //}
+
+        public override bool Equals(object obj)
         {
-            randomUserData.Add(name);
-            randomUserData.Add(salary.ToString());
-            randomUserData.Add(durationWorked.ToString());
-            randomUserData.Add(grade.ToString());
-            randomUserData.Add(email);
-            return randomUserData.AsReadOnly();
+            if (obj == null)
+            {
+                return false;
+            }
+            else
+            {
+                RandomUsersData data = (RandomUsersData)obj;
+
+                if (data is RandomUsersData)
+                {
+                    Console.WriteLine(Name);
+                    Console.WriteLine(data.Name);
+                    Console.WriteLine(Salary);
+                    Console.WriteLine(data.Salary);
+                    Console.WriteLine(Grade);
+                    Console.WriteLine(data.Grade);
+                    Console.WriteLine(Email);
+                    Console.WriteLine(data.Email);
+                    return Name == data.Name && Salary == data.Salary&&DurationWorked==data.DurationWorked
+                        &&Grade==data.Grade&&Email==data.Email;
+                }
+                return false;
+            }
         }
     }
 }

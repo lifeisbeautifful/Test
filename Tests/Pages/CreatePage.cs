@@ -41,6 +41,10 @@ namespace Tests.Pages
             GradeInput.SendKeys(data.Grade.ToString());
             EmailInput.Clear();
             EmailInput.SendKeys(data.Email);
+        }
+
+        public void SaveUserData()
+        {
             CreateButton.Click();
         }
     }

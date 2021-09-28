@@ -39,6 +39,7 @@ namespace Tests
             
             Navigate(urlCreatePage);
             createPage.SetUserData(data);
+            createPage.SaveUserData();
         }
 
         [TearDown]

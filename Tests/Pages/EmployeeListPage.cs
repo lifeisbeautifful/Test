@@ -84,22 +84,19 @@ namespace Tests.Pages
             return true;
         }
       
-        public ReadOnlyCollection<string> TransferOnlyUserInputUIDataToReadOnlyCollection()
-        {
-            List<string> actualFoundData = new List<string>();
+        //public ReadOnlyCollection<string> TransferOnlyUserInputUIDataToReadOnlyCollection()
+        //{
+        //    List<string> actualFoundData = new List<string>();
 
-            for (int i = 0; i < 5; i++)
-            {
-                actualFoundData.Add(employeesDataFromUI[i].Text);
-            }
-            return actualFoundData.AsReadOnly();
-        }
+        //    for (int i = 0; i < 5; i++)
+        //    {
+        //        actualFoundData.Add(employeesDataFromUI[i].Text);
+        //    }
+        //    return actualFoundData.AsReadOnly();
+        //}
 
         public IUserData GetUserDataFromUI(IUserData data)
         {
-            IUserData usersData=new UsersData();
-            IUserData randomUsersData = new RandomUsersData();
-            IUserData usersDataFromFile = new UsersDataFromFile();
             data.Name = employeesDataFromUI[0].Text;
             data.Salary = employeesDataFromUI[1].Text;
             data.DurationWorked = employeesDataFromUI[2].Text;

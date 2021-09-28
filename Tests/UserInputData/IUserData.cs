@@ -15,7 +15,5 @@ namespace Tests
         string DurationWorked { get; set; }
         string Grade { get; set; }
         string Email { get; set; }
-
-        ReadOnlyCollection<string> SetUserInputsToList();
     }
 }

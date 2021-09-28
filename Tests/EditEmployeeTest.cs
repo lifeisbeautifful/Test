@@ -18,6 +18,7 @@ namespace Tests
         private RandomUsersData editedData;
         private CreatePage createPage;
         private EmployeeListPage employeeListPage;
+        
        
         [OneTimeSetUp]
         public void Setup()
@@ -40,6 +41,7 @@ namespace Tests
 
             Navigate(urlCreateEmployee);//зробити
             createPage.SetUserData(data);
+            createPage.SaveUserData();
         }
 
         [TearDown]
@@ -67,12 +69,16 @@ namespace Tests
             employeeListPage.SearchEmployee(data.Name);
             employeeListPage.TestEditLink();
             createPage.SetUserData(editedData);
-            var editedUserData = editedData.SetUserInputsToList();
+            createPage.SaveUserData();
             Assert.IsTrue(employeeListPage.IsAt(), "User is not navigated back to 'Employee List' page from 'Edit' page");
 
-            employeeListPage.SearchEmployee(editedUserData[0]);
-            var foundEditedEmployeeData = employeeListPage.TransferOnlyUserInputUIDataToReadOnlyCollection();
-            CollectionAssert.AreEqual(foundEditedEmployeeData, editedUserData);
+            employeeListPage.SearchEmployee(editedData.Name);
+            var userDataFromUI = employeeListPage.GetUserDataFromUI(new RandomUsersData());
+            bool IfUserDataFromUIMatchExpectedData = editedData.Equals(userDataFromUI);
+            Assert.IsTrue(IfUserDataFromUIMatchExpectedData, "Edited user data from UI does not match with data set during edit process");
         }
+        //var editedUserData = editedData.SetUserInputsToList();
+        //var foundEditedEmployeeData = employeeListPage.TransferOnlyUserInputUIDataToReadOnlyCollection();
+        //CollectionAssert.AreEqual(foundEditedEmployeeData, editedUserData);
     }
 }

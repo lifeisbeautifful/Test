@@ -40,7 +40,7 @@ namespace Tests.UserInputData
         [DataMember]
         public string Email { get; set; }
 
-        public UsersDataFromFile(string name,string salary,string durationWorked,string grade,string email)
+        public UsersDataFromFile(string name, string salary, string durationWorked, string grade, string email)
         {
             Name = name;
             Salary = salary;
@@ -53,7 +53,7 @@ namespace Tests.UserInputData
 
         public void SerializeInputDataToFile()
         {
-            UsersDataFromFile data = new UsersDataFromFile("Olena","3000","3","3","a@mailforspam.com");
+            UsersDataFromFile data = new UsersDataFromFile("Olena", "3000", "3", "3","a@mailforspam.com");
             DataContractJsonSerializer serializer = new DataContractJsonSerializer(typeof(UsersDataFromFile));
 
             using (FileStream file=new FileStream(serializerPath, FileMode.OpenOrCreate))
@@ -99,9 +99,13 @@ namespace Tests.UserInputData
             {
                 UsersDataFromFile data = (UsersDataFromFile)obj;
 
-                return Name == data.Name && Salary == data.Salary
-                    && DurationWorked == data.DurationWorked && Grade == data.Grade
-                    && Email == data.Email;
+                if (data is UsersDataFromFile)
+                {
+                    return Name == data.Name && Salary == data.Salary
+                        && DurationWorked == data.DurationWorked && Grade == data.Grade
+                        && Email == data.Email;
+                }
+                return false;
             }
         }
     }
