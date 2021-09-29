@@ -179,14 +179,18 @@ namespace Tests.UserData
             }
             else
             {
-                RandomUsersData data = (RandomUsersData)obj;
-
-                if (data is RandomUsersData)
+                try
                 {
+                    RandomUsersData data = (RandomUsersData)obj;
+
                     return Name == data.Name && Salary == data.Salary && DurationWorked == data.DurationWorked
                         && Grade == data.Grade && Email == data.Email;
                 }
-                return false;
+                catch (InvalidCastException ex)
+                {
+                    Console.WriteLine("'Equals' method failed : "+ ex.Message);
+                    return false;
+                }
             }
         }
 

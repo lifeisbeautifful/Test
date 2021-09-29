@@ -98,15 +98,19 @@ namespace Tests.UserInputData
             }
             else
             {
-                UsersDataFromFile data = (UsersDataFromFile)obj;
-
-                if (data is UsersDataFromFile)
+                try
                 {
+                    UsersDataFromFile data = (UsersDataFromFile)obj;
+
                     return Name == data.Name && Salary == data.Salary
-                        && DurationWorked == data.DurationWorked && Grade == data.Grade
-                        && Email == data.Email;
+                       && DurationWorked == data.DurationWorked && Grade == data.Grade
+                       && Email == data.Email;
                 }
-                return false;
+                catch (InvalidCastException ex)
+                {
+                    Console.WriteLine("'Equals' method failed : " + ex.Message);
+                    return false;
+                }
             }
         }
 

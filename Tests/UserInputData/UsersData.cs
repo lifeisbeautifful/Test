@@ -38,14 +38,18 @@ namespace Tests
             }
             else
             {
-                UsersData data = (UsersData)obj;
-
-                if (data is UsersData)
+                try
                 {
+                    UsersData data = (UsersData)obj;
+
                     return Name == data.Name && Salary == data.Salary && DurationWorked == data.DurationWorked
-                        && Grade == data.Grade && Email == data.Email;
+                       && Grade == data.Grade && Email == data.Email;
                 }
-                return false;
+                catch (InvalidCastException ex)
+                {
+                    Console.WriteLine("'Equals' method failed : " + ex.Message);
+                    return false;
+                }
             }
         }
 
