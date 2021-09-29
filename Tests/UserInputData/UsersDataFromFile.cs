@@ -13,7 +13,7 @@ namespace Tests.UserInputData
     public class UsersDataFromFile : IUserData
     {
         private string serializerPath = @"C:\Users\ognyp\source\UserData.json";
-        private List<string> UserInputData = new List<string>();
+        //private List<string> UserInputData = new List<string>();
 
         public string UserName
         {
@@ -25,6 +25,7 @@ namespace Tests.UserInputData
             get { return "password"; }
             set {; }
         }
+
         [DataMember]
         public string Name { get; set; }
 
@@ -53,10 +54,10 @@ namespace Tests.UserInputData
 
         public void SerializeInputDataToFile()
         {
-            UsersDataFromFile data = new UsersDataFromFile("Olena", "3000", "3", "3","a@mailforspam.com");
+            UsersDataFromFile data = new UsersDataFromFile("Olena", "3000", "3", "3", "a@mailforspam.com");
             DataContractJsonSerializer serializer = new DataContractJsonSerializer(typeof(UsersDataFromFile));
 
-            using (FileStream file=new FileStream(serializerPath, FileMode.OpenOrCreate))
+            using (FileStream file = new FileStream(serializerPath, FileMode.OpenOrCreate))
             {
                 serializer.WriteObject(file, data);
             }  
@@ -79,15 +80,15 @@ namespace Tests.UserInputData
             Email = data.Email;
         }
 
-        public ReadOnlyCollection<string> SetUserInputsToList()
-        {
-            UserInputData.Add(Name);
-            UserInputData.Add(Salary.ToString());
-            UserInputData.Add(DurationWorked.ToString());
-            UserInputData.Add(Grade.ToString());
-            UserInputData.Add(Email);
-            return UserInputData.AsReadOnly();
-        }
+        //public ReadOnlyCollection<string> SetUserInputsToList()
+        //{
+        //    UserInputData.Add(Name);
+        //    UserInputData.Add(Salary.ToString());
+        //    UserInputData.Add(DurationWorked.ToString());
+        //    UserInputData.Add(Grade.ToString());
+        //    UserInputData.Add(Email);
+        //    return UserInputData.AsReadOnly();
+        //}
 
         public override bool Equals(object obj)
         {

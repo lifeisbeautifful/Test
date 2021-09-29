@@ -6,14 +6,13 @@ using Tests.DriverHelper;
 using Tests.Pages;
 using Tests.UserData;
 using OpenQA.Selenium;
+using Tests.Urls;
 
 namespace Tests
 {
     public class EditEmployeeTest:Drivers
     {
-        private string urlHome = "http://eaapp.somee.com/";
-        private string urlCreateEmployee = "http://eaapp.somee.com/Employee/Create";
-
+        
         private UsersData data;
         private RandomUsersData editedData;
         private CreatePage createPage;
@@ -24,7 +23,7 @@ namespace Tests
         public void Setup()
         {
             ChooseDriver(Browsers.Chrome);
-            Navigate(urlHome);
+            Navigate(EAAPPUrls.urlHome);
 
             createPage = new CreatePage(Driver);
             employeeListPage = new EmployeeListPage(Driver);
@@ -39,7 +38,7 @@ namespace Tests
                 loginPage.Login(data);
             }
 
-            Navigate(urlCreateEmployee);//зробити
+            Navigate(EAAPPUrls.urlCreatePage);
             createPage.SetUserData(data);
             createPage.SaveUserData();
         }

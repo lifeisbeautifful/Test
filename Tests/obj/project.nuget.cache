@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "BVmNY9XsF2x5KBza7M7CrTqFXWti1m37HunV2zfF2WAU5/+NR3P7D0R6TPCz+f2unFYo1ysbqojH1P9m5ukdOw==",
+  "dgSpecHash": "AAYEgSqZXRXFznwHAmsJXGh6QGFHlRDv/a9vSiYiybTfpxlJ+EHnkIdNp0eIQDPPd4vjpgVU8nJso4AUrk5LXQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\ognyp\\Desktop\\MyProject\\Test\\Tests\\Tests.csproj",
   "expectedPackageFiles": [
@@ -21,6 +21,7 @@
     "C:\\Users\\ognyp\\.nuget\\packages\\runtime.native.system\\4.3.0\\runtime.native.system.4.3.0.nupkg.sha512",
     "C:\\Users\\ognyp\\.nuget\\packages\\selenium.support\\3.141.0\\selenium.support.3.141.0.nupkg.sha512",
     "C:\\Users\\ognyp\\.nuget\\packages\\selenium.webdriver\\3.141.0\\selenium.webdriver.3.141.0.nupkg.sha512",
+    "C:\\Users\\ognyp\\.nuget\\packages\\selenium.webdriver.chromedriver\\94.0.4606.6100\\selenium.webdriver.chromedriver.94.0.4606.6100.nupkg.sha512",
     "C:\\Users\\ognyp\\.nuget\\packages\\system.appcontext\\4.1.0\\system.appcontext.4.1.0.nupkg.sha512",
     "C:\\Users\\ognyp\\.nuget\\packages\\system.collections\\4.3.0\\system.collections.4.3.0.nupkg.sha512",
     "C:\\Users\\ognyp\\.nuget\\packages\\system.collections.nongeneric\\4.3.0\\system.collections.nongeneric.4.3.0.nupkg.sha512",

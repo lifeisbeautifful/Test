@@ -7,14 +7,14 @@ using NUnit.Framework.Interfaces;
 using OpenQA.Selenium;
 using Tests.DriverHelper;
 using Tests.Pages;
+using Tests.Urls;
 using Tests.UserInputData;
 
 namespace Tests
 {
     public class CreateNewEmployeeTest:Drivers
     {
-        private string urlHome = "http://eaapp.somee.com/";
-
+       
         private UsersDataFromFile dataFromFile;
         private EmployeeListPage employeeListPage;
         private CreatePage createPage;
@@ -24,7 +24,7 @@ namespace Tests
         public void Setup()
         {
             ChooseDriver(Browsers.Chrome);
-            Navigate(urlHome);
+            Navigate(EAAPPUrls.urlHome);
 
             employeeListPage = new EmployeeListPage(Driver);
             createPage = new CreatePage(Driver);

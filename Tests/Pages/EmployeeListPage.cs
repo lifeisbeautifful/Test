@@ -105,7 +105,7 @@ namespace Tests.Pages
             return data;
         }
 
-            public CreatePage TestEditLink()
+        public CreatePage TestEditLink()
         {
             EditLink.Click();
             return new CreatePage(Driver);

@@ -1,13 +1,13 @@
 ﻿using NUnit.Framework;
 using Tests.DriverHelper;
 using Tests.Pages;
+using Tests.Urls;
 
 namespace Tests
 {
     public class Tests:Drivers
     {
-        private string urlHome = "http://eaapp.somee.com/";
-
+       
         private LoginPage loginPage;
         private UsersData data;
 
@@ -38,7 +38,7 @@ namespace Tests
         [Test]
         public void SuccessLoginWithValidCredentials()
         {
-            Navigate(urlHome);
+            Navigate(EAAPPUrls.urlHome);
            
             loginPage.Login(data);
             Assert.That(loginPage.IsUserLoggedIn(), Is.True, "User is not logged in");

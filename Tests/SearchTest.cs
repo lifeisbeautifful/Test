@@ -5,14 +5,13 @@ using NUnit.Framework;
 using OpenQA.Selenium;
 using Tests.DriverHelper;
 using Tests.Pages;
-
+using Tests.Urls;
 
 namespace Tests
 {
     public class SearchTest:Drivers
     {
-        private string urlHome = "http://eaapp.somee.com/";
-
+       
         private EmployeeListPage employeeListPage;
         private UsersData data;
 
@@ -20,7 +19,7 @@ namespace Tests
         public void Setup()
         {
             ChooseDriver(Browsers.Chrome);
-            Navigate(urlHome);
+            Navigate(EAAPPUrls.urlHome);
             data = new UsersData();
 
             LoginPage loginPage = new LoginPage(Driver);

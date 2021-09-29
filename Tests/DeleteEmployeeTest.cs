@@ -5,15 +5,14 @@ using NUnit.Framework;
 using OpenQA.Selenium;
 using Tests.DriverHelper;
 using Tests.Pages;
+using Tests.Urls;
 using Tests.UserData;
 
 namespace Tests
 {
     public class DeleteEmployeeTest:Drivers
     {
-        private string urlHome = "http://eaapp.somee.com/";
-        private string urlCreatePage = "http://eaapp.somee.com/Employee/Create";
-
+       
         private UsersData data;
         private EmployeeListPage employeeListPage;
         private CreatePage createPage;
@@ -23,7 +22,7 @@ namespace Tests
         public void Setup()
         {
             ChooseDriver(Browsers.Chrome);
-            Navigate(urlHome);
+            Navigate(EAAPPUrls.urlHome);
 
             createPage = new CreatePage(Driver);
             employeeListPage = new EmployeeListPage(Driver);
@@ -37,7 +36,7 @@ namespace Tests
                 loginPage.Login(data);
             }
             
-            Navigate(urlCreatePage);
+            Navigate(EAAPPUrls.urlCreatePage);
             createPage.SetUserData(data);
             createPage.SaveUserData();
         }

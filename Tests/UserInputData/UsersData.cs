@@ -19,16 +19,16 @@ namespace Tests
 
         //private List<string> UserInputData = new List<string>();
 
-        public ReadOnlyCollection<string> SetUserInputsToList()//name GetUserData
-        {
-            List<string> UserInputData = new List<string>();
-            UserInputData.Add(Name);
-            UserInputData.Add(Salary.ToString());
-            UserInputData.Add(DurationWorked.ToString());
-            UserInputData.Add(Grade.ToString());
-            UserInputData.Add(Email);
-            return UserInputData.AsReadOnly();
-        }
+        //public ReadOnlyCollection<string> SetUserInputsToList()//name GetUserData
+        //{
+        //    List<string> UserInputData = new List<string>();
+        //    UserInputData.Add(Name);
+        //    UserInputData.Add(Salary.ToString());
+        //    UserInputData.Add(DurationWorked.ToString());
+        //    UserInputData.Add(Grade.ToString());
+        //    UserInputData.Add(Email);
+        //    return UserInputData.AsReadOnly();
+        //}
 
         public override bool Equals(object obj)
         {
@@ -39,6 +39,7 @@ namespace Tests
             else
             {
                 UsersData data = (UsersData)obj;
+
                 if (data is UsersData)
                 {
                     return Name == data.Name && Salary == data.Salary && DurationWorked == data.DurationWorked

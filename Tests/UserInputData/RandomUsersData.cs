@@ -23,6 +23,7 @@ namespace Tests.UserData
             get { return "admin"; }
             set {; }
         }
+
         public string Password
         {
             get { return "password"; }
@@ -41,9 +42,10 @@ namespace Tests.UserData
             }
             set 
             {
-               name=value; 
+               name = value; 
             } 
         }
+
         public string Salary
         {
             get 
@@ -60,6 +62,7 @@ namespace Tests.UserData
                 salary = value;
             }
         }
+
         public string DurationWorked 
         {
             get
@@ -73,9 +76,10 @@ namespace Tests.UserData
             }
             set
             {
-                durationWorked=value;
+                durationWorked = value;
             }
         }
+
        public string Grade
         {
             get 
@@ -89,7 +93,7 @@ namespace Tests.UserData
             }
             set 
             {
-                grade=value;
+                grade = value;
             }
         }
 
@@ -105,7 +109,7 @@ namespace Tests.UserData
             }
             set 
             {
-               email=value ; 
+               email = value ; 
             }
         }
 
@@ -126,10 +130,10 @@ namespace Tests.UserData
         }
 
        private int GetRandomDurationWorked()
-        {
+       {
             int randomDurationWorked = random.Next(1, 10);
             return randomDurationWorked;
-        }
+       }
 
         private int GetrandomGrade()
         {
@@ -179,16 +183,8 @@ namespace Tests.UserData
 
                 if (data is RandomUsersData)
                 {
-                    Console.WriteLine(Name);
-                    Console.WriteLine(data.Name);
-                    Console.WriteLine(Salary);
-                    Console.WriteLine(data.Salary);
-                    Console.WriteLine(Grade);
-                    Console.WriteLine(data.Grade);
-                    Console.WriteLine(Email);
-                    Console.WriteLine(data.Email);
-                    return Name == data.Name && Salary == data.Salary&&DurationWorked==data.DurationWorked
-                        &&Grade==data.Grade&&Email==data.Email;
+                    return Name == data.Name && Salary == data.Salary && DurationWorked == data.DurationWorked
+                        && Grade == data.Grade && Email == data.Email;
                 }
                 return false;
             }
