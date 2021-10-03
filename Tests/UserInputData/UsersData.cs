@@ -7,30 +7,98 @@ using Tests.Pages;
 
 namespace Tests
 {
-    public class UsersData : IUserData
+    public class UsersData : IUserData, IEquatable<UsersData>
     {
-        public string UserName { get { return "admin"; }set {; } }
+        private string name;
+        private string salary;
+        private string durationWorked;
+        private string grade;
+        private string email;
+
+        public string UserName { get { return "admin"; } set {; } }
         public string Password { get { return "password"; }set {; } }
-        public string Name { get { return "Oksana"; } set {; } }
-        public string Salary { get { return "4000"; } set {; } }
-        public string DurationWorked { get { return "2"; } set {; } }
-        public string Grade { get { return "4"; } set {; } }
-        public string Email { get { return "a@mailforspam.com"; }set {; } }
 
-        //private List<string> UserInputData = new List<string>();
+        public string Name 
+        { 
+            get 
+            {
+                if (name == null)
+                {
+                    name = "Oksana";
+                }
+                return name;
+            } 
+            set 
+            {
+                name = value; ;
+            } 
+        }
 
-        //public ReadOnlyCollection<string> SetUserInputsToList()//name GetUserData
-        //{
-        //    List<string> UserInputData = new List<string>();
-        //    UserInputData.Add(Name);
-        //    UserInputData.Add(Salary.ToString());
-        //    UserInputData.Add(DurationWorked.ToString());
-        //    UserInputData.Add(Grade.ToString());
-        //    UserInputData.Add(Email);
-        //    return UserInputData.AsReadOnly();
-        //}
+        public string Salary 
+        { 
+            get 
+            {
+                if (salary == null)
+                {
+                    salary = "4000";
+                }
+                return salary;
+            } 
+            set 
+            {
+                salary = value; 
+            }
+        }
 
-        public override bool Equals(object obj)
+        public string DurationWorked 
+        { 
+            get
+            {
+                if (durationWorked == null)
+                {
+                    durationWorked = "2";
+                }
+                return durationWorked;
+            } 
+            set 
+            {
+                durationWorked = value; 
+            } 
+        }
+
+        public string Grade 
+        { 
+            get 
+            {
+                if (grade == null)
+                {
+                    grade = "4";
+                }
+                return grade;
+            } 
+            set 
+            {
+                grade = value; 
+            } 
+        }
+
+        public string Email 
+        { 
+            get
+            {
+                if (email == null)
+                {
+                    email = "a@mailforspam.com";
+                }
+                return email;
+            }
+            set 
+            {
+                email = value;
+            } 
+        }
+
+        public bool Equals(UsersData obj)
         {
             if (obj == null)
             {
@@ -38,24 +106,15 @@ namespace Tests
             }
             else
             {
-                try
+                if (Name == obj.Name && Salary == obj.Salary && DurationWorked == obj.DurationWorked
+                       && Grade == obj.Grade && Email == obj.Email)
                 {
-                    UsersData data = (UsersData)obj;
-
-                    return Name == data.Name && Salary == data.Salary && DurationWorked == data.DurationWorked
-                       && Grade == data.Grade && Email == data.Email;
+                    return true;
                 }
-                catch (InvalidCastException ex)
-                {
-                    Console.WriteLine("'Equals' method failed : " + ex.Message);
                     return false;
-                }
             }
         }
 
-        public override int GetHashCode()
-        {
-            return base.GetHashCode();
-        }
+        public override bool Equals(object obj) => Equals(obj as UsersData);
     }
 }

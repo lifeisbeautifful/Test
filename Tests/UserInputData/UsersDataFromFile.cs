@@ -10,20 +10,19 @@ using System.Text;
 namespace Tests.UserInputData
 {
     [DataContract]
-    public class UsersDataFromFile : IUserData
+    public class UsersDataFromFile : IUserData, IEquatable<UsersData>
     {
         private string serializerPath = @"C:\Users\ognyp\source\UserData.json";
-        //private List<string> UserInputData = new List<string>();
 
         public string UserName
         {
             get { return "admin"; }
-            set {; }
+            set { ; }
         }
         public string Password
         {
             get { return "password"; }
-            set {; }
+            set { ; }
         }
 
         [DataMember]
@@ -80,17 +79,7 @@ namespace Tests.UserInputData
             Email = data.Email;
         }
 
-        //public ReadOnlyCollection<string> SetUserInputsToList()
-        //{
-        //    UserInputData.Add(Name);
-        //    UserInputData.Add(Salary.ToString());
-        //    UserInputData.Add(DurationWorked.ToString());
-        //    UserInputData.Add(Grade.ToString());
-        //    UserInputData.Add(Email);
-        //    return UserInputData.AsReadOnly();
-        //}
-
-        public override bool Equals(object obj)
+        public bool Equals(UsersData obj)
         {
             if (obj == null)
             {
@@ -98,25 +87,16 @@ namespace Tests.UserInputData
             }
             else
             {
-                try
+                if (Name == obj.Name && Salary == obj.Salary
+                       && DurationWorked == obj.DurationWorked && Grade == obj.Grade
+                       && Email == obj.Email)
                 {
-                    UsersDataFromFile data = (UsersDataFromFile)obj;
-
-                    return Name == data.Name && Salary == data.Salary
-                       && DurationWorked == data.DurationWorked && Grade == data.Grade
-                       && Email == data.Email;
+                    return true;
                 }
-                catch (InvalidCastException ex)
-                {
-                    Console.WriteLine("'Equals' method failed : " + ex.Message);
                     return false;
-                }
             }
         }
 
-        public override int GetHashCode()
-        {
-            return base.GetHashCode();
-        }
+        public override bool Equals(object obj) => Equals(obj as UsersData);
     }
 }

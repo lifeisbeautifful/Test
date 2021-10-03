@@ -72,12 +72,9 @@ namespace Tests
             Assert.IsTrue(employeeListPage.IsAt(), "User is not navigated back to 'Employee List' page from 'Edit' page");
 
             employeeListPage.SearchEmployee(editedData.Name);
-            var userDataFromUI = employeeListPage.GetUserDataFromUI(new RandomUsersData());
+            var userDataFromUI = employeeListPage.GetUserDataFromUI();
             bool IfUserDataFromUIMatchExpectedData = editedData.Equals(userDataFromUI);
             Assert.IsTrue(IfUserDataFromUIMatchExpectedData, "Edited user data from UI does not match with data set during edit process");
         }
-        //var editedUserData = editedData.SetUserInputsToList();
-        //var foundEditedEmployeeData = employeeListPage.TransferOnlyUserInputUIDataToReadOnlyCollection();
-        //CollectionAssert.AreEqual(foundEditedEmployeeData, editedUserData);
     }
 }

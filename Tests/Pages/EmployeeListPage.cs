@@ -38,11 +38,10 @@ namespace Tests.Pages
             return IsAt();
         }
 
-        public ReadOnlyCollection<IWebElement> SearchEmployee(string data)
+        public void SearchEmployee(string data)
         {
             SearchField.SendKeys(data);
             SearchButton.Click();
-            return employeesDataFromUI.AsReadOnly();
         }
 
         public ReadOnlyCollection<string> TransferAllFoundUIDataToReadOnlyCollection()
@@ -84,19 +83,9 @@ namespace Tests.Pages
             return true;
         }
       
-        //public ReadOnlyCollection<string> TransferOnlyUserInputUIDataToReadOnlyCollection()
-        //{
-        //    List<string> actualFoundData = new List<string>();
-
-        //    for (int i = 0; i < 5; i++)
-        //    {
-        //        actualFoundData.Add(employeesDataFromUI[i].Text);
-        //    }
-        //    return actualFoundData.AsReadOnly();
-        //}
-
-        public IUserData GetUserDataFromUI(IUserData data)
+        public IUserData GetUserDataFromUI()
         {
+            UsersData data = new UsersData();
             data.Name = employeesDataFromUI[0].Text;
             data.Salary = employeesDataFromUI[1].Text;
             data.DurationWorked = employeesDataFromUI[2].Text;

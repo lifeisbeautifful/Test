@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Tests.UserData
 {
-    public class RandomUsersData : IUserData
+    public class RandomUsersData : IUserData, IEquatable<UsersData>
     {
         private string name;
         private string salary;
@@ -21,13 +21,13 @@ namespace Tests.UserData
         public string UserName
         {
             get { return "admin"; }
-            set {; }
+            set { ; }
         }
 
         public string Password
         {
             get { return "password"; }
-            set {; }
+            set { ; }
         }
 
         public string Name 
@@ -161,17 +161,7 @@ namespace Tests.UserData
             return email;
         }
 
-        //public ReadOnlyCollection<string> SetUserInputsToList()
-        //{
-        //    randomUserData.Add(name);
-        //    randomUserData.Add(salary.ToString());
-        //    randomUserData.Add(durationWorked.ToString());
-        //    randomUserData.Add(grade.ToString());
-        //    randomUserData.Add(email);
-        //    return randomUserData.AsReadOnly();
-        //}
-
-        public override bool Equals(object obj)
+        public bool Equals(UsersData obj)
         {
             if (obj == null)
             {
@@ -179,24 +169,15 @@ namespace Tests.UserData
             }
             else
             {
-                try
+                if(Name == obj.Name && Salary == obj.Salary && DurationWorked == obj.DurationWorked
+                        && Grade == obj.Grade && Email == obj.Email)
                 {
-                    RandomUsersData data = (RandomUsersData)obj;
-
-                    return Name == data.Name && Salary == data.Salary && DurationWorked == data.DurationWorked
-                        && Grade == data.Grade && Email == data.Email;
+                    return true;
                 }
-                catch (InvalidCastException ex)
-                {
-                    Console.WriteLine("'Equals' method failed : "+ ex.Message);
                     return false;
-                }
             }
         }
 
-        public override int GetHashCode()
-        {
-            return base.GetHashCode();
-        }
+        public override bool Equals(object obj) => Equals(obj as UsersData);
     }
 }
