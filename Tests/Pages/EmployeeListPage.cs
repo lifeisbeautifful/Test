@@ -18,7 +18,7 @@ namespace Tests.Pages
             Driver = driver;
         }
 
-        private List<string> data = new List<string>();
+        //private List<string> data = new List<string>();
         private IWebElement EmployeeListLink => Driver.FindElement(By.LinkText("Employee List"));
         private IWebElement CreateNewButton => Driver.FindElement(By.XPath("//a[text()='Create New']"));
         private IWebElement SearchField => Driver.FindElement(By.Name("searchTerm"));
@@ -44,13 +44,60 @@ namespace Tests.Pages
             SearchButton.Click();
         }
 
-        public ReadOnlyCollection<string> TransferAllFoundUIDataToReadOnlyCollection()
+        //public ReadOnlyCollection<string> TransferAllFoundUIDataToReadOnlyCollection()
+        //{
+        //    for (int i = 0; i < employeesDataFromUI.Count; i++)
+        //    {
+        //        data.Add(employeesDataFromUI[i].Text);
+        //    }
+        //    return data.AsReadOnly();
+        //}
+
+        public List<UsersData> GetActualSearchResultFromUI()//ReadOnlyCollection
         {
+            UsersData data = new UsersData();
+            List<UsersData> usersDataFromUI = new List<UsersData>();
+
             for (int i = 0; i < employeesDataFromUI.Count; i++)
             {
-                data.Add(employeesDataFromUI[i].Text);
+                data.Name = employeesDataFromUI[i].Text;
+                i++;
+                data.Salary = employeesDataFromUI[i].Text;
+                i++;
+                data.DurationWorked = employeesDataFromUI[i].Text;
+                i++;
+                data.Grade = employeesDataFromUI[i].Text;
+                i++;
+                data.Email = employeesDataFromUI[i].Text;
+                i++;
+                usersDataFromUI.Add(data);
             }
-            return data.AsReadOnly();
+            return usersDataFromUI;
+        }
+
+        public List<UsersData> ExpectedSearchResult(string searchCriteria)
+        {
+            UsersData expectedSearchResult = new UsersData();
+            List<UsersData> expectedResult = new List<UsersData>();
+           
+            for (int i = 0; i < employeesDataFromUI.Count; i++)
+            {
+                if (employeesDataFromUI[i].Text.StartsWith(searchCriteria) && !employeesDataFromUI[i].Text.Contains("@"))
+                {
+                    expectedSearchResult.Name = employeesDataFromUI[i].Text;
+                    i++;
+                    expectedSearchResult.Salary = employeesDataFromUI[i].Text;
+                    i++;
+                    expectedSearchResult.DurationWorked = employeesDataFromUI[i].Text;
+                    i++;
+                    expectedSearchResult.Grade = employeesDataFromUI[i].Text;
+                    i++;
+                    expectedSearchResult.Email = employeesDataFromUI[i].Text;
+                    i++;
+                    expectedResult.Add(expectedSearchResult);
+                }
+            }
+            return expectedResult;
         }
 
         public void NavigateBack()
@@ -58,30 +105,30 @@ namespace Tests.Pages
             Driver.Navigate().Back();
         }
 
-        public bool CheckIfFoundDataMatchSearchCriteriaData(string searchCriteria)
-        {
-            int j = 0;
+        //public bool CheckIfFoundDataMatchSearchCriteriaData(string searchCriteria)
+        //{
+        //    int j = 0;
 
-            for (int i = 0; i < employeesDataFromUI.Count; i++)
-            {
-                if (employeesDataFromUI[i].Text.StartsWith(searchCriteria) && !employeesDataFromUI[i].Text.Contains("@"))
-                {
-                    for (int k = 0; k < 6; k++)
-                    {
-                        if (employeesDataFromUI[i].Text == data[j])
-                        {
-                            if (k < 5)
-                            { i++; }
+        //    for (int i = 0; i < employeesDataFromUI.Count; i++)
+        //    {
+        //        if (employeesDataFromUI[i].Text.StartsWith(searchCriteria) && !employeesDataFromUI[i].Text.Contains("@"))
+        //        {
+        //            for (int k = 0; k < 6; k++)
+        //            {
+        //                if (employeesDataFromUI[i].Text == data[j])
+        //                {
+        //                    if (k < 5)
+        //                    { i++; }
 
-                            j++;
-                            continue;
-                        }
-                        return false;
-                    }
-                }
-            }
-            return true;
-        }
+        //                    j++;
+        //                    continue;
+        //                }
+        //                return false;
+        //            }
+        //        }
+        //    }
+        //    return true;
+        //}
       
         public IUserData GetUserDataFromUI()
         {

@@ -53,10 +53,13 @@ namespace Tests
         public void PerformSearch()
         {
             employeeListPage.SearchEmployee("Test");
-            employeeListPage.TransferAllFoundUIDataToReadOnlyCollection();
+            var actualSearchResult = employeeListPage.GetActualSearchResultFromUI();
             employeeListPage.NavigateBack();
-            var result=employeeListPage.CheckIfFoundDataMatchSearchCriteriaData("Test");        
-            Assert.That(result, Is.True, "Not all found users follow search criteria");
-        }    
+            var expectedSearchResult = employeeListPage.ExpectedSearchResult("Test");
+            CollectionAssert.AreEqual(expectedSearchResult, actualSearchResult);
+        }
+        //employeeListPage.TransferAllFoundUIDataToReadOnlyCollection();
+        //var result=employeeListPage.CheckIfFoundDataMatchSearchCriteriaData("Test");  
+        //Assert.That(result, Is.True, "Not all found users follow search criteria");
     }
 }
