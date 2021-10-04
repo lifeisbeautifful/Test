@@ -100,6 +100,11 @@ namespace Tests.Pages
             return expectedResult;
         }
 
+        public void ClearSearchField()
+        {
+            SearchField.Clear();
+        }
+
         public void NavigateBack()
         {
             Driver.Navigate().Back();
