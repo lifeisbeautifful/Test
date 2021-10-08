@@ -5,6 +5,7 @@ using System.Reflection;
 using NUnit.Framework;
 using NUnit.Framework.Interfaces;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
 using Tests.DriverHelper;
 using Tests.Pages;
 using Tests.Urls;
@@ -66,7 +67,7 @@ namespace Tests
 
             createPage.OpenCreatePage()
                       .SetUserData(dataFromFile);
-            createPage.SaveUserData();       
+            createPage.SaveUserData();
             Assert.IsTrue(employeeListPage.IsAt(), "User is not navigated back to 'Employee List' page from 'Create' page");
             
             employeeListPage.SearchEmployee(dataFromFile.Name);

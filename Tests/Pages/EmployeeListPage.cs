@@ -53,7 +53,7 @@ namespace Tests.Pages
         //    return data.AsReadOnly();
         //}
 
-        public List<UsersData> GetActualSearchResultFromUI()//ReadOnlyCollection
+        public ReadOnlyCollection<UsersData> GetActualSearchResultFromUI()//ReadOnlyCollection
         {
             UsersData data = new UsersData();
             List<UsersData> usersDataFromUI = new List<UsersData>();
@@ -72,10 +72,10 @@ namespace Tests.Pages
                 i++;
                 usersDataFromUI.Add(data);
             }
-            return usersDataFromUI;
+            return usersDataFromUI.AsReadOnly();
         }
 
-        public List<UsersData> ExpectedSearchResult(string searchCriteria)
+        public ReadOnlyCollection<UsersData> ExpectedSearchResult(string searchCriteria)
         {
             UsersData expectedSearchResult = new UsersData();
             List<UsersData> expectedResult = new List<UsersData>();
@@ -97,7 +97,7 @@ namespace Tests.Pages
                     expectedResult.Add(expectedSearchResult);
                 }
             }
-            return expectedResult;
+            return expectedResult.AsReadOnly();
         }
 
         public void ClearSearchField()
