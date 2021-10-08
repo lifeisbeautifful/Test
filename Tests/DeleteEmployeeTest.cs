@@ -64,9 +64,9 @@ namespace Tests
             employeeListPage.SearchEmployee(data.Name);
             deletePage.DeleteEmployee(data.Name);
             employeeListPage.SearchEmployee(data.Name);
-
-            bool deleteResult = employeeListPage.CheckIfEmployeeDeleted();
-            Assert.IsTrue(deleteResult, "User is not deleted");
+            var actual = employeeListPage.GetActualSearchResultFromUI();
+            bool IfUserExist = employeeListPage.CheckIfEmployeeExist(actual, data);
+            Assert.IsFalse(IfUserExist, "User is not deleted");
         }
     }
 }

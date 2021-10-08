@@ -50,17 +50,17 @@ namespace Tests
         /// Search for all users that contain "Test" in name
         /// </summary>
         [Test]
-        //[TestCase("Test")]
-        //[TestCase("Karthik")]
-        //[TestCase("act")]
-        //[TestCase("fdg")]
-        public void PerformSearch()
+        [TestCase("Test")]
+        [TestCase("Karthik")]
+        [TestCase("act")]
+        [TestCase("fdg")]
+        public void PerformSearch(string search)
         {
             employeeListPage.ClearSearchField();
-            employeeListPage.SearchEmployee("f");
+            employeeListPage.SearchEmployee(search);
             var actualSearchResult = employeeListPage.GetActualSearchResultFromUI();
             employeeListPage.NavigateBack();
-            var expectedSearchResult = employeeListPage.ExpectedSearchResult("f");
+            var expectedSearchResult = employeeListPage.ExpectedSearchResult(search);
             bool ifFoundUsersFromUIMatchUsersWithSearchCriteria = employeeListPage.Compare(actualSearchResult, expectedSearchResult);
             Assert.IsTrue(ifFoundUsersFromUIMatchUsersWithSearchCriteria, "Found users on UI do not match users with such search criteria");
         }

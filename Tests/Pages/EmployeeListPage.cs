@@ -176,10 +176,19 @@ namespace Tests.Pages
             return new CreatePage(Driver);
         }
 
-        public bool CheckIfEmployeeDeleted()
+        public bool CheckIfEmployeeExist(ReadOnlyCollection<UsersData> UIData, UsersData deletedUser)
         {
-            if (employeesDataFromUI.Count > 0) { return false; }
-            return true;
+            //if (employeesDataFromUI.Count > 0) { return false; }
+            //return true;
+            if (UIData == null) { return true; }
+            else
+            {
+                if(IfUIDataContainsSearchedData(UIData, deletedUser))
+                {
+                    return true;
+                }
+                return false;
+            }
         }
     }
 }
