@@ -22,18 +22,27 @@ namespace Tests.Pages
         private IWebElement EditLink => Driver.FindElement(By.LinkText("Edit"));
         private List<IWebElement> employeesDataFromUI => Driver.FindElements(By.XPath("//table[@class='table']/tbody/tr//td")).ToList();
 
-        public bool IsAt()
+        public bool IsAt
         {
-            if (CreateNewButton.Displayed){ return true; }
-            return false;
+            get
+            {
+                try
+                {
+                    return CreateNewButton.Displayed;
+                }
+                catch (NoSuchElementException)
+                {
+                    return false;
+                }
+            }
         }
 
         public bool NavigateToEmployeePage()
         {
             EmployeeListLink.Click();
-            return IsAt();
+            return IsAt;
         }
-
+        
         public void SearchEmployee(string data)
         {
             SearchField.SendKeys(data);
@@ -71,7 +80,6 @@ namespace Tests.Pages
             {
                 if (employeesDataFromUI[i].Text.StartsWith(searchCriteria) && !employeesDataFromUI[i].Text.Contains("@"))
                 {
-                    //for цикл
                     expectedSearchResult.Name = employeesDataFromUI[i].Text;
                     i++;
                     expectedSearchResult.Salary = employeesDataFromUI[i].Text;
@@ -88,9 +96,9 @@ namespace Tests.Pages
             return expectedResult.AsReadOnly();
         }
 
-        public bool IsUIDataContainsSearchedData(ReadOnlyCollection<UsersData> usersData, IUserData userData)
+        public bool IsUIDataContainsSearchedData(ReadOnlyCollection<UsersData> usersDataFromUI, IUserData userData)
         {
-            return usersData.Any(user => user.Name == userData.Name && user.Salary == userData.Salary
+            return usersDataFromUI.Any(user => user.Name == userData.Name && user.Salary == userData.Salary
               && user.DurationWorked == userData.DurationWorked && user.Grade == userData.Grade && user.Email == userData.Email);
         }
 

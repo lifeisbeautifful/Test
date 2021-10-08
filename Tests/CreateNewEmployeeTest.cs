@@ -61,7 +61,7 @@ namespace Tests
             createPage.OpenCreatePage()
                       .SetUserData(dataFromFile);
             createPage.SaveUserData();
-            Assert.IsTrue(employeeListPage.IsAt(), "User is not navigated back to 'Employee List' page from 'Create' page");
+            Assert.IsTrue(employeeListPage.IsAt, "User is not navigated back to 'Employee List' page from 'Create' page");
             
             employeeListPage.SearchEmployee(dataFromFile.Name);
             var userDataFromUI = employeeListPage.GetActualSearchResultFromUI();

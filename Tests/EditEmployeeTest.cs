@@ -65,7 +65,7 @@ namespace Tests
             employeeListPage.TestEditLink();
             createPage.SetUserData(editedData);
             createPage.SaveUserData();
-            Assert.IsTrue(employeeListPage.IsAt(), "User is not navigated back to 'Employee List' page from 'Edit' page");
+            Assert.IsTrue(employeeListPage.IsAt, "User is not navigated back to 'Employee List' page from 'Edit' page");
 
             
             employeeListPage.SearchEmployee(editedData.Name);

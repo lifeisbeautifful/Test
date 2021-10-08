@@ -34,12 +34,8 @@ namespace Tests.Pages
             }
         }
 
-        public bool IsUserLoggedIn()
-        {
-            if (IsAt) { return true; }
-            return false;
-        }
-
+        public bool IsUserLoggedIn() => IsAt;
+        
         public void Login()
         {
             LoginLink.Click();
