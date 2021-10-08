@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Reflection;
-using NUnit.Framework;
-using NUnit.Framework.Interfaces;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Support.UI;
+﻿using NUnit.Framework;
 using Tests.DriverHelper;
 using Tests.Pages;
 using Tests.Urls;
@@ -13,7 +6,7 @@ using Tests.UserInputData;
 
 namespace Tests
 {
-    public class CreateNewEmployeeTest:Drivers
+    public class CreateNewEmployeeTest : Drivers
     {
        
         private UsersDataFromFile dataFromFile;

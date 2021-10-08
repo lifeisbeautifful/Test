@@ -1,11 +1,8 @@
 ﻿using OpenQA.Selenium;
-using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using Tests.UserData;
-using Tests.UserInputData;
+
 
 namespace Tests.Pages
 {
@@ -84,6 +81,7 @@ namespace Tests.Pages
             {
                 if (employeesDataFromUI[i].Text.StartsWith(searchCriteria) && !employeesDataFromUI[i].Text.Contains("@"))
                 {
+                    //for цикл
                     expectedSearchResult.Name = employeesDataFromUI[i].Text;
                     i++;
                     expectedSearchResult.Salary = employeesDataFromUI[i].Text;
@@ -100,15 +98,10 @@ namespace Tests.Pages
             return expectedResult.AsReadOnly();
         }
 
-        public bool IfUIDataContainsSearchedData(ReadOnlyCollection<UsersData> usersData, IUserData userData)
+        public bool IsUIDataContainsSearchedData(ReadOnlyCollection<UsersData> usersData, IUserData userData)
         {
-            foreach(var user in usersData)
-            {
-                if(user.Name == userData.Name && user.Salary == userData.Salary 
-                    && user.DurationWorked == userData.DurationWorked && user.Grade == userData.Grade 
-                    && user.Email == userData.Email) { return true; }
-            }
-            return false;
+           return usersData.Any(user=>user.Equals(userData));
+           
         }
 
         public bool Compare(ReadOnlyCollection<UsersData> actual, ReadOnlyCollection<UsersData> expected)
@@ -181,14 +174,9 @@ namespace Tests.Pages
             //if (employeesDataFromUI.Count > 0) { return false; }
             //return true;
             if (UIData.Count < 1) { return false; }
-            else
-            {
-                if(IfUIDataContainsSearchedData(UIData, deletedUser))
-                {
-                    return true;
-                }
-                return false;
-            }
+            return IsUIDataContainsSearchedData(UIData, deletedUser);
+               
+            
         }
     }
 }

@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using NUnit.Framework;
-using OpenQA.Selenium;
+﻿using NUnit.Framework;
 using Tests.DriverHelper;
 using Tests.Pages;
 using Tests.Urls;
-using Tests.UserData;
+
 
 namespace Tests
 {

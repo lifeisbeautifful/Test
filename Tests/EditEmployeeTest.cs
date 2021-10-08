@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using Tests.DriverHelper;
 using Tests.Pages;
 using Tests.UserData;
-using OpenQA.Selenium;
 using Tests.Urls;
 
 namespace Tests
@@ -71,6 +67,7 @@ namespace Tests
             createPage.SaveUserData();
             Assert.IsTrue(employeeListPage.IsAt(), "User is not navigated back to 'Employee List' page from 'Edit' page");
 
+            
             employeeListPage.SearchEmployee(editedData.Name);
             var userDataFromUI = employeeListPage.GetActualSearchResultFromUI();
             bool IfUserDataFromUIMatchExpectedData = employeeListPage.IfUIDataContainsSearchedData(userDataFromUI, editedData);

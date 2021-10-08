@@ -1,9 +1,5 @@
-﻿using OpenQA.Selenium;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Text;
-using Tests.Pages;
+﻿using System;
+
 
 namespace Tests
 {
@@ -16,23 +12,10 @@ namespace Tests
         private string email;
 
         public string UserName { get { return "admin"; } set {; } }
-        public string Password { get { return "password"; }set {; } }
+        public string Password { get { return "password"; } set {; } }
 
-        public string Name 
-        { 
-            get 
-            {
-                if (name == null)
-                {
-                    name = "Oksana";
-                }
-                return name;
-            } 
-            set 
-            {
-                name = value; ;
-            } 
-        }
+        public string Name { get; set; }
+       
 
         public string Salary 
         { 
@@ -106,12 +89,8 @@ namespace Tests
             }
             else
             {
-                    if (Name == obj.Name && Salary == obj.Salary && DurationWorked == obj.DurationWorked
-                           && Grade == obj.Grade && Email == obj.Email)
-                    {
-                        return true;
-                    }
-                    return false;
+                return Name == obj.Name && Salary == obj.Salary && DurationWorked == obj.DurationWorked
+                       && Grade == obj.Grade && Email == obj.Email;
             }
         }
 

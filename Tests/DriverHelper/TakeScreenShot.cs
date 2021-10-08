@@ -2,10 +2,9 @@
 using NUnit.Framework.Interfaces;
 using OpenQA.Selenium;
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
-using System.Text;
+
 
 namespace Tests.DriverHelper
 {

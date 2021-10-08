@@ -1,9 +1,5 @@
-﻿using OpenQA.Selenium;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Text;
+﻿using System;
+
 
 namespace Tests.UserData
 {
@@ -30,20 +26,12 @@ namespace Tests.UserData
             set { ; }
         }
 
-        public string Name 
-        { 
-            get 
-            {
-                if (name == null)
-                {
-                    return GetRandomName();
-                }
-                return name;
-            }
-            set 
-            {
-               name = value; 
-            } 
+        public string Name => name;
+        
+
+        public RandomUsersData()
+        {
+            name = GetRandomName();
         }
 
         public string Salary
