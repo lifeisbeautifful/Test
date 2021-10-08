@@ -180,7 +180,7 @@ namespace Tests.Pages
         {
             //if (employeesDataFromUI.Count > 0) { return false; }
             //return true;
-            if (UIData == null) { return true; }
+            if (UIData.Count < 1) { return false; }
             else
             {
                 if(IfUIDataContainsSearchedData(UIData, deletedUser))
