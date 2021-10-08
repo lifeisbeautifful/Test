@@ -6,9 +6,14 @@ using System.Runtime.Serialization.Json;
 namespace Tests.UserInputData
 {
     [DataContract]
-    public class UsersDataFromFile : IUserData//, IEquatable<UsersData>
+    public class UsersDataFromFile : IUserData
     {
-        private string serializerPath = @"C:\Users\ognyp\source\UserData.json";
+        private string _serializerPath = @"C:\Users\ognyp\source\UserData.json";
+        private string _name;
+        private string _salary;
+        private string _durationWorked;
+        private string _grade;
+        private string _email;
 
         public string UserName
         {
@@ -22,27 +27,47 @@ namespace Tests.UserInputData
         }
 
         [DataMember]
-        public string Name { get; set; }
+        public string Name
+        {
+            get { return _name; }
+            set { _name = value; }
+        }
+           
+        [DataMember]
+        public string Salary
+        {
+            get { return _salary; }
+            set { _salary = value; }
+        }
 
         [DataMember]
-        public string Salary { get; set; }
+        public string DurationWorked 
+        {
+            get { return _durationWorked; }
+            set { _durationWorked = value; }
+        }
 
         [DataMember]
-        public string DurationWorked { get; set; }
+        public string Grade 
+        {
+            get { return _grade; }
+            set { _grade = value; }
+        }
 
         [DataMember]
-        public string Grade { get; set; }
-
-        [DataMember]
-        public string Email { get; set; }
+        public string Email
+        {
+            get { return _email; }
+            set { _email = value; }
+        }
 
         public UsersDataFromFile(string name, string salary, string durationWorked, string grade, string email)
         {
-            Name = name;
-            Salary = salary;
-            DurationWorked = durationWorked;
-            Grade = grade;
-            Email = email;
+            _name = name;
+            _salary = salary;
+            _durationWorked = durationWorked;
+            _grade = grade;
+            _email = email;
         }
 
         public UsersDataFromFile() {; }
@@ -52,7 +77,7 @@ namespace Tests.UserInputData
             UsersDataFromFile data = new UsersDataFromFile("Olena", "3000", "3", "3", "a@mailforspam.com");
             DataContractJsonSerializer serializer = new DataContractJsonSerializer(typeof(UsersDataFromFile));
 
-            using (FileStream file = new FileStream(serializerPath, FileMode.OpenOrCreate))
+            using (FileStream file = new FileStream(_serializerPath, FileMode.OpenOrCreate))
             {
                 serializer.WriteObject(file, data);
             }  
@@ -63,36 +88,16 @@ namespace Tests.UserInputData
             UsersDataFromFile data;
             DataContractJsonSerializer deserializer = new DataContractJsonSerializer(typeof(UsersDataFromFile));
 
-            using (FileStream file = new FileStream(serializerPath, FileMode.OpenOrCreate))
+            using (FileStream file = new FileStream(_serializerPath, FileMode.OpenOrCreate))
             {
                 data = (UsersDataFromFile)deserializer.ReadObject(file);
             }
 
-            Name = data.Name;
-            Salary = data.Salary;
-            DurationWorked = data.DurationWorked;
-            Grade = data.Grade;
-            Email = data.Email;
+            _name = data.Name;
+            _salary = data.Salary;
+            _durationWorked = data.DurationWorked;
+            _grade = data.Grade;
+            _email = data.Email;
         }
-
-    //    public bool Equals(UsersData obj)
-    //    {
-    //        if (obj == null)
-    //        {
-    //            return false;
-    //        }
-    //        else
-    //        {
-    //            if (Name == obj.Name && Salary == obj.Salary
-    //                   && DurationWorked == obj.DurationWorked && Grade == obj.Grade
-    //                   && Email == obj.Email)
-    //            {
-    //                return true;
-    //            }
-    //                return false;
-    //        }
-    //    }
-
-    //    public override bool Equals(object obj) => Equals(obj as UsersData);
     }
 }

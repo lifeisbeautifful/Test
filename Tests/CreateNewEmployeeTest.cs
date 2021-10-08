@@ -66,7 +66,7 @@ namespace Tests
             employeeListPage.SearchEmployee(dataFromFile.Name);
             var userDataFromUI = employeeListPage.GetActualSearchResultFromUI();
 
-            bool IfDataFromFileMatchDataFromUI = employeeListPage.IfUIDataContainsSearchedData(userDataFromUI, dataFromFile);
+            bool IfDataFromFileMatchDataFromUI = employeeListPage.IsUIDataContainsSearchedData(userDataFromUI, dataFromFile);
             Assert.IsTrue(IfDataFromFileMatchDataFromUI, "User data from UI does not match user data set from file");
         }
     }

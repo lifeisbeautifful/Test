@@ -23,7 +23,7 @@ namespace Tests
             createPage = new CreatePage(Driver);
             employeeListPage = new EmployeeListPage(Driver);
             deletePage = new DeletePage(Driver);
-            data = new UsersData();
+            data = new UsersData { Name = "Oksana", Salary = "4000", DurationWorked = "3", Grade = "2", Email = "a@mailforspam.com" };
 
             LoginPage loginPage = new LoginPage(Driver);
 

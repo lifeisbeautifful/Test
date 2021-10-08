@@ -16,7 +16,7 @@ namespace Tests
         {
             ChooseDriver(Browsers.Chrome);
             Navigate(EAAPPUrls.urlHome);
-            data = new UsersData();
+            data = new UsersData { Name = "Oksana", Salary = "4000", DurationWorked = "3", Grade = "2", Email = "a@mailforspam.com" };
 
             LoginPage loginPage = new LoginPage(Driver);
 

@@ -15,7 +15,6 @@ namespace Tests.Pages
             Driver = driver;
         }
 
-        //private List<string> data = new List<string>();
         private IWebElement EmployeeListLink => Driver.FindElement(By.LinkText("Employee List"));
         private IWebElement CreateNewButton => Driver.FindElement(By.XPath("//a[text()='Create New']"));
         private IWebElement SearchField => Driver.FindElement(By.Name("searchTerm"));
@@ -41,16 +40,7 @@ namespace Tests.Pages
             SearchButton.Click();
         }
 
-        //public ReadOnlyCollection<string> TransferAllFoundUIDataToReadOnlyCollection()
-        //{
-        //    for (int i = 0; i < employeesDataFromUI.Count; i++)
-        //    {
-        //        data.Add(employeesDataFromUI[i].Text);
-        //    }
-        //    return data.AsReadOnly();
-        //}
-
-        public ReadOnlyCollection<UsersData> GetActualSearchResultFromUI()//ReadOnlyCollection
+        public ReadOnlyCollection<UsersData> GetActualSearchResultFromUI()
         {
             UsersData data = new UsersData();
             List<UsersData> usersDataFromUI = new List<UsersData>();
@@ -100,8 +90,8 @@ namespace Tests.Pages
 
         public bool IsUIDataContainsSearchedData(ReadOnlyCollection<UsersData> usersData, IUserData userData)
         {
-           return usersData.Any(user=>user.Equals(userData));
-           
+            return usersData.Any(user => user.Name == userData.Name && user.Salary == userData.Salary
+              && user.DurationWorked == userData.DurationWorked && user.Grade == userData.Grade && user.Email == userData.Email);
         }
 
         public bool Compare(ReadOnlyCollection<UsersData> actual, ReadOnlyCollection<UsersData> expected)
@@ -127,42 +117,6 @@ namespace Tests.Pages
             Driver.Navigate().Back();
         }
 
-        //public bool CheckIfFoundDataMatchSearchCriteriaData(string searchCriteria)
-        //{
-        //    int j = 0;
-
-        //    for (int i = 0; i < employeesDataFromUI.Count; i++)
-        //    {
-        //        if (employeesDataFromUI[i].Text.StartsWith(searchCriteria) && !employeesDataFromUI[i].Text.Contains("@"))
-        //        {
-        //            for (int k = 0; k < 6; k++)
-        //            {
-        //                if (employeesDataFromUI[i].Text == data[j])
-        //                {
-        //                    if (k < 5)
-        //                    { i++; }
-
-        //                    j++;
-        //                    continue;
-        //                }
-        //                return false;
-        //            }
-        //        }
-        //    }
-        //    return true;
-        //}
-      
-        //public IUserData GetUserDataFromUI()
-        //{
-        //    UsersData data = new UsersData();
-        //    data.Name = employeesDataFromUI[0].Text;
-        //    data.Salary = employeesDataFromUI[1].Text;
-        //    data.DurationWorked = employeesDataFromUI[2].Text;
-        //    data.Grade = employeesDataFromUI[3].Text;
-        //    data.Email = employeesDataFromUI[4].Text;
-        //    return data;
-        //}
-
         public CreatePage TestEditLink()
         {
             EditLink.Click();
@@ -171,12 +125,8 @@ namespace Tests.Pages
 
         public bool CheckIfEmployeeExist(ReadOnlyCollection<UsersData> UIData, UsersData deletedUser)
         {
-            //if (employeesDataFromUI.Count > 0) { return false; }
-            //return true;
             if (UIData.Count < 1) { return false; }
             return IsUIDataContainsSearchedData(UIData, deletedUser);
-               
-            
         }
     }
 }

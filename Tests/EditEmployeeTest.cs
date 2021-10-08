@@ -24,7 +24,7 @@ namespace Tests
             createPage = new CreatePage(Driver);
             employeeListPage = new EmployeeListPage(Driver);
 
-            data = new UsersData();
+            data = new UsersData { Name = "Oksana", Salary = "4000", DurationWorked = "3", Grade = "2", Email = "a@mailforspam.com" };
             editedData = new RandomUsersData();
           
             LoginPage loginPage = new LoginPage(Driver);
@@ -70,7 +70,7 @@ namespace Tests
             
             employeeListPage.SearchEmployee(editedData.Name);
             var userDataFromUI = employeeListPage.GetActualSearchResultFromUI();
-            bool IfUserDataFromUIMatchExpectedData = employeeListPage.IfUIDataContainsSearchedData(userDataFromUI, editedData);
+            bool IfUserDataFromUIMatchExpectedData = employeeListPage.IsUIDataContainsSearchedData(userDataFromUI, editedData);
             Assert.IsTrue(IfUserDataFromUIMatchExpectedData, "Edited user data from UI does not match with data set during edit process");
         }
         //var userDataFromUI = employeeListPage.GetUserDataFromUI();

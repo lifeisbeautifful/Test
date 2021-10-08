@@ -3,13 +3,13 @@
 
 namespace Tests.UserData
 {
-    public class RandomUsersData : IUserData//, IEquatable<UsersData>
+    public class RandomUsersData : IUserData
     {
-        private string name;
-        private string salary;
-        private string durationWorked;
-        private string grade;
-        private string email;
+        private string _name;
+        private string _salary;
+        private string _durationWorked;
+        private string _grade;
+        private string _email;
       
         private char[] letters = "ABCDEFGHIJKLMNOPQURSTUVWXYZ".ToCharArray();
         Random random = new Random();
@@ -26,89 +26,52 @@ namespace Tests.UserData
             set { ; }
         }
 
-        public string Name => name;
-        
-
-        public RandomUsersData()
+        public string Name
         {
-            name = GetRandomName();
+            get { return _name; }
+            set { _name = value; }
         }
-
+        
         public string Salary
         {
-            get 
-            {
-                if (salary == null)
-                {
-                    salary = GetRandomSalary().ToString();
-                    return salary;
-                }
-                return salary;
-            }
-            set 
-            {
-                salary = value;
-            }
+            get { return _salary; }
+            set { _salary = value; }
         }
-
-        public string DurationWorked 
+      
+        public string DurationWorked
         {
-            get
-            {
-                if (durationWorked == null)
-                {
-                    durationWorked = GetRandomDurationWorked().ToString();
-                    return durationWorked;
-                }
-                return durationWorked;
-            }
-            set
-            {
-                durationWorked = value;
-            }
+            get { return _durationWorked; }
+            set { _durationWorked = value; }
         }
-
-       public string Grade
+       
+        public string Grade
         {
-            get 
-            {
-                if (grade == null)
-                {
-                    grade = GetrandomGrade().ToString();
-                    return grade;
-                }
-                return grade;
-            }
-            set 
-            {
-                grade = value;
-            }
+            get { return _grade; }
+            set { _grade = value; }
         }
-
+       
         public string Email
         {
-            get 
-            {
-                if (email == null)
-                {
-                    return GetRandomEmail();
-                }
-                return email;
-            }
-            set 
-            {
-               email = value ; 
-            }
+            get { return _email; }
+            set { _email = value; }
         }
-
+       
+        public RandomUsersData()
+        {
+            _name = GetRandomName();
+            _salary = GetRandomSalary().ToString();
+            _durationWorked = GetRandomDurationWorked().ToString();
+            _grade = GetrandomGrade().ToString();
+            _email = GetRandomEmail();
+        }
         private string GetRandomName()
         {
             for (int i = 0; i < 5; i++)
             {
                 int charNumber = random.Next(0, letters.Length - 1);
-                name += letters[charNumber];
+                _name += letters[charNumber];
             }
-            return name;
+            return _name;
         }
 
         private double GetRandomSalary()
@@ -135,37 +98,18 @@ namespace Tests.UserData
             {
                 if (i == 5)
                 {
-                    email += "@";
+                    _email += "@";
                 }
 
                 if (i == 8)
                 {
-                    email += ".";
+                    _email += ".";
                 }
 
                 int charNumber = random.Next(0, letters.Length - 1);
-                email += letters[charNumber];
+                _email += letters[charNumber];
             }
-            return email;
+            return _email;
         }
-
-        //public bool Equals(UsersData obj)
-        //{
-        //    if (obj == null)
-        //    {
-        //        return false;
-        //    }
-        //    else
-        //    {
-        //        if(Name == obj.Name && Salary == obj.Salary && DurationWorked == obj.DurationWorked
-        //                && Grade == obj.Grade && Email == obj.Email)
-        //        {
-        //            return true;
-        //        }
-        //            return false;
-        //    }
-        //}
-
-        //public override bool Equals(object obj) => Equals(obj as UsersData);
     }
 }

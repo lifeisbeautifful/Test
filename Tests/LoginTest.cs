@@ -16,7 +16,7 @@ namespace Tests
         {
             ChooseDriver(Browsers.Chrome);
             loginPage = new LoginPage(Driver);
-            data = new UsersData();
+            data = new UsersData { Name = "Oksana", Salary = "4000", DurationWorked = "3", Grade = "2", Email = "a@mailforspam.com" };
         }
 
         [TearDown]
