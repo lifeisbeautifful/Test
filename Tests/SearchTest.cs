@@ -50,21 +50,23 @@ namespace Tests
         /// Search for all users that contain "Test" in name
         /// </summary>
         [Test]
-        [TestCase("Test")]
-        [TestCase("Karthik")]
-        [TestCase("act")]
-        [TestCase("fdg")]
-        public void PerformSearch(string search)
+        //[TestCase("Test")]
+        //[TestCase("Karthik")]
+        //[TestCase("act")]
+        //[TestCase("fdg")]
+        public void PerformSearch()
         {
             employeeListPage.ClearSearchField();
-            employeeListPage.SearchEmployee(search);
+            employeeListPage.SearchEmployee("f");
             var actualSearchResult = employeeListPage.GetActualSearchResultFromUI();
             employeeListPage.NavigateBack();
-            var expectedSearchResult = employeeListPage.ExpectedSearchResult(search);
-            CollectionAssert.AreEqual(expectedSearchResult, actualSearchResult);
+            var expectedSearchResult = employeeListPage.ExpectedSearchResult("f");
+            bool ifFoundUsersFromUIMatchUsersWithSearchCriteria = employeeListPage.Compare(actualSearchResult, expectedSearchResult);
+            Assert.IsTrue(ifFoundUsersFromUIMatchUsersWithSearchCriteria, "Found users on UI do not match users with such search criteria");
         }
         //employeeListPage.TransferAllFoundUIDataToReadOnlyCollection();
         //var result=employeeListPage.CheckIfFoundDataMatchSearchCriteriaData("Test");  
         //Assert.That(result, Is.True, "Not all found users follow search criteria");
+        //CollectionAssert.AreEqual(expectedSearchResult, actualSearchResult);
     }
 }

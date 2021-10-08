@@ -71,9 +71,9 @@ namespace Tests
             Assert.IsTrue(employeeListPage.IsAt(), "User is not navigated back to 'Employee List' page from 'Create' page");
             
             employeeListPage.SearchEmployee(dataFromFile.Name);
-            var userDataFromUI = employeeListPage.GetUserDataFromUI();
+            var userDataFromUI = employeeListPage.GetActualSearchResultFromUI();
 
-            bool IfDataFromFileMatchDataFromUI = dataFromFile.Equals(userDataFromUI);
+            bool IfDataFromFileMatchDataFromUI = employeeListPage.IfUIDataContainsSearchedData(userDataFromUI, dataFromFile);
             Assert.IsTrue(IfDataFromFileMatchDataFromUI, "User data from UI does not match user data set from file");
         }
     }

@@ -106,15 +106,16 @@ namespace Tests
             }
             else
             {
-                if (Name == obj.Name && Salary == obj.Salary && DurationWorked == obj.DurationWorked
-                       && Grade == obj.Grade && Email == obj.Email)
-                {
-                    return true;
-                }
+                    if (Name == obj.Name && Salary == obj.Salary && DurationWorked == obj.DurationWorked
+                           && Grade == obj.Grade && Email == obj.Email)
+                    {
+                        return true;
+                    }
                     return false;
             }
         }
 
         public override bool Equals(object obj) => Equals(obj as UsersData);
+        
     }
 }

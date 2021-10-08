@@ -100,6 +100,30 @@ namespace Tests.Pages
             return expectedResult.AsReadOnly();
         }
 
+        public bool IfUIDataContainsSearchedData(ReadOnlyCollection<UsersData> usersData, IUserData userData)
+        {
+            foreach(var user in usersData)
+            {
+                if(user.Name == userData.Name && user.Salary == userData.Salary 
+                    && user.DurationWorked == userData.DurationWorked && user.Grade == userData.Grade 
+                    && user.Email == userData.Email) { return true; }
+            }
+            return false;
+        }
+
+        public bool Compare(ReadOnlyCollection<UsersData> actual, ReadOnlyCollection<UsersData> expected)
+        {
+            for (int i = 0; i < actual.Count; i++)
+            {
+                if (actual[i].Equals(expected[i]))
+                {
+                    continue;
+                }
+                return false;
+            }
+            return true;
+        }
+
         public void ClearSearchField()
         {
             SearchField.Clear();
@@ -135,16 +159,16 @@ namespace Tests.Pages
         //    return true;
         //}
       
-        public IUserData GetUserDataFromUI()
-        {
-            UsersData data = new UsersData();
-            data.Name = employeesDataFromUI[0].Text;
-            data.Salary = employeesDataFromUI[1].Text;
-            data.DurationWorked = employeesDataFromUI[2].Text;
-            data.Grade = employeesDataFromUI[3].Text;
-            data.Email = employeesDataFromUI[4].Text;
-            return data;
-        }
+        //public IUserData GetUserDataFromUI()
+        //{
+        //    UsersData data = new UsersData();
+        //    data.Name = employeesDataFromUI[0].Text;
+        //    data.Salary = employeesDataFromUI[1].Text;
+        //    data.DurationWorked = employeesDataFromUI[2].Text;
+        //    data.Grade = employeesDataFromUI[3].Text;
+        //    data.Email = employeesDataFromUI[4].Text;
+        //    return data;
+        //}
 
         public CreatePage TestEditLink()
         {

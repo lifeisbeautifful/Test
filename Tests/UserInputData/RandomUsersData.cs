@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Tests.UserData
 {
-    public class RandomUsersData : IUserData, IEquatable<UsersData>
+    public class RandomUsersData : IUserData//, IEquatable<UsersData>
     {
         private string name;
         private string salary;
@@ -161,23 +161,23 @@ namespace Tests.UserData
             return email;
         }
 
-        public bool Equals(UsersData obj)
-        {
-            if (obj == null)
-            {
-                return false;
-            }
-            else
-            {
-                if(Name == obj.Name && Salary == obj.Salary && DurationWorked == obj.DurationWorked
-                        && Grade == obj.Grade && Email == obj.Email)
-                {
-                    return true;
-                }
-                    return false;
-            }
-        }
+        //public bool Equals(UsersData obj)
+        //{
+        //    if (obj == null)
+        //    {
+        //        return false;
+        //    }
+        //    else
+        //    {
+        //        if(Name == obj.Name && Salary == obj.Salary && DurationWorked == obj.DurationWorked
+        //                && Grade == obj.Grade && Email == obj.Email)
+        //        {
+        //            return true;
+        //        }
+        //            return false;
+        //    }
+        //}
 
-        public override bool Equals(object obj) => Equals(obj as UsersData);
+        //public override bool Equals(object obj) => Equals(obj as UsersData);
     }
 }

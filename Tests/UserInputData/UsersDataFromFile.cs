@@ -10,7 +10,7 @@ using System.Text;
 namespace Tests.UserInputData
 {
     [DataContract]
-    public class UsersDataFromFile : IUserData, IEquatable<UsersData>
+    public class UsersDataFromFile : IUserData//, IEquatable<UsersData>
     {
         private string serializerPath = @"C:\Users\ognyp\source\UserData.json";
 
@@ -79,24 +79,24 @@ namespace Tests.UserInputData
             Email = data.Email;
         }
 
-        public bool Equals(UsersData obj)
-        {
-            if (obj == null)
-            {
-                return false;
-            }
-            else
-            {
-                if (Name == obj.Name && Salary == obj.Salary
-                       && DurationWorked == obj.DurationWorked && Grade == obj.Grade
-                       && Email == obj.Email)
-                {
-                    return true;
-                }
-                    return false;
-            }
-        }
+    //    public bool Equals(UsersData obj)
+    //    {
+    //        if (obj == null)
+    //        {
+    //            return false;
+    //        }
+    //        else
+    //        {
+    //            if (Name == obj.Name && Salary == obj.Salary
+    //                   && DurationWorked == obj.DurationWorked && Grade == obj.Grade
+    //                   && Email == obj.Email)
+    //            {
+    //                return true;
+    //            }
+    //                return false;
+    //        }
+    //    }
 
-        public override bool Equals(object obj) => Equals(obj as UsersData);
+    //    public override bool Equals(object obj) => Equals(obj as UsersData);
     }
 }
