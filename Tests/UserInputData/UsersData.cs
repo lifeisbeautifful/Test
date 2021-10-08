@@ -5,9 +5,7 @@ namespace Tests
 {
     public class UsersData : IUserData, IEquatable<UsersData>
     {
-      
-        public string UserName { get { return "admin"; } set {; } }
-        public string Password { get { return "password"; } set {; } }
+
         public string Name { get; set; }
         public string Salary { get; set; }
         public string DurationWorked { get; set; }

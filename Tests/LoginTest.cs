@@ -5,7 +5,7 @@ using Tests.Urls;
 
 namespace Tests
 {
-    public class Tests:Drivers
+    public class Tests : Drivers
     {
        
         private LoginPage loginPage;
@@ -40,7 +40,7 @@ namespace Tests
         {
             Navigate(EAAPPUrls.urlHome);
            
-            loginPage.Login(data);
+            loginPage.Login();
             Assert.That(loginPage.IsUserLoggedIn(), Is.True, "User is not logged in");
         }
     }

@@ -15,17 +15,6 @@ namespace Tests.UserInputData
         private string _grade;
         private string _email;
 
-        public string UserName
-        {
-            get { return "admin"; }
-            set { ; }
-        }
-        public string Password
-        {
-            get { return "password"; }
-            set { ; }
-        }
-
         [DataMember]
         public string Name
         {

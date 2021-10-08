@@ -30,7 +30,7 @@ namespace Tests
 
             if (!loginPage.IsUserLoggedIn())
             { 
-                loginPage.Login(dataFromFile);
+                loginPage.Login();
             }
         }
 

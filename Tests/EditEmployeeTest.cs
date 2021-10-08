@@ -6,7 +6,7 @@ using Tests.Urls;
 
 namespace Tests
 {
-    public class EditEmployeeTest:Drivers
+    public class EditEmployeeTest : Drivers
     {
         
         private UsersData data;
@@ -31,7 +31,7 @@ namespace Tests
 
             if(!loginPage.IsUserLoggedIn())
             {
-                loginPage.Login(data);
+                loginPage.Login();
             }
 
             Navigate(EAAPPUrls.urlCreatePage);
@@ -73,8 +73,5 @@ namespace Tests
             bool IfUserDataFromUIMatchExpectedData = employeeListPage.IsUIDataContainsSearchedData(userDataFromUI, editedData);
             Assert.IsTrue(IfUserDataFromUIMatchExpectedData, "Edited user data from UI does not match with data set during edit process");
         }
-        //var userDataFromUI = employeeListPage.GetUserDataFromUI();
-        //employeeListPage.NavigateBack();
-        //bool IfUserDataFromUIMatchExpectedData = editedData.Equals(userDataFromUI);
     }
 }

@@ -14,18 +14,6 @@ namespace Tests.UserData
         private char[] letters = "ABCDEFGHIJKLMNOPQURSTUVWXYZ".ToCharArray();
         Random random = new Random();
 
-        public string UserName
-        {
-            get { return "admin"; }
-            set { ; }
-        }
-
-        public string Password
-        {
-            get { return "password"; }
-            set { ; }
-        }
-
         public string Name
         {
             get { return _name; }

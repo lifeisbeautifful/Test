@@ -6,7 +6,7 @@ using Tests.Urls;
 
 namespace Tests
 {
-    public class DeleteEmployeeTest:Drivers
+    public class DeleteEmployeeTest : Drivers
     {
        
         private UsersData data;
@@ -29,7 +29,7 @@ namespace Tests
 
             if(!loginPage.IsUserLoggedIn())
             {
-                loginPage.Login(data);
+                loginPage.Login();
             }
             
             Navigate(EAAPPUrls.urlCreatePage);

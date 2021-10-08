@@ -5,7 +5,7 @@ using Tests.Urls;
 
 namespace Tests
 {
-    public class SearchTest:Drivers
+    public class SearchTest : Drivers
     {
        
         private EmployeeListPage employeeListPage;
@@ -22,7 +22,7 @@ namespace Tests
 
             if(!loginPage.IsUserLoggedIn())
             {
-                loginPage.Login(data);
+                loginPage.Login();
             }
 
             employeeListPage = new EmployeeListPage(Driver);
@@ -60,9 +60,5 @@ namespace Tests
             bool ifFoundUsersFromUIMatchUsersWithSearchCriteria = employeeListPage.Compare(actualSearchResult, expectedSearchResult);
             Assert.IsTrue(ifFoundUsersFromUIMatchUsersWithSearchCriteria, "Found users on UI do not match users with such search criteria");
         }
-        //employeeListPage.TransferAllFoundUIDataToReadOnlyCollection();
-        //var result=employeeListPage.CheckIfFoundDataMatchSearchCriteriaData("Test");  
-        //Assert.That(result, Is.True, "Not all found users follow search criteria");
-        //CollectionAssert.AreEqual(expectedSearchResult, actualSearchResult);
     }
 }

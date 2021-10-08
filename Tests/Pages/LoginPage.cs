@@ -1,5 +1,5 @@
 ﻿using OpenQA.Selenium;
-
+using Tests.LoginCredentials;
 
 namespace Tests.Pages
 {
@@ -40,11 +40,11 @@ namespace Tests.Pages
             return false;
         }
 
-        public void Login(IUserData data)
+        public void Login()
         {
             LoginLink.Click();
-            UsernameField.SendKeys(data.UserName);
-            PasswordField.SendKeys(data.Password);
+            UsernameField.SendKeys(AdminLoginCredentials.UserName);
+            PasswordField.SendKeys(AdminLoginCredentials.Password);
             LoginButton.Click();
         }
     }
