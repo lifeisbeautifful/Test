@@ -1,0 +1,72 @@
+{
+  "uuid": "01936c29-aaa2-4003-9506-c9ce4bb1a626-tr-0-1007",
+  "historyId": "Tests.LoginTest.SuccessLoginWithValidCredentials",
+  "fullName": "Tests.LoginTest.SuccessLoginWithValidCredentials",
+  "labels": [
+    {
+      "name": "thread",
+      "value": "NonParallelWorker"
+    },
+    {
+      "name": "host",
+      "value": "5CD8350GPM"
+    },
+    {
+      "name": "testClass",
+      "value": "Tests.LoginTest"
+    },
+    {
+      "name": "testMethod",
+      "value": "SuccessLoginWithValidCredentials"
+    },
+    {
+      "name": "package",
+      "value": "Tests.LoginTest"
+    },
+    {
+      "name": "severity",
+      "value": "critical"
+    },
+    {
+      "name": "owner",
+      "value": "Oksana"
+    }
+  ],
+  "links": [],
+  "name": "SuccessLoginWithValidCredentials",
+  "status": "passed",
+  "statusDetails": {
+    "known": false,
+    "muted": false,
+    "flaky": false
+  },
+  "stage": "finished",
+  "description": "Login as admin user with valid credentials\n",
+  "steps": [
+    {
+      "name": "SuccessLoginWithValidCredentials",
+      "status": "passed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [
+        {
+          "name": "Console Output",
+          "source": "dbd02afb141b4e96be4ed9d2865dc7ff-attachment.txt",
+          "type": "text/plain"
+        }
+      ],
+      "parameters": [],
+      "start": 1633851060336,
+      "stop": 1633851065684
+    }
+  ],
+  "attachments": [],
+  "parameters": [],
+  "start": 1633851060336,
+  "stop": 1633851065688
+}

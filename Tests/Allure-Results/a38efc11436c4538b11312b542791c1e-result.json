@@ -1,0 +1,76 @@
+{
+  "uuid": "413b534d-219c-489e-ab93-6a4912e1c220-tr-0-1001",
+  "historyId": "Tests.CreateNewEmployeeTest.SuccessCreateNewEmployee",
+  "fullName": "Tests.CreateNewEmployeeTest.SuccessCreateNewEmployee",
+  "labels": [
+    {
+      "name": "thread",
+      "value": "NonParallelWorker"
+    },
+    {
+      "name": "host",
+      "value": "5CD8350GPM"
+    },
+    {
+      "name": "testClass",
+      "value": "Tests.CreateNewEmployeeTest"
+    },
+    {
+      "name": "testMethod",
+      "value": "SuccessCreateNewEmployee"
+    },
+    {
+      "name": "package",
+      "value": "Tests.CreateNewEmployeeTest"
+    },
+    {
+      "name": "severity",
+      "value": "critical"
+    },
+    {
+      "name": "owner",
+      "value": "Oksana"
+    }
+  ],
+  "links": [],
+  "name": "SuccessCreateNewEmployee",
+  "status": "failed",
+  "statusDetails": {
+    "known": false,
+    "muted": false,
+    "flaky": false,
+    "message": "System.ArgumentOutOfRangeException : Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')",
+    "trace": "   at System.Collections.Generic.List`1.get_Item(Int32 index)\r\n   at Tests.Pages.EmployeeListPage.GetActualSearchResultFromUI() in C:\\Users\\ognyp\\Desktop\\MyProject\\Test\\Tests\\Pages\\EmployeeListPage.cs:line 61\r\n   at Tests.CreateNewEmployeeTest.SuccessCreateNewEmployee() in C:\\Users\\ognyp\\Desktop\\MyProject\\Test\\Tests\\CreateNewEmployeeTest.cs:line 76"
+  },
+  "stage": "finished",
+  "description": "Create a new employee\n",
+  "steps": [
+    {
+      "name": "SuccessCreateNewEmployee",
+      "status": "failed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false,
+        "message": "System.ArgumentOutOfRangeException : Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')",
+        "trace": "   at System.Collections.Generic.List`1.get_Item(Int32 index)\r\n   at Tests.Pages.EmployeeListPage.GetActualSearchResultFromUI() in C:\\Users\\ognyp\\Desktop\\MyProject\\Test\\Tests\\Pages\\EmployeeListPage.cs:line 61\r\n   at Tests.CreateNewEmployeeTest.SuccessCreateNewEmployee() in C:\\Users\\ognyp\\Desktop\\MyProject\\Test\\Tests\\CreateNewEmployeeTest.cs:line 76"
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [
+        {
+          "name": "Console Output",
+          "source": "77f4ec4085e6458e95e7ca090cda0705-attachment.txt",
+          "type": "text/plain"
+        }
+      ],
+      "parameters": [],
+      "start": 1633852471559,
+      "stop": 1633852475823
+    }
+  ],
+  "attachments": [],
+  "parameters": [],
+  "start": 1633852471558,
+  "stop": 1633852475828
+}

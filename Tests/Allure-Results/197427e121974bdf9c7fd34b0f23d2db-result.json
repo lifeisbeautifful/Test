@@ -1,0 +1,63 @@
+{
+  "uuid": "db03c683-efde-45e6-8542-4539d3817e1d-tr-0-1001",
+  "historyId": "Tests.CreateNewEmployeeTest.SuccessCreateNewEmployee",
+  "fullName": "Tests.CreateNewEmployeeTest.SuccessCreateNewEmployee",
+  "labels": [
+    {
+      "name": "thread",
+      "value": "NonParallelWorker"
+    },
+    {
+      "name": "host",
+      "value": "5CD8350GPM"
+    },
+    {
+      "name": "testClass",
+      "value": "Tests.CreateNewEmployeeTest"
+    },
+    {
+      "name": "testMethod",
+      "value": "SuccessCreateNewEmployee"
+    },
+    {
+      "name": "package",
+      "value": "Tests.CreateNewEmployeeTest"
+    }
+  ],
+  "links": [],
+  "name": "SuccessCreateNewEmployee",
+  "status": "passed",
+  "statusDetails": {
+    "known": false,
+    "muted": false,
+    "flaky": false
+  },
+  "stage": "finished",
+  "steps": [
+    {
+      "name": "SuccessCreateNewEmployee",
+      "status": "passed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [
+        {
+          "name": "Console Output",
+          "source": "773c04a0bee546e1a22d07bda84cc7e1-attachment.txt",
+          "type": "text/plain"
+        }
+      ],
+      "parameters": [],
+      "start": 1633850877382,
+      "stop": 1633850881391
+    }
+  ],
+  "attachments": [],
+  "parameters": [],
+  "start": 1633850877381,
+  "stop": 1633850881396
+}

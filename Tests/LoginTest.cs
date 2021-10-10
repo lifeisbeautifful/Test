@@ -2,12 +2,18 @@
 using Tests.DriverHelper;
 using Tests.Pages;
 using Tests.Urls;
+using NUnit.Allure.Core;
+using NUnit.Allure.Attributes;
+using Allure.Commons;
+
 
 namespace Tests
 {
-    public class Tests : Drivers
+    [TestFixture]
+    [AllureNUnit]
+    public class LoginTest : Drivers
     {
-       
+
         private LoginPage loginPage;
         private UsersData data;
 
@@ -35,7 +41,9 @@ namespace Tests
         /// <summary>
         /// Login as admin user with valid credentials
         /// </summary>
-        [Test]
+        [AllureSeverity(SeverityLevel.critical)]
+        [AllureOwner("Oksana")]
+        [Test(Description = "Login as admin user with valid credentials")]
         public void SuccessLoginWithValidCredentials()
         {
             Navigate(EAAPPUrls.urlHome);

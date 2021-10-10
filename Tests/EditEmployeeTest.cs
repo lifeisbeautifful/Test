@@ -3,9 +3,14 @@ using Tests.DriverHelper;
 using Tests.Pages;
 using Tests.UserData;
 using Tests.Urls;
+using NUnit.Allure.Core;
+using NUnit.Allure.Attributes;
+using Allure.Commons;
 
 namespace Tests
 {
+    [TestFixture]
+    [AllureNUnit]
     public class EditEmployeeTest : Drivers
     {
         
@@ -57,7 +62,9 @@ namespace Tests
         /// <summary>
         /// Edit created in 'SetUp' employee 
         /// </summary>
-        [Test]
+        [Test(Description ="Edit employee data")]
+        [AllureSeverity(SeverityLevel.critical)]
+        [AllureOwner("Oksana")]
         public void EditEmployeeData()
         {
             employeeListPage.NavigateToEmployeePage();

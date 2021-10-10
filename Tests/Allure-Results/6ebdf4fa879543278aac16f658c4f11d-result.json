@@ -1,0 +1,77 @@
+{
+  "uuid": "f7e53bb5-a887-4c63-a326-f26e97f810fd-tr-0-1012",
+  "historyId": "Tests.SearchTest.PerformSearch(\"fdg\")",
+  "fullName": "Tests.SearchTest.PerformSearch(\"fdg\")",
+  "labels": [
+    {
+      "name": "thread",
+      "value": "NonParallelWorker"
+    },
+    {
+      "name": "host",
+      "value": "5CD8350GPM"
+    },
+    {
+      "name": "testClass",
+      "value": "Tests.SearchTest"
+    },
+    {
+      "name": "testMethod",
+      "value": "PerformSearch"
+    },
+    {
+      "name": "package",
+      "value": "Tests.SearchTest"
+    },
+    {
+      "name": "severity",
+      "value": "critical"
+    },
+    {
+      "name": "owner",
+      "value": "Oksana"
+    }
+  ],
+  "links": [],
+  "name": "PerformSearch(\"fdg\")",
+  "status": "passed",
+  "statusDetails": {
+    "known": false,
+    "muted": false,
+    "flaky": false
+  },
+  "stage": "finished",
+  "description": "Perform search with different data\n",
+  "steps": [
+    {
+      "name": "PerformSearch(\"fdg\")",
+      "status": "passed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [
+        {
+          "name": "Console Output",
+          "source": "2987127a13ec4289a34e85fd4df202ac-attachment.txt",
+          "type": "text/plain"
+        }
+      ],
+      "parameters": [],
+      "start": 1633852000240,
+      "stop": 1633852064871
+    }
+  ],
+  "attachments": [],
+  "parameters": [
+    {
+      "name": "Param #0",
+      "value": "fdg"
+    }
+  ],
+  "start": 1633852000240,
+  "stop": 1633852064871
+}

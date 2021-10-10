@@ -1,0 +1,77 @@
+{
+  "uuid": "0abab9ce-9d1b-4b94-821e-b64f8a79be7e-tr-0-1009",
+  "historyId": "Tests.SearchTest.PerformSearch(\"Test\")",
+  "fullName": "Tests.SearchTest.PerformSearch(\"Test\")",
+  "labels": [
+    {
+      "name": "thread",
+      "value": "NonParallelWorker"
+    },
+    {
+      "name": "host",
+      "value": "5CD8350GPM"
+    },
+    {
+      "name": "testClass",
+      "value": "Tests.SearchTest"
+    },
+    {
+      "name": "testMethod",
+      "value": "PerformSearch"
+    },
+    {
+      "name": "package",
+      "value": "Tests.SearchTest"
+    },
+    {
+      "name": "severity",
+      "value": "critical"
+    },
+    {
+      "name": "owner",
+      "value": "Oksana"
+    }
+  ],
+  "links": [],
+  "name": "PerformSearch(\"Test\")",
+  "status": "passed",
+  "statusDetails": {
+    "known": false,
+    "muted": false,
+    "flaky": false
+  },
+  "stage": "finished",
+  "description": "Perform search with different data\n",
+  "steps": [
+    {
+      "name": "PerformSearch(\"Test\")",
+      "status": "passed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [
+        {
+          "name": "Console Output",
+          "source": "ba734667dd3a4f7296e035dd285ef859-attachment.txt",
+          "type": "text/plain"
+        }
+      ],
+      "parameters": [],
+      "start": 1633851813865,
+      "stop": 1633851875447
+    }
+  ],
+  "attachments": [],
+  "parameters": [
+    {
+      "name": "Param #0",
+      "value": "Test"
+    }
+  ],
+  "start": 1633851813865,
+  "stop": 1633851875448
+}

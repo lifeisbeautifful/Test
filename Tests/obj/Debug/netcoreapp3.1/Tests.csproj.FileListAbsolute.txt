@@ -194,3 +194,6 @@ C:\Users\ognyp\Desktop\MyProject\Test\Tests\obj\Debug\netcoreapp3.1\Tests.csproj
 C:\Users\ognyp\Desktop\MyProject\Test\Tests\obj\Debug\netcoreapp3.1\Tests.dll
 C:\Users\ognyp\Desktop\MyProject\Test\Tests\obj\Debug\netcoreapp3.1\Tests.pdb
 C:\Users\ognyp\Desktop\MyProject\Test\Tests\obj\Debug\netcoreapp3.1\Tests.genruntimeconfig.cache
+C:\Users\ognyp\Desktop\MyProject\Test\Tests\bin\Debug\netcoreapp3.1\Allure.Commons.dll
+C:\Users\ognyp\Desktop\MyProject\Test\Tests\bin\Debug\netcoreapp3.1\MimeTypesMap.dll
+C:\Users\ognyp\Desktop\MyProject\Test\Tests\bin\Debug\netcoreapp3.1\NUnit.Allure.dll

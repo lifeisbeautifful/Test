@@ -3,9 +3,16 @@ using Tests.DriverHelper;
 using Tests.Pages;
 using Tests.Urls;
 using Tests.UserInputData;
+using NUnit.Allure.Core;
+using NUnit.Allure.Attributes;
+using Allure.Commons;
+
+
 
 namespace Tests
 {
+    [TestFixture]
+    [AllureNUnit]
     public class CreateNewEmployeeTest : Drivers
     {
        
@@ -52,7 +59,9 @@ namespace Tests
         /// <summary>
         /// Create new user with data from employeeCreatedData array
         /// </summary>
-        [Test]
+        [Test(Description ="Create a new employee")]
+        [AllureSeverity(SeverityLevel.critical)]
+        [AllureOwner("Oksana")]
         public void SuccessCreateNewEmployee()
         {
             var page = employeeListPage.NavigateToEmployeePage();

@@ -2,9 +2,14 @@
 using Tests.DriverHelper;
 using Tests.Pages;
 using Tests.Urls;
+using NUnit.Allure.Core;
+using NUnit.Allure.Attributes;
+using Allure.Commons;
 
 namespace Tests
 {
+    [TestFixture]
+    [AllureNUnit]
     public class SearchTest : Drivers
     {
        
@@ -45,11 +50,13 @@ namespace Tests
         /// <summary>
         /// Search for all users that contain "Test" in name
         /// </summary>
-        [Test]
+        [Test(Description ="Perform search with different parameters")]
         [TestCase("Test")]
         [TestCase("Karthik")]
         [TestCase("act")]
         [TestCase("fdg")]
+        [AllureSeverity(SeverityLevel.critical)]
+        [AllureOwner("Oksana")]
         public void PerformSearch(string search)
         {
             employeeListPage.ClearSearchField();

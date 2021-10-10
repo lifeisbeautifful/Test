@@ -2,10 +2,15 @@
 using Tests.DriverHelper;
 using Tests.Pages;
 using Tests.Urls;
+using NUnit.Allure.Core;
+using NUnit.Allure.Attributes;
+using Allure.Commons;
 
 
 namespace Tests
 {
+    [TestFixture]
+    [AllureNUnit]
     public class DeleteEmployeeTest : Drivers
     {
        
@@ -53,7 +58,9 @@ namespace Tests
         /// <summary>
         /// Delete created in 'SetUp' employee
         /// </summary>
-        [Test]
+        [Test(Description ="Delete employee")]
+        [AllureOwner("Oksana")]
+        [AllureSeverity(SeverityLevel.critical)]
         public void DeleteUser()
         {
             employeeListPage.NavigateToEmployeePage();

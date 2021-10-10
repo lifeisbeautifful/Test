@@ -1,0 +1,72 @@
+{
+  "uuid": "d170e051-0b8a-40ac-a124-4eb5e96d8e9e-tr-0-1005",
+  "historyId": "Tests.EditEmployeeTest.EditEmployeeData",
+  "fullName": "Tests.EditEmployeeTest.EditEmployeeData",
+  "labels": [
+    {
+      "name": "thread",
+      "value": "NonParallelWorker"
+    },
+    {
+      "name": "host",
+      "value": "5CD8350GPM"
+    },
+    {
+      "name": "testClass",
+      "value": "Tests.EditEmployeeTest"
+    },
+    {
+      "name": "testMethod",
+      "value": "EditEmployeeData"
+    },
+    {
+      "name": "package",
+      "value": "Tests.EditEmployeeTest"
+    },
+    {
+      "name": "severity",
+      "value": "critical"
+    },
+    {
+      "name": "owner",
+      "value": "Oksana"
+    }
+  ],
+  "links": [],
+  "name": "EditEmployeeData",
+  "status": "passed",
+  "statusDetails": {
+    "known": false,
+    "muted": false,
+    "flaky": false
+  },
+  "stage": "finished",
+  "description": "Edit employee data\n",
+  "steps": [
+    {
+      "name": "EditEmployeeData",
+      "status": "passed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [
+        {
+          "name": "Console Output",
+          "source": "63b28c67cd394266ae42cd57fbfa54e5-attachment.txt",
+          "type": "text/plain"
+        }
+      ],
+      "parameters": [],
+      "start": 1633852718528,
+      "stop": 1633852725058
+    }
+  ],
+  "attachments": [],
+  "parameters": [],
+  "start": 1633852718528,
+  "stop": 1633852725058
+}
