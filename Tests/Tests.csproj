@@ -24,7 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Allure-Results\" />
+    <Folder Include="EaappTests\Allure-Results\" />
   </ItemGroup>
 
 </Project>

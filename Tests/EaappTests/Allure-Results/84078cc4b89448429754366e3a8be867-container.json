@@ -1,0 +1,61 @@
+{
+  "uuid": "6795e12e-b18a-4c2c-9c19-1735b14f161f-tc-0-1008",
+  "name": "Tests.SearchTest.PerformSearch(\"fdg\")",
+  "children": [
+    "824bf192-a440-4c96-b7b8-da4804b86f03-tr-0-1012"
+  ],
+  "befores": [
+    {
+      "name": "Setup",
+      "status": "passed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1633942255988,
+      "stop": 1633942255988
+    }
+  ],
+  "afters": [
+    {
+      "name": "TearDown",
+      "status": "passed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1633942255988,
+      "stop": 1633942255988
+    },
+    {
+      "name": "OneTimeTearDown",
+      "status": "none",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false,
+        "message": "It's not possible to get status of OneTimeTearDown",
+        "trace": "See Allure.NUnit wiki"
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1633942255988,
+      "stop": 1633942255988
+    }
+  ],
+  "links": [],
+  "start": 1633942185000,
+  "stop": 1633942255998
+}

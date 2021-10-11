@@ -1,0 +1,72 @@
+{
+  "uuid": "e90d2df9-4f0c-46e3-bbc2-f96ef662ce04-tr-0-1003",
+  "historyId": "Tests.DeleteEmployeeTest.DeleteUser",
+  "fullName": "Tests.DeleteEmployeeTest.DeleteUser",
+  "labels": [
+    {
+      "name": "thread",
+      "value": "NonParallelWorker"
+    },
+    {
+      "name": "host",
+      "value": "5CD8350GPM"
+    },
+    {
+      "name": "testClass",
+      "value": "Tests.DeleteEmployeeTest"
+    },
+    {
+      "name": "testMethod",
+      "value": "DeleteUser"
+    },
+    {
+      "name": "package",
+      "value": "Tests.DeleteEmployeeTest"
+    },
+    {
+      "name": "owner",
+      "value": "Oksana"
+    },
+    {
+      "name": "severity",
+      "value": "critical"
+    }
+  ],
+  "links": [],
+  "name": "DeleteUser",
+  "status": "passed",
+  "statusDetails": {
+    "known": false,
+    "muted": false,
+    "flaky": false
+  },
+  "stage": "finished",
+  "description": "Delete employee\n",
+  "steps": [
+    {
+      "name": "DeleteUser",
+      "status": "passed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [
+        {
+          "name": "Console Output",
+          "source": "7e86890cd4ef41ffb24574d1a78b1cf9-attachment.txt",
+          "type": "text/plain"
+        }
+      ],
+      "parameters": [],
+      "start": 1633941948107,
+      "stop": 1633941952325
+    }
+  ],
+  "attachments": [],
+  "parameters": [],
+  "start": 1633941948107,
+  "stop": 1633941952325
+}
