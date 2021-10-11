@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using NLog;
+using OpenQA.Selenium;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -9,6 +10,7 @@ namespace Eaapp.Pages
     public class EmployeeListPage 
     {
         private IWebDriver Driver;
+        private Logger Logger => LogManager.GetCurrentClassLogger();
 
         public EmployeeListPage(IWebDriver driver)
         {
@@ -39,12 +41,14 @@ namespace Eaapp.Pages
 
         public bool NavigateToEmployeePage()
         {
+            Logger.Info($"`EmployeeListLink` clicking");
             EmployeeListLink.Click();
             return IsAt;
         }
         
         public void SearchEmployee(string data)
         {
+            Logger.Trace($"Search employee with {data} data");
             SearchField.SendKeys(data);
             SearchButton.Click();
         }
