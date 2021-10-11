@@ -1,0 +1,76 @@
+{
+  "uuid": "b1ff8374-6d1c-45a9-8e62-d0400e59aaf0-tr-0-1001",
+  "historyId": "Eaapp.CreateNewEmployeeTest.SuccessCreateNewEmployee",
+  "fullName": "Eaapp.CreateNewEmployeeTest.SuccessCreateNewEmployee",
+  "labels": [
+    {
+      "name": "thread",
+      "value": "NonParallelWorker"
+    },
+    {
+      "name": "host",
+      "value": "5CD8350GPM"
+    },
+    {
+      "name": "testClass",
+      "value": "Eaapp.CreateNewEmployeeTest"
+    },
+    {
+      "name": "testMethod",
+      "value": "SuccessCreateNewEmployee"
+    },
+    {
+      "name": "package",
+      "value": "Eaapp.CreateNewEmployeeTest"
+    },
+    {
+      "name": "severity",
+      "value": "critical"
+    },
+    {
+      "name": "owner",
+      "value": "Oksana"
+    }
+  ],
+  "links": [],
+  "name": "SuccessCreateNewEmployee",
+  "status": "failed",
+  "statusDetails": {
+    "known": false,
+    "muted": false,
+    "flaky": false,
+    "message": "  User is not navigated to 'Employee List' page\r\n  Expected: False\r\n  But was:  True\r\n",
+    "trace": "   at Eaapp.CreateNewEmployeeTest.SuccessCreateNewEmployee() in C:\\Users\\ognyp\\Desktop\\FinalProject\\Eaapp\\EaappTests\\EaappTests\\CreateNewEmployeeTest.cs:line 67\r\n"
+  },
+  "stage": "finished",
+  "description": "Create a new employee\n",
+  "steps": [
+    {
+      "name": "SuccessCreateNewEmployee",
+      "status": "failed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false,
+        "message": "  User is not navigated to 'Employee List' page\r\n  Expected: False\r\n  But was:  True\r\n",
+        "trace": "   at Eaapp.CreateNewEmployeeTest.SuccessCreateNewEmployee() in C:\\Users\\ognyp\\Desktop\\FinalProject\\Eaapp\\EaappTests\\EaappTests\\CreateNewEmployeeTest.cs:line 67\r\n"
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [
+        {
+          "name": "Console Output",
+          "source": "ecacadff94e44e558209aab3ce52e1e7-attachment.txt",
+          "type": "text/plain"
+        }
+      ],
+      "parameters": [],
+      "start": 1633964530758,
+      "stop": 1633964540155
+    }
+  ],
+  "attachments": [],
+  "parameters": [],
+  "start": 1633964530757,
+  "stop": 1633964540157
+}

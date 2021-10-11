@@ -1,11 +1,14 @@
-﻿using OpenQA.Selenium;
-
+﻿using Eaapp.EaappFramework.DriverHelper;
+using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
+using System;
 
 namespace Eaapp.Pages
 {
     public class CreatePage 
     {
         private IWebDriver Driver { get; set; }
+        WebDriverWait wait = new WebDriverWait(Drivers.Driver, TimeSpan.FromSeconds(10));
 
         public CreatePage(IWebDriver driver)
         {
@@ -43,6 +46,7 @@ namespace Eaapp.Pages
         public void SaveUserData()
         {
             CreateButton.Click();
+            wait.Until(ExpectedConditions.ElementToBeClickable(CreateNewButton));
         }
     }
 }

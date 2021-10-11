@@ -1,0 +1,76 @@
+{
+  "uuid": "bd5c245f-bb78-43c0-8f94-867d3dcb2906-tr-0-1001",
+  "historyId": "Eaapp.CreateNewEmployeeTest.SuccessCreateNewEmployee",
+  "fullName": "Eaapp.CreateNewEmployeeTest.SuccessCreateNewEmployee",
+  "labels": [
+    {
+      "name": "thread",
+      "value": "NonParallelWorker"
+    },
+    {
+      "name": "host",
+      "value": "5CD8350GPM"
+    },
+    {
+      "name": "testClass",
+      "value": "Eaapp.CreateNewEmployeeTest"
+    },
+    {
+      "name": "testMethod",
+      "value": "SuccessCreateNewEmployee"
+    },
+    {
+      "name": "package",
+      "value": "Eaapp.CreateNewEmployeeTest"
+    },
+    {
+      "name": "severity",
+      "value": "critical"
+    },
+    {
+      "name": "owner",
+      "value": "Oksana"
+    }
+  ],
+  "links": [],
+  "name": "SuccessCreateNewEmployee",
+  "status": "failed",
+  "statusDetails": {
+    "known": false,
+    "muted": false,
+    "flaky": false,
+    "message": "OpenQA.Selenium.NoSuchElementException : no such element: Unable to locate element: {\"method\":\"css selector\",\"selector\":\"#Name\"}\n  (Session info: chrome=94.0.4606.81)",
+    "trace": "   at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)\r\n   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)\r\n   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(String mechanism, String value)\r\n   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElementById(String id)\r\n   at OpenQA.Selenium.By.<>c__DisplayClass16_0.<Id>b__0(ISearchContext context)\r\n   at OpenQA.Selenium.By.FindElement(ISearchContext context)\r\n   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(By by)\r\n   at Eaapp.Pages.CreatePage.get_NameInput() in C:\\Users\\ognyp\\Desktop\\FinalProject\\Eaapp\\EaappUI\\EaappUI\\Pages\\CreatePage.cs:line 19\r\n   at Eaapp.Pages.CreatePage.SetUserData(IUserData data) in C:\\Users\\ognyp\\Desktop\\FinalProject\\Eaapp\\EaappUI\\EaappUI\\Pages\\CreatePage.cs:line 34\r\n   at Eaapp.CreateNewEmployeeTest.SuccessCreateNewEmployee() in C:\\Users\\ognyp\\Desktop\\FinalProject\\Eaapp\\EaappTests\\EaappTests\\CreateNewEmployeeTest.cs:line 69"
+  },
+  "stage": "finished",
+  "description": "Create a new employee\n",
+  "steps": [
+    {
+      "name": "SuccessCreateNewEmployee",
+      "status": "failed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false,
+        "message": "OpenQA.Selenium.NoSuchElementException : no such element: Unable to locate element: {\"method\":\"css selector\",\"selector\":\"#Name\"}\n  (Session info: chrome=94.0.4606.81)",
+        "trace": "   at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)\r\n   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)\r\n   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(String mechanism, String value)\r\n   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElementById(String id)\r\n   at OpenQA.Selenium.By.<>c__DisplayClass16_0.<Id>b__0(ISearchContext context)\r\n   at OpenQA.Selenium.By.FindElement(ISearchContext context)\r\n   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(By by)\r\n   at Eaapp.Pages.CreatePage.get_NameInput() in C:\\Users\\ognyp\\Desktop\\FinalProject\\Eaapp\\EaappUI\\EaappUI\\Pages\\CreatePage.cs:line 19\r\n   at Eaapp.Pages.CreatePage.SetUserData(IUserData data) in C:\\Users\\ognyp\\Desktop\\FinalProject\\Eaapp\\EaappUI\\EaappUI\\Pages\\CreatePage.cs:line 34\r\n   at Eaapp.CreateNewEmployeeTest.SuccessCreateNewEmployee() in C:\\Users\\ognyp\\Desktop\\FinalProject\\Eaapp\\EaappTests\\EaappTests\\CreateNewEmployeeTest.cs:line 69"
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [
+        {
+          "name": "Console Output",
+          "source": "2c3b882c68fa48d086e4d790b2ed034c-attachment.txt",
+          "type": "text/plain"
+        }
+      ],
+      "parameters": [],
+      "start": 1633964330847,
+      "stop": 1633964360452
+    }
+  ],
+  "attachments": [],
+  "parameters": [],
+  "start": 1633964330846,
+  "stop": 1633964360455
+}
