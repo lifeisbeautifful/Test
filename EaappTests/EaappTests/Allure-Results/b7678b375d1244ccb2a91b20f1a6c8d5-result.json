@@ -1,0 +1,76 @@
+{
+  "uuid": "b705d2f9-86ac-4dcc-8614-336b093b2ef5-tr-0-1007",
+  "historyId": "Tests.LoginTest.SuccessLoginWithValidCredentials",
+  "fullName": "Tests.LoginTest.SuccessLoginWithValidCredentials",
+  "labels": [
+    {
+      "name": "thread",
+      "value": "NonParallelWorker"
+    },
+    {
+      "name": "host",
+      "value": "5CD8350GPM"
+    },
+    {
+      "name": "testClass",
+      "value": "Tests.LoginTest"
+    },
+    {
+      "name": "testMethod",
+      "value": "SuccessLoginWithValidCredentials"
+    },
+    {
+      "name": "package",
+      "value": "Tests.LoginTest"
+    },
+    {
+      "name": "severity",
+      "value": "critical"
+    },
+    {
+      "name": "owner",
+      "value": "Oksana"
+    }
+  ],
+  "links": [],
+  "name": "SuccessLoginWithValidCredentials",
+  "status": "failed",
+  "statusDetails": {
+    "known": false,
+    "muted": false,
+    "flaky": false,
+    "message": "OpenQA.Selenium.WebDriverException : javascript error: argument is not defined\n  (Session info: chrome=94.0.4606.81)",
+    "trace": "   at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)\r\n   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)\r\n   at OpenQA.Selenium.Remote.RemoteWebDriver.ExecuteScriptCommand(String script, String commandName, Object[] args)\r\n   at OpenQA.Selenium.Remote.RemoteWebDriver.ExecuteScript(String script, Object[] args)\r\n   at Tests.Pages.LoginPage.Login() in C:\\Users\\ognyp\\Desktop\\MyProject\\Test\\Tests\\EaappUI\\Pages\\LoginPage.cs:line 46\r\n   at Tests.LoginTest.SuccessLoginWithValidCredentials() in C:\\Users\\ognyp\\Desktop\\MyProject\\Test\\Tests\\EaappTests\\LoginTest.cs:line 51"
+  },
+  "stage": "finished",
+  "description": "Login as admin user with valid credentials\n",
+  "steps": [
+    {
+      "name": "SuccessLoginWithValidCredentials",
+      "status": "failed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false,
+        "message": "OpenQA.Selenium.WebDriverException : javascript error: argument is not defined\n  (Session info: chrome=94.0.4606.81)",
+        "trace": "   at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)\r\n   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)\r\n   at OpenQA.Selenium.Remote.RemoteWebDriver.ExecuteScriptCommand(String script, String commandName, Object[] args)\r\n   at OpenQA.Selenium.Remote.RemoteWebDriver.ExecuteScript(String script, Object[] args)\r\n   at Tests.Pages.LoginPage.Login() in C:\\Users\\ognyp\\Desktop\\MyProject\\Test\\Tests\\EaappUI\\Pages\\LoginPage.cs:line 46\r\n   at Tests.LoginTest.SuccessLoginWithValidCredentials() in C:\\Users\\ognyp\\Desktop\\MyProject\\Test\\Tests\\EaappTests\\LoginTest.cs:line 51"
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [
+        {
+          "name": "Console Output",
+          "source": "e2ae4ecc85404a408dc80c5c76667c99-attachment.txt",
+          "type": "text/plain"
+        }
+      ],
+      "parameters": [],
+      "start": 1633944244950,
+      "stop": 1633944248017
+    }
+  ],
+  "attachments": [],
+  "parameters": [],
+  "start": 1633944244949,
+  "stop": 1633944248022
+}

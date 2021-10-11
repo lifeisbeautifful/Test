@@ -1,0 +1,61 @@
+{
+  "uuid": "5b5611bd-fdb9-46d5-a0ae-0732c517d80e-tc-0-1002",
+  "name": "Eaapp.DeleteEmployeeTest.DeleteUser",
+  "children": [
+    "504d60d5-1457-42d0-8198-a3c3bac58d47-tr-0-1003"
+  ],
+  "befores": [
+    {
+      "name": "Setup",
+      "status": "passed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1633946057847,
+      "stop": 1633946057847
+    }
+  ],
+  "afters": [
+    {
+      "name": "TearDown",
+      "status": "passed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1633946057847,
+      "stop": 1633946057847
+    },
+    {
+      "name": "OneTimeTearDown",
+      "status": "none",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false,
+        "message": "It's not possible to get status of OneTimeTearDown",
+        "trace": "See Allure.NUnit wiki"
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1633946057847,
+      "stop": 1633946057847
+    }
+  ],
+  "links": [],
+  "start": 1633946053924,
+  "stop": 1633946057849
+}

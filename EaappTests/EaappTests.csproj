@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\NUnit3TestAdapter.4.0.0\build\net35\NUnit3TestAdapter.props" Condition="Exists('..\packages\NUnit3TestAdapter.4.0.0\build\net35\NUnit3TestAdapter.props')" />
+  <Import Project="..\packages\NUnit.3.13.2\build\NUnit.props" Condition="Exists('..\packages\NUnit.3.13.2\build\NUnit.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{242C59ED-0D8E-488B-915A-FFDC1BB9B472}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EaappTests</RootNamespace>
+    <AssemblyName>EaappTests</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Allure.Commons, Version=3.5.0.65, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Allure.Commons.3.5.0.65\lib\net45\Allure.Commons.dll</HintPath>
+    </Reference>
+    <Reference Include="MimeTypesMap, Version=1.0.8.0, Culture=neutral, PublicKeyToken=1b320cc08ad5aa89, processorArchitecture=MSIL">
+      <HintPath>..\packages\MimeTypesMap.1.0.8\lib\net452\MimeTypesMap.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NUnit.Allure, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnit.Allure.1.0.14\lib\netstandard2.0\NUnit.Allure.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework, Version=3.13.2.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnit.3.13.2\lib\net45\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WebDriver, Version=3.141.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Selenium.WebDriver.3.141.0\lib\net45\WebDriver.dll</HintPath>
+    </Reference>
+    <Reference Include="WebDriver.Support, Version=3.141.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Selenium.Support.3.141.0\lib\net45\WebDriver.Support.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="EaappTests\CreateNewEmployeeTest.cs" />
+    <Compile Include="EaappTests\DeleteEmployeeTest.cs" />
+    <Compile Include="EaappTests\EditEmployeeTest.cs" />
+    <Compile Include="EaappTests\LoginTest.cs" />
+    <Compile Include="EaappTests\SearchTest.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EaappFramework\EaappFramework.csproj">
+      <Project>{ea3561dc-dafe-48f1-82b1-b1e6d8007710}</Project>
+      <Name>EaappFramework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EaappUI\EaappUI.csproj">
+      <Project>{2f4f0d4c-639b-4283-b189-582651a768c3}</Project>
+      <Name>EaappUI</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="allureConfig.Template.json" />
+    <None Include="app.config" />
+    <None Include="EaappTests\Allure-Results\06f756710446424aaa907abfcec0b979-container.json" />
+    <None Include="EaappTests\Allure-Results\08c1d538061f425b99c211f7280243a5-result.json" />
+    <None Include="EaappTests\Allure-Results\0bcde802c2634736abc56635b22016f5-container.json" />
+    <None Include="EaappTests\Allure-Results\17e628d8985d4448a98017b3e9b1d2e3-result.json" />
+    <None Include="EaappTests\Allure-Results\1c9ccee8fdc6481eab0a2f4e239c36bd-container.json" />
+    <None Include="EaappTests\Allure-Results\242edc98e8aa40f29ee969331e2a668f-result.json" />
+    <None Include="EaappTests\Allure-Results\2526a585a43b4dd3805b1d31df45f920-container.json" />
+    <None Include="EaappTests\Allure-Results\38fca1c414e04b11b2c6d19ffa50590b-result.json" />
+    <None Include="EaappTests\Allure-Results\3e7b38646680407f87bfd561ec80f00e-container.json" />
+    <None Include="EaappTests\Allure-Results\4441c549dc2541deb86f71b3c9484d90-result.json" />
+    <None Include="EaappTests\Allure-Results\460441d901b0493fa5f70a8058546428-container.json" />
+    <None Include="EaappTests\Allure-Results\4b365bbff40d4105a1f1aed3909ed800-result.json" />
+    <None Include="EaappTests\Allure-Results\570e5dc3dda84f508d9909e68f7a2f0a-result.json" />
+    <None Include="EaappTests\Allure-Results\58587f17ddf643a4b50275be64680c7d-result.json" />
+    <None Include="EaappTests\Allure-Results\5cf3dacc63294b168aa3bfe0cdf92fa1-result.json" />
+    <None Include="EaappTests\Allure-Results\75605afd68824c5f9ef4ae89db733793-result.json" />
+    <None Include="EaappTests\Allure-Results\791f47acf95b46f1a0f1b57d5dc10b5d-result.json" />
+    <None Include="EaappTests\Allure-Results\7b508452d516475f85a59f2361486cdd-container.json" />
+    <None Include="EaappTests\Allure-Results\84078cc4b89448429754366e3a8be867-container.json" />
+    <None Include="EaappTests\Allure-Results\9f51b92e1a81430db2f6875d15daf8a6-container.json" />
+    <None Include="EaappTests\Allure-Results\ac0b8919ad674a35beebf6c0c2a8350d-container.json" />
+    <None Include="EaappTests\Allure-Results\b5d601b6319d4cffb00ab2686f5eebae-result.json" />
+    <None Include="EaappTests\Allure-Results\b7678b375d1244ccb2a91b20f1a6c8d5-result.json" />
+    <None Include="EaappTests\Allure-Results\c23fc2070cf043a99b0612904c7efef0-container.json" />
+    <None Include="EaappTests\Allure-Results\ca30dc6f9f394b7eb4494d7711e57f6a-container.json" />
+    <None Include="EaappTests\Allure-Results\cfb1b5b6086d4723acfee4092b9f5243-container.json" />
+    <None Include="EaappTests\Allure-Results\d2706ae5164c438b9a5d7682e8ab9429-result.json" />
+    <None Include="EaappTests\Allure-Results\dd2dee3f719f4c1e9fbe4ecf84ebb95f-result.json" />
+    <None Include="EaappTests\Allure-Results\e0fc33954c804a9e894e5259f3b1517c-result.json" />
+    <None Include="EaappTests\Allure-Results\e989760d064848259a34d4c3b16e8be3-container.json" />
+    <None Include="EaappTests\Allure-Results\ececc90c5e9843559fea587285219d44-container.json" />
+    <None Include="EaappTests\Allure-Results\ef25ecd9a2324c51b6bb195f7bb40547-container.json" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="EaappTests\Allure-Results\0753935589df4bc9926e05052affcb06-attachment.txt" />
+    <Content Include="EaappTests\Allure-Results\1a96f210b76d4ae48ad2c909f80c4319-attachment.txt" />
+    <Content Include="EaappTests\Allure-Results\487b8a0d52ef4ec6bfcb602cc27012f2-attachment.txt" />
+    <Content Include="EaappTests\Allure-Results\49113da2c9dc4bfa9937fff5b3742365-attachment.txt" />
+    <Content Include="EaappTests\Allure-Results\4dae8f352666404584e3e42ff5ae7213-attachment.txt" />
+    <Content Include="EaappTests\Allure-Results\67efe45e6b3c4d07b81d8e79ef4df840-attachment.txt" />
+    <Content Include="EaappTests\Allure-Results\6944165208254b1eaa3a84d0071297a0-attachment.txt" />
+    <Content Include="EaappTests\Allure-Results\7d64e38439c748c8aeccd1e6c4b13199-attachment.txt" />
+    <Content Include="EaappTests\Allure-Results\7db066df324e4b879238bd09bd7d0bf6-attachment.txt" />
+    <Content Include="EaappTests\Allure-Results\7dd5738b0d2e41888bf483dd5311e470-attachment.txt" />
+    <Content Include="EaappTests\Allure-Results\7e4c19d12529468bae6fb6762cfa5f01-attachment.txt" />
+    <Content Include="EaappTests\Allure-Results\7e86890cd4ef41ffb24574d1a78b1cf9-attachment.txt" />
+    <Content Include="EaappTests\Allure-Results\85e8e2be96c24c00b8324ec9434d046b-attachment.txt" />
+    <Content Include="EaappTests\Allure-Results\9ce9c88eeec34eec9e6a345cab26c6f0-attachment.txt" />
+    <Content Include="EaappTests\Allure-Results\b3e8037c74ff4ebea1457615c5b8d101-attachment.txt" />
+    <Content Include="EaappTests\Allure-Results\e2ae4ecc85404a408dc80c5c76667c99-attachment.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\NUnit.3.13.2\build\NUnit.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NUnit.3.13.2\build\NUnit.props'))" />
+    <Error Condition="!Exists('..\packages\NUnit3TestAdapter.4.0.0\build\net35\NUnit3TestAdapter.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NUnit3TestAdapter.4.0.0\build\net35\NUnit3TestAdapter.props'))" />
+    <Error Condition="!Exists('..\packages\Selenium.WebDriver.ChromeDriver.94.0.4606.6100\build\Selenium.WebDriver.ChromeDriver.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Selenium.WebDriver.ChromeDriver.94.0.4606.6100\build\Selenium.WebDriver.ChromeDriver.targets'))" />
+  </Target>
+  <Import Project="..\packages\Selenium.WebDriver.ChromeDriver.94.0.4606.6100\build\Selenium.WebDriver.ChromeDriver.targets" Condition="Exists('..\packages\Selenium.WebDriver.ChromeDriver.94.0.4606.6100\build\Selenium.WebDriver.ChromeDriver.targets')" />
+</Project>

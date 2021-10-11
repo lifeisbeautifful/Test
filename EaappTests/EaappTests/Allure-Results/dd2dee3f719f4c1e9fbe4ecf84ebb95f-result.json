@@ -1,0 +1,76 @@
+{
+  "uuid": "f6dbd5c2-6ed7-4fd3-b121-97f6017ffeb8-tr-0-1007",
+  "historyId": "Tests.LoginTest.SuccessLoginWithValidCredentials",
+  "fullName": "Tests.LoginTest.SuccessLoginWithValidCredentials",
+  "labels": [
+    {
+      "name": "thread",
+      "value": "NonParallelWorker"
+    },
+    {
+      "name": "host",
+      "value": "5CD8350GPM"
+    },
+    {
+      "name": "testClass",
+      "value": "Tests.LoginTest"
+    },
+    {
+      "name": "testMethod",
+      "value": "SuccessLoginWithValidCredentials"
+    },
+    {
+      "name": "package",
+      "value": "Tests.LoginTest"
+    },
+    {
+      "name": "severity",
+      "value": "critical"
+    },
+    {
+      "name": "owner",
+      "value": "Oksana"
+    }
+  ],
+  "links": [],
+  "name": "SuccessLoginWithValidCredentials",
+  "status": "failed",
+  "statusDetails": {
+    "known": false,
+    "muted": false,
+    "flaky": false,
+    "message": "  User is not logged in\r\n  Expected: True\r\n  But was:  False\r\n",
+    "trace": "   at Tests.LoginTest.SuccessLoginWithValidCredentials() in C:\\Users\\ognyp\\Desktop\\MyProject\\Test\\Tests\\EaappTests\\LoginTest.cs:line 52\r\n"
+  },
+  "stage": "finished",
+  "description": "Login as admin user with valid credentials\n",
+  "steps": [
+    {
+      "name": "SuccessLoginWithValidCredentials",
+      "status": "failed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false,
+        "message": "  User is not logged in\r\n  Expected: True\r\n  But was:  False\r\n",
+        "trace": "   at Tests.LoginTest.SuccessLoginWithValidCredentials() in C:\\Users\\ognyp\\Desktop\\MyProject\\Test\\Tests\\EaappTests\\LoginTest.cs:line 52\r\n"
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [
+        {
+          "name": "Console Output",
+          "source": "85e8e2be96c24c00b8324ec9434d046b-attachment.txt",
+          "type": "text/plain"
+        }
+      ],
+      "parameters": [],
+      "start": 1633944289241,
+      "stop": 1633944292332
+    }
+  ],
+  "attachments": [],
+  "parameters": [],
+  "start": 1633944289240,
+  "stop": 1633944292339
+}
