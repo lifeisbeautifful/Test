@@ -1,51 +1,30 @@
-﻿using OpenQA.Selenium;
-using Eaapp.LoginCredentials;
-using Eaapp.EaappFramework.DriverHelper;
+﻿using Eaapp.LoginCredentials;
+using EaappUI.EaappUI.Pages;
+using EaappFramework.EaappFramework.Elements;
+using EaappFramework.EaappFramework.CoreWeb;
+using EaappFramework.EaappFramework.CoreWeb.Elements;
+using OpenQA.Selenium.Support.UI;
+using OpenQA.Selenium;
 
 namespace Eaapp.Pages
 {
-    public class LoginPage
+    public class LoginPage : BasePage
     {
-        private IWebDriver Driver;
-        IJavaScriptExecutor executor = (IJavaScriptExecutor)Drivers.Driver;
+        public LoginPage(string pageUrl):base(pageUrl)
+        {
+
+        }
+
+        private InputElement UsernameField => ElementFactory.Create<InputElement>(Locator.ClassName("form-control"));
+        private InputElement PasswordField => ElementFactory.Create<InputElement>(Locator.Name("Password"));
+        private CommonElement LoginButton => ElementFactory.Create<CommonElement>(Locator.XPath("//input[@type='submit']"));
        
-        public LoginPage(IWebDriver driver)
-        {
-            Driver = driver;
-           
-        }
 
-        private IWebElement LogOffLink => Driver.FindElement(By.LinkText("Log off"));
-        private IWebElement UsernameField => Driver.FindElement(By.ClassName("form-control"));
-        private IWebElement PasswordField => Driver.FindElement(By.Name("Password"));
-        private IWebElement LoginButton => Driver.FindElement(By.XPath("//input[@type='submit']"));
-        private IWebElement LoginLink => Driver.FindElement(By.Id("loginLink"));
-        //private IWebElement LoginLink => (IWebElement)executor.ExecuteScript("return document.getElementById(loginLink')");
-
-        private bool IsAt
-        {
-            get
-            {
-                try
-                {
-                    return LogOffLink.Displayed;
-                }
-                catch (NoSuchElementException)
-                {
-                    return false;
-                }
-            }
-        }
-
-        public bool IsUserLoggedIn() => IsAt;
-        
         public void Login()
         {
-            LoginLink.Click();
             UsernameField.SendKeys(AdminLoginCredentials.UserName);
             PasswordField.SendKeys(AdminLoginCredentials.Password);
             LoginButton.Click();
-            //executor.ExecuteScript("arguments[0].Click", LoginButton);
         }
     }
 }

@@ -2,84 +2,56 @@
 using NUnit.Allure.Core;
 using NUnit.Allure.Attributes;
 using Allure.Commons;
-using Eaapp.EaappFramework;
 using Eaapp.UserData;
-using Eaapp.Pages;
 using Eaapp.Urls;
-using Eaapp.EaappFramework.CustomWaiters;
-using Eaapp.EaappFramework.DriverHelper;
+using EaappUI.EaappUI.Pages;
+using EaappFramework.EaappFramework.CoreWeb;
+using EaappTests;
 
 namespace Eaapp
 {
     [TestFixture]
     [AllureNUnit]
-    public class EditEmployeeTest : Drivers
+    public class EditEmployeeTest : BaseFixture
     {
-        
         private UsersData data;
         private RandomUsersData editedData;
-        private CreatePage createPage;
-        private EmployeeListPage employeeListPage;
         
-       
+
         [OneTimeSetUp]
         public void Setup()
         {
-            ChooseDriver(Browsers.Chrome);
-            Navigate(EAAPPUrls.urlHome);
-
-            createPage = new CreatePage(Driver);
-            employeeListPage = new EmployeeListPage(Driver);
-
             data = new UsersData { Name = "Oksana", Salary = "4000", DurationWorked = "3", Grade = "2", Email = "a@mailforspam.com" };
             editedData = new RandomUsersData();
           
-            LoginPage loginPage = new LoginPage(Driver);
-
-            if(!loginPage.IsUserLoggedIn())
-            {
-                loginPage.Login();
-            }
-
-            Navigate(EAAPPUrls.urlCreatePage);
-            createPage.SetUserData(data);
-            createPage.SaveUserData();
+            BrowserManager.Current.Navigate(EAAPPUrls.urlCreatePage);
+            EaappPages.CreatePage.SetUserData(data);
+            EaappPages.CreatePage.SaveUserData();
         }
 
-        [TearDown]
-        public void TearDown()
-        {
-            TakeScreenShot screenShot = new TakeScreenShot(Driver);
-            screenShot.ScreenShot();
-        }
-
+      
         [OneTimeTearDown]
         public void OneTimeTearDown()
         {
-            DeletePage deletePage = new DeletePage(Driver);
-            deletePage.DeleteEmployee(editedData.Name);
-            Driver.Close();
+            EaappPages.EmployeeListPage.DeleteEmployee(editedData.Name);
         }
 
-        /// <summary>
-        /// Edit created in 'SetUp' employee 
-        /// </summary>
-        [Test(Description ="Edit employee data")]
+        
+        [Test(Description = "Edit employee data")]
         [AllureSeverity(SeverityLevel.critical)]
         [AllureOwner("Oksana")]
         public void EditEmployeeData()
         {
-            employeeListPage.NavigateToEmployeePage();
-            employeeListPage.SearchEmployee(data.Name);
-            employeeListPage.TestEditLink();
-            createPage.SetUserData(editedData);
-            createPage.SaveUserData();
-            WaitForUrl.WaitForPageUrl(Driver.Url.Contains(EAAPPUrls.urlEmployeeListPage));
-            //Assert.IsTrue(employeeListPage.IsAt, "User is not navigated back to 'Employee List' page from 'Edit' page");
+            EaappPages.HomePage.NavigateToEmployeePage();
+            EaappPages.EmployeeListPage.SearchEmployee(data.Name);
+            EaappPages.EmployeeListPage.ClickEditLink();
+            EaappPages.EditPage.SetUserData(editedData);
+            EaappPages.EditPage.SaveUserData();
+            Assert.IsTrue(EaappPages.EmployeeListPage.IsAt, "User is not navigated back to 'Employee List' page from 'Edit' page");
 
-            employeeListPage.SearchEmployee(editedData.Name);
-            var userDataFromUI = employeeListPage.GetActualSearchResultFromUI();
-            bool IfUserDataFromUIMatchExpectedData = employeeListPage.IsUIDataContainsSearchedData(userDataFromUI, editedData);
+            EaappPages.EmployeeListPage.SearchEmployee(editedData.Name);
+            var userDataFromUI = EaappPages.EmployeeListPage.GetActualSearchResultFromUI();
+            bool IfUserDataFromUIMatchExpectedData = EaappPages.EmployeeListPage.IsUIDataContainsSearchedData(userDataFromUI, editedData);
             Assert.IsTrue(IfUserDataFromUIMatchExpectedData, "Edited user data from UI does not match with data set during edit process");
         }
     }

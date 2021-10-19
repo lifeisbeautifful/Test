@@ -57,8 +57,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EaappUI\LoginCredentials\AdminLoginCredentials.cs" />
+    <Compile Include="EaappUI\Pages\BasePage.cs" />
     <Compile Include="EaappUI\Pages\CreatePage.cs" />
-    <Compile Include="EaappUI\Pages\DeletePage.cs" />
+    <Compile Include="EaappUI\Pages\EditPage.cs" />
+    <Compile Include="EaappUI\Pages\EaappPages.cs" />
     <Compile Include="EaappUI\Pages\EmployeeListPage.cs" />
     <Compile Include="EaappUI\Pages\HomePage.cs" />
     <Compile Include="EaappUI\Pages\LoginPage.cs" />

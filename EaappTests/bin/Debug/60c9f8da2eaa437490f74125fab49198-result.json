@@ -1,0 +1,76 @@
+{
+  "uuid": "ee0a310a-a866-4411-b8ea-1492275f3183-tr-0-1005",
+  "historyId": "Eaapp.EditEmployeeTest.EditEmployeeData",
+  "fullName": "Eaapp.EditEmployeeTest.EditEmployeeData",
+  "labels": [
+    {
+      "name": "thread",
+      "value": "NonParallelWorker"
+    },
+    {
+      "name": "host",
+      "value": "5CD8350GPM"
+    },
+    {
+      "name": "testClass",
+      "value": "Eaapp.EditEmployeeTest"
+    },
+    {
+      "name": "testMethod",
+      "value": "EditEmployeeData"
+    },
+    {
+      "name": "package",
+      "value": "Eaapp.EditEmployeeTest"
+    },
+    {
+      "name": "severity",
+      "value": "critical"
+    },
+    {
+      "name": "owner",
+      "value": "Oksana"
+    }
+  ],
+  "links": [],
+  "name": "EditEmployeeData",
+  "status": "failed",
+  "statusDetails": {
+    "known": false,
+    "muted": false,
+    "flaky": false,
+    "message": "System.TimeoutException : The operation has timed out.",
+    "trace": "   at Eaapp.EaappFramework.CustomWaiters.WaitForUrl.WaitForPageUrl(Boolean condition) in C:\\Users\\ognyp\\Desktop\\FinalProject\\Test\\EaappFramework\\EaappFramework\\CustomWaiters\\WaitForUrl.cs:line 22\r\n   at EaappUI.EaappUI.Pages.BasePage..ctor(String pageUrl) in C:\\Users\\ognyp\\Desktop\\FinalProject\\Test\\EaappUI\\EaappUI\\Pages\\BasePage.cs:line 10\r\n   at Eaapp.Pages.CreatePage..ctor(String pageUrl) in C:\\Users\\ognyp\\Desktop\\FinalProject\\Test\\EaappUI\\EaappUI\\Pages\\CreatePage.cs:line 13\r\n   at Eaapp.Pages.EmployeeListPage.TestEditLink() in C:\\Users\\ognyp\\Desktop\\FinalProject\\Test\\EaappUI\\EaappUI\\Pages\\EmployeeListPage.cs:line 148\r\n   at Eaapp.EditEmployeeTest.EditEmployeeData() in C:\\Users\\ognyp\\Desktop\\FinalProject\\Test\\EaappTests\\EaappTests\\EditEmployeeTest.cs:line 47"
+  },
+  "stage": "finished",
+  "description": "Edit employee data\n",
+  "steps": [
+    {
+      "name": "EditEmployeeData",
+      "status": "failed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false,
+        "message": "System.TimeoutException : The operation has timed out.",
+        "trace": "   at Eaapp.EaappFramework.CustomWaiters.WaitForUrl.WaitForPageUrl(Boolean condition) in C:\\Users\\ognyp\\Desktop\\FinalProject\\Test\\EaappFramework\\EaappFramework\\CustomWaiters\\WaitForUrl.cs:line 22\r\n   at EaappUI.EaappUI.Pages.BasePage..ctor(String pageUrl) in C:\\Users\\ognyp\\Desktop\\FinalProject\\Test\\EaappUI\\EaappUI\\Pages\\BasePage.cs:line 10\r\n   at Eaapp.Pages.CreatePage..ctor(String pageUrl) in C:\\Users\\ognyp\\Desktop\\FinalProject\\Test\\EaappUI\\EaappUI\\Pages\\CreatePage.cs:line 13\r\n   at Eaapp.Pages.EmployeeListPage.TestEditLink() in C:\\Users\\ognyp\\Desktop\\FinalProject\\Test\\EaappUI\\EaappUI\\Pages\\EmployeeListPage.cs:line 148\r\n   at Eaapp.EditEmployeeTest.EditEmployeeData() in C:\\Users\\ognyp\\Desktop\\FinalProject\\Test\\EaappTests\\EaappTests\\EditEmployeeTest.cs:line 47"
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [
+        {
+          "name": "Console Output",
+          "source": "88f75c70170e4ad982cff6086c47c080-attachment.txt",
+          "type": "text/plain"
+        }
+      ],
+      "parameters": [],
+      "start": 1634465230032,
+      "stop": 1634465242442
+    }
+  ],
+  "attachments": [],
+  "parameters": [],
+  "start": 1634465230032,
+  "stop": 1634465242446
+}

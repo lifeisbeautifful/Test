@@ -1,23 +1,48 @@
-﻿using OpenQA.Selenium;
-
+﻿using Eaapp.Urls;
+using EaappFramework.EaappFramework.CoreWeb;
+using EaappFramework.EaappFramework.Elements;
+using EaappUI.EaappUI.Pages;
+using OpenQA.Selenium;
 
 namespace Eaapp.Pages
 {
-    public class HomePage
+    public class HomePage : BasePage
     {
-        private IWebDriver Driver;
-
-        public HomePage(IWebDriver driver)
+      
+        public HomePage(string pageUrl) : base(pageUrl)
         {
-            Driver = driver;
+
         }
 
-        private IWebElement LoginLink => Driver.FindElement(By.Id("loginLink"));
-        
-        public LoginPage NavigateToLoginPage()
+        private CommonElement LoginLink => ElementFactory.Create<CommonElement>(Locator.Id("loginLink"));
+        private CommonElement EmployeeListLink => ElementFactory.Create<CommonElement>(Locator.LinkText("Employee List"));
+        private CommonElement LogOffLink => ElementFactory.Create<CommonElement>(Locator.LinkText("Log off"));
+
+        private bool IsAt
+        {
+            get
+            {
+                try
+                {
+                    return LogOffLink.Displayed;
+                }
+                catch (NoSuchElementException)
+                {
+                    return false;
+                }
+            }
+        }
+
+        public void NavigateToLoginPage()
         {
             LoginLink.Click();
-            return new LoginPage(Driver);
         }
+
+        public void NavigateToEmployeePage()
+        {
+            EmployeeListLink.Click();
+        }
+
+        public bool IsLoggedIn() => IsAt;
     }
 }

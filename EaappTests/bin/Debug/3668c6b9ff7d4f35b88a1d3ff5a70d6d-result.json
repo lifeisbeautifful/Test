@@ -1,0 +1,76 @@
+{
+  "uuid": "b151d419-a63e-4915-8a9e-f30be6dd80c6-tr-0-1007",
+  "historyId": "Eaapp.LoginTest.SuccessLoginWithValidCredentials",
+  "fullName": "Eaapp.LoginTest.SuccessLoginWithValidCredentials",
+  "labels": [
+    {
+      "name": "thread",
+      "value": "NonParallelWorker"
+    },
+    {
+      "name": "host",
+      "value": "5CD8350GPM"
+    },
+    {
+      "name": "testClass",
+      "value": "Eaapp.LoginTest"
+    },
+    {
+      "name": "testMethod",
+      "value": "SuccessLoginWithValidCredentials"
+    },
+    {
+      "name": "package",
+      "value": "Eaapp.LoginTest"
+    },
+    {
+      "name": "severity",
+      "value": "critical"
+    },
+    {
+      "name": "owner",
+      "value": "Oksana"
+    }
+  ],
+  "links": [],
+  "name": "SuccessLoginWithValidCredentials",
+  "status": "failed",
+  "statusDetails": {
+    "known": false,
+    "muted": false,
+    "flaky": false,
+    "message": "OpenQA.Selenium.NoSuchElementException : no such element: Unable to locate element: {\"method\":\"css selector\",\"selector\":\"#loginLink\"}\n  (Session info: chrome=94.0.4606.81)",
+    "trace": "   at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)\r\n   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)\r\n   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(String mechanism, String value)\r\n   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElementById(String id)\r\n   at OpenQA.Selenium.By.<>c__DisplayClass16_0.<Id>b__0(ISearchContext context)\r\n   at OpenQA.Selenium.By.FindElement(ISearchContext context)\r\n   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(By by)\r\n   at EaappFramework.EaappFramework.CoreWeb.Browser.FindElement(Locator locator) in C:\\Users\\ognyp\\Desktop\\FinalProject\\Test\\EaappFramework\\EaappFramework\\CoreWeb\\Browser.cs:line 35\r\n   at EaappFramework.EaappFramework.CoreWeb.Element.get_Wrapper() in C:\\Users\\ognyp\\Desktop\\FinalProject\\Test\\EaappFramework\\EaappFramework\\CoreWeb\\Element.cs:line 11\r\n   at EaappFramework.EaappFramework.CoreWeb.Element.Click() in C:\\Users\\ognyp\\Desktop\\FinalProject\\Test\\EaappFramework\\EaappFramework\\CoreWeb\\Element.cs:line 16\r\n   at Eaapp.Pages.HomePage.NavigateToLoginPage() in C:\\Users\\ognyp\\Desktop\\FinalProject\\Test\\EaappUI\\EaappUI\\Pages\\HomePage.cs:line 24\r\n   at Eaapp.LoginTest.SuccessLoginWithValidCredentials() in C:\\Users\\ognyp\\Desktop\\FinalProject\\Test\\EaappTests\\EaappTests\\LoginTest.cs:line 31"
+  },
+  "stage": "finished",
+  "description": "Login as admin user with valid credentials\n",
+  "steps": [
+    {
+      "name": "SuccessLoginWithValidCredentials",
+      "status": "failed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false,
+        "message": "OpenQA.Selenium.NoSuchElementException : no such element: Unable to locate element: {\"method\":\"css selector\",\"selector\":\"#loginLink\"}\n  (Session info: chrome=94.0.4606.81)",
+        "trace": "   at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)\r\n   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)\r\n   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(String mechanism, String value)\r\n   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElementById(String id)\r\n   at OpenQA.Selenium.By.<>c__DisplayClass16_0.<Id>b__0(ISearchContext context)\r\n   at OpenQA.Selenium.By.FindElement(ISearchContext context)\r\n   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(By by)\r\n   at EaappFramework.EaappFramework.CoreWeb.Browser.FindElement(Locator locator) in C:\\Users\\ognyp\\Desktop\\FinalProject\\Test\\EaappFramework\\EaappFramework\\CoreWeb\\Browser.cs:line 35\r\n   at EaappFramework.EaappFramework.CoreWeb.Element.get_Wrapper() in C:\\Users\\ognyp\\Desktop\\FinalProject\\Test\\EaappFramework\\EaappFramework\\CoreWeb\\Element.cs:line 11\r\n   at EaappFramework.EaappFramework.CoreWeb.Element.Click() in C:\\Users\\ognyp\\Desktop\\FinalProject\\Test\\EaappFramework\\EaappFramework\\CoreWeb\\Element.cs:line 16\r\n   at Eaapp.Pages.HomePage.NavigateToLoginPage() in C:\\Users\\ognyp\\Desktop\\FinalProject\\Test\\EaappUI\\EaappUI\\Pages\\HomePage.cs:line 24\r\n   at Eaapp.LoginTest.SuccessLoginWithValidCredentials() in C:\\Users\\ognyp\\Desktop\\FinalProject\\Test\\EaappTests\\EaappTests\\LoginTest.cs:line 31"
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [
+        {
+          "name": "Console Output",
+          "source": "70f5f18087d548109e79286fc611c7c3-attachment.txt",
+          "type": "text/plain"
+        }
+      ],
+      "parameters": [],
+      "start": 1634467042474,
+      "stop": 1634467043714
+    }
+  ],
+  "attachments": [],
+  "parameters": [],
+  "start": 1634467042474,
+  "stop": 1634467043718
+}

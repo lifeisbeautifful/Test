@@ -1,4 +1,9 @@
-﻿using NLog;
+﻿using Eaapp.Urls;
+using EaappFramework.EaappFramework.CoreWeb;
+using EaappFramework.EaappFramework.CoreWeb.Elements;
+using EaappFramework.EaappFramework.Elements;
+using EaappUI.EaappUI.Pages;
+using NLog;
 using OpenQA.Selenium;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -7,22 +12,23 @@ using System.Linq;
 
 namespace Eaapp.Pages
 {
-    public class EmployeeListPage 
+    public class EmployeeListPage : BasePage
     {
-        private IWebDriver Driver;
         private Logger Logger => LogManager.GetCurrentClassLogger();
-
-        public EmployeeListPage(IWebDriver driver)
+        
+        public EmployeeListPage(string pageUrl) : base(pageUrl)
         {
-            Driver = driver;
+            
         }
 
-        private IWebElement EmployeeListLink => Driver.FindElement(By.LinkText("Employee List"));
-        private IWebElement CreateNewButton => Driver.FindElement(By.XPath("//a[text()='Create New']"));
-        private IWebElement SearchField => Driver.FindElement(By.Name("searchTerm"));
-        private IWebElement SearchButton => Driver.FindElement(By.CssSelector("input[value='Search']"));
-        private IWebElement EditLink => Driver.FindElement(By.LinkText("Edit"));
-        private List<IWebElement> employeesDataFromUI => Driver.FindElements(By.XPath("//table[@class='table']/tbody/tr//td")).ToList();
+      
+        private CommonElement CreateNewButton => ElementFactory.Create<CommonElement>(Locator.XPath("//a[text()='Create New']"));
+        private InputElement SearchField => ElementFactory.Create<InputElement>(Locator.Name("searchTerm"));
+        private CommonElement SearchButton => ElementFactory.Create<CommonElement>(Locator.CssSelector("input[value='Search']"));
+        private CommonElement EditLink => ElementFactory.Create<CommonElement>(Locator.LinkText("Edit"));
+        private List<IWebElement> employeesDataFromUI => BrowserManager.Current.FindElements(Locator.XPath("//table[@class='table']/tbody/tr//td"));
+        private CommonElement deleteLink => ElementFactory.Create<CommonElement>(Locator.LinkText("Delete"));
+        private CommonElement deleteButton => ElementFactory.Create<CommonElement>(Locator.XPath("//div[@class='form-actions no-color']/input[@type='submit']"));
 
         public bool IsAt
         {
@@ -39,13 +45,19 @@ namespace Eaapp.Pages
             }
         }
 
-        public bool NavigateToEmployeePage()
-        {
-            Logger.Info($"`EmployeeListLink` clicking");
-            EmployeeListLink.Click();
-            return IsAt;
-        }
         
+        public CreatePage OpenCreatePage()
+        {
+            CreateNewButton.Click();
+            return new CreatePage(EAAPPUrls.urlCreatePage);
+        }
+
+        public void DeleteEmployee(string data)
+        {
+            deleteLink.Click();
+            deleteButton.Click();
+        }
+
         public void SearchEmployee(string data)
         {
             Logger.Trace($"Search employee with {data} data");
@@ -126,13 +138,12 @@ namespace Eaapp.Pages
 
         public void NavigateBack()
         {
-            Driver.Navigate().Back();
+            BrowserManager.Current.NavigateBack();
         }
 
-        public CreatePage TestEditLink()
+        public void ClickEditLink()
         {
             EditLink.Click();
-            return new CreatePage(Driver);
         }
 
         public bool CheckIfEmployeeExist(ReadOnlyCollection<UsersData> UIData, UsersData deletedUser)

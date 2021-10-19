@@ -1,0 +1,28 @@
+{
+  "uuid": "25605f10-0a47-44ab-b4f9-08b143a49828-tc-0-1006",
+  "name": "Eaapp.LoginTest.SuccessLoginWithValidCredentials",
+  "children": [
+    "c90a1dbf-6f67-4757-8926-e03e8e67ad73-tr-0-1007"
+  ],
+  "befores": [
+    {
+      "name": "Setup",
+      "status": "passed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1634466984012,
+      "stop": 1634466984012
+    }
+  ],
+  "afters": [],
+  "links": [],
+  "start": 1634466983918,
+  "stop": 1634466984065
+}

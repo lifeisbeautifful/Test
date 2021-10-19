@@ -67,6 +67,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseFixture.cs" />
     <Compile Include="EaappTests\CreateNewEmployeeTest.cs" />
     <Compile Include="EaappTests\DeleteEmployeeTest.cs" />
     <Compile Include="EaappTests\EditEmployeeTest.cs" />

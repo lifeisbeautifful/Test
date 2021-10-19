@@ -2,54 +2,39 @@
 using NUnit.Allure.Core;
 using NUnit.Allure.Attributes;
 using Allure.Commons;
-using Eaapp.EaappFramework;
-using Eaapp.Pages;
 using Eaapp.Urls;
-using Eaapp.EaappFramework.DriverHelper;
+using EaappUI.EaappUI.Pages;
+using EaappFramework.EaappFramework.CoreWeb;
+using EaappTests;
 
 namespace Eaapp
 {
     [TestFixture]
     [AllureNUnit]
-    public class LoginTest : Drivers
+    public class LoginTest 
     {
-
-        private LoginPage loginPage;
-        private UsersData data;
 
         [OneTimeSetUp]
         public void Setup()
         {
-            ChooseDriver(Browsers.Chrome);
-            loginPage = new LoginPage(Driver);
-            data = new UsersData { Name = "Oksana", Salary = "4000", DurationWorked = "3", Grade = "2", Email = "a@mailforspam.com" };
-        }
-
-        [TearDown]
-        public void TearDown()
-        {
-            TakeScreenShot screenShot = new TakeScreenShot(Driver);
-            screenShot.ScreenShot();
+            BrowserManager.InitializeBrowser();
+            BrowserManager.Current.Navigate(EAAPPUrls.urlHome);
         }
 
         [OneTimeTearDown]
         public void OneTimeTearDown()
         {
-            Driver.Quit();
+            BrowserManager.Terminate();
         }
 
-        /// <summary>
-        /// Login as admin user with valid credentials
-        /// </summary>
         [AllureSeverity(SeverityLevel.critical)]
         [AllureOwner("Oksana")]
         [Test(Description = "Login as admin user with valid credentials")]
         public void SuccessLoginWithValidCredentials()
         {
-            Navigate(EAAPPUrls.urlHome);
-           
-            loginPage.Login();
-            Assert.That(loginPage.IsUserLoggedIn(), Is.True, "User is not logged in");
+            EaappPages.HomePage.NavigateToLoginPage();
+            EaappPages.LoginPage.Login();
+            Assert.That(EaappPages.HomePage.IsLoggedIn(), Is.True, "User is not logged in");
         }
     }
 }

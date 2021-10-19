@@ -2,73 +2,40 @@
 using NUnit.Allure.Core;
 using NUnit.Allure.Attributes;
 using Allure.Commons;
-using Eaapp.EaappFramework;
-using Eaapp.Pages;
 using Eaapp.Urls;
-using Eaapp.EaappFramework.DriverHelper;
+using EaappUI.EaappUI.Pages;
+using EaappFramework.EaappFramework.CoreWeb;
+using EaappTests;
 
 namespace Eaapp
 {
     [TestFixture]
     [AllureNUnit]
-    public class DeleteEmployeeTest : Drivers
+    public class DeleteEmployeeTest : BaseFixture
     {
-       
         private UsersData data;
-        private EmployeeListPage employeeListPage;
-        private CreatePage createPage;
-        private DeletePage deletePage;
        
+
         [OneTimeSetUp]
         public void Setup()
         {
-            ChooseDriver(Browsers.Chrome);
-            Navigate(EAAPPUrls.urlHome);
-
-            createPage = new CreatePage(Driver);
-            employeeListPage = new EmployeeListPage(Driver);
-            deletePage = new DeletePage(Driver);
             data = new UsersData { Name = "Oksana", Salary = "4000", DurationWorked = "3", Grade = "2", Email = "a@mailforspam.com" };
-
-            LoginPage loginPage = new LoginPage(Driver);
-
-            if(!loginPage.IsUserLoggedIn())
-            {
-                loginPage.Login();
-            }
-            
-            Navigate(EAAPPUrls.urlCreatePage);
-            createPage.SetUserData(data);
-            createPage.SaveUserData();
+            BrowserManager.Current.Navigate(EAAPPUrls.urlCreatePage);
+            EaappPages.CreatePage.SetUserData(data);
+            EaappPages.CreatePage.SaveUserData();
         }
 
-        [TearDown]
-        public void TearDown()
-        {
-            TakeScreenShot screenShot = new TakeScreenShot(Driver);
-            screenShot.ScreenShot();
-        }
-
-        [OneTimeTearDown]
-        public void OneTimeTearDown()
-        {
-            Driver.Close();
-        }
-
-        /// <summary>
-        /// Delete created in 'SetUp' employee
-        /// </summary>
-        [Test(Description ="Delete employee")]
+        
+        [Test(Description = "Delete employee")]
         [AllureOwner("Oksana")]
         [AllureSeverity(SeverityLevel.critical)]
         public void DeleteUser()
         {
-            employeeListPage.NavigateToEmployeePage();
-            employeeListPage.SearchEmployee(data.Name);
-            deletePage.DeleteEmployee(data.Name);
-            employeeListPage.SearchEmployee(data.Name);
-            var actual = employeeListPage.GetActualSearchResultFromUI();
-            bool IfUserExist = employeeListPage.CheckIfEmployeeExist(actual, data);
+            EaappPages.EmployeeListPage.SearchEmployee(data.Name);
+            EaappPages.EmployeeListPage.DeleteEmployee(data.Name);
+            EaappPages.EmployeeListPage.SearchEmployee(data.Name);
+            var actual = EaappPages.EmployeeListPage.GetActualSearchResultFromUI();
+            bool IfUserExist = EaappPages.EmployeeListPage.CheckIfEmployeeExist(actual, data);
             Assert.IsFalse(IfUserExist, "User is not deleted");
         }
     }

@@ -1,34 +1,30 @@
-﻿using Eaapp.EaappFramework.DriverHelper;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Support.UI;
-using System;
+﻿using EaappFramework.EaappFramework.CoreWeb;
+using EaappFramework.EaappFramework.CoreWeb.Elements;
+using EaappFramework.EaappFramework.Elements;
+using EaappUI.EaappUI.Pages;
+
 
 namespace Eaapp.Pages
 {
-    public class CreatePage 
+    public class CreatePage : BasePage
     {
-        private IWebDriver Driver { get; set; }
-        WebDriverWait wait = new WebDriverWait(Drivers.Driver, TimeSpan.FromSeconds(10));
+        //WebDriverWait wait = new WebDriverWait(BrowserManager.Current, TimeSpan.FromSeconds(10));
 
-        public CreatePage(IWebDriver driver)
+        public CreatePage(string pageUrl):base(pageUrl)
         {
-            Driver = driver;
+            
         }
 
-        private IWebElement CreateNewButton => Driver.FindElement(By.XPath("//a[text()='Create New']"));
-        private IWebElement NameInput => Driver.FindElement(By.Id("Name"));
-        private IWebElement SalaryInput => Driver.FindElement(By.Id("Salary"));
-        private IWebElement DurationWorkedInput => Driver.FindElement(By.Id("DurationWorked"));
-        private IWebElement GradeInput => Driver.FindElement(By.Id("Grade"));
-        private IWebElement EmailInput => Driver.FindElement(By.Id("Email"));
-        private IWebElement CreateButton => Driver.FindElement(By.CssSelector("input[type='Submit']"));
 
-        public CreatePage OpenCreatePage()
-        {
-            CreateNewButton.Click();
-            return new CreatePage(Driver);
-        }
+        private CommonElement CreateNewButton => ElementFactory.Create<CommonElement>(Locator.XPath("//a[text()='Create New']"));
+        private InputElement NameInput => ElementFactory.Create<InputElement>(Locator.Id("Name"));
+        private InputElement SalaryInput => ElementFactory.Create<InputElement>(Locator.Id("Salary"));
+        private InputElement DurationWorkedInput => ElementFactory.Create<InputElement>(Locator.Id("DurationWorked"));
+        private InputElement GradeInput => ElementFactory.Create<InputElement>(Locator.Id("Grade"));
+        private InputElement EmailInput => ElementFactory.Create<InputElement>(Locator.Id("Email"));
+        private CommonElement CreateButton => ElementFactory.Create<CommonElement>(Locator.CssSelector("input[type='Submit']"));
 
+       
         public void SetUserData(IUserData data)
         {
             NameInput.Clear();
@@ -46,7 +42,7 @@ namespace Eaapp.Pages
         public void SaveUserData()
         {
             CreateButton.Click();
-            wait.Until(ExpectedConditions.ElementToBeClickable(CreateNewButton));
+            //wait.Until(ExpectedConditions.ElementToBeClickable(CreateNewButton));
         }
     }
 }

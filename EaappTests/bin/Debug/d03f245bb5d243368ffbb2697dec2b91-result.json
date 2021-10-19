@@ -1,0 +1,81 @@
+{
+  "uuid": "ddeb3401-1573-4fe7-8b39-77b789b20c65-tr-0-1009",
+  "historyId": "Eaapp.SearchTest.PerformSearch(\"Test\")",
+  "fullName": "Eaapp.SearchTest.PerformSearch(\"Test\")",
+  "labels": [
+    {
+      "name": "thread",
+      "value": "NonParallelWorker"
+    },
+    {
+      "name": "host",
+      "value": "5CD8350GPM"
+    },
+    {
+      "name": "testClass",
+      "value": "Eaapp.SearchTest"
+    },
+    {
+      "name": "testMethod",
+      "value": "PerformSearch"
+    },
+    {
+      "name": "package",
+      "value": "Eaapp.SearchTest"
+    },
+    {
+      "name": "severity",
+      "value": "critical"
+    },
+    {
+      "name": "owner",
+      "value": "Oksana"
+    }
+  ],
+  "links": [],
+  "name": "PerformSearch(\"Test\")",
+  "status": "failed",
+  "statusDetails": {
+    "known": false,
+    "muted": false,
+    "flaky": false,
+    "message": "TearDown : System.ArgumentException : Illegal characters in path.",
+    "trace": "--TearDown\r\n   at System.IO.LongPathHelper.Normalize(String path, UInt32 maxPathLength, Boolean checkInvalidCharacters, Boolean expandShortPaths)\r\n   at System.IO.Path.NewNormalizePath(String path, Int32 maxPathLength, Boolean expandShortPaths)\r\n   at System.IO.Path.NormalizePath(String path, Boolean fullCheck, Int32 maxPathLength, Boolean expandShortPaths)\r\n   at System.IO.Path.GetFullPathInternal(String path)\r\n   at System.IO.FileInfo.Init(String fileName, Boolean checkHost)\r\n   at System.IO.FileInfo..ctor(String fileName)\r\n   at EaappFramework.EaappFramework.CoreWeb.Browser.TakeScreenShot(String fileName) in C:\\Users\\ognyp\\Desktop\\FinalProject\\Test\\EaappFramework\\EaappFramework\\CoreWeb\\Browser.cs:line 62\r\n   at EaappTests.BaseFixture.TearDown() in C:\\Users\\ognyp\\Desktop\\FinalProject\\Test\\EaappTests\\BaseFixture.cs:line 27"
+  },
+  "stage": "finished",
+  "description": "\nTearDown TearDown method failed\nPerform search with different parameters\n",
+  "steps": [
+    {
+      "name": "PerformSearch(\"Test\")",
+      "status": "failed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false,
+        "message": "TearDown : System.ArgumentException : Illegal characters in path.",
+        "trace": "--TearDown\r\n   at System.IO.LongPathHelper.Normalize(String path, UInt32 maxPathLength, Boolean checkInvalidCharacters, Boolean expandShortPaths)\r\n   at System.IO.Path.NewNormalizePath(String path, Int32 maxPathLength, Boolean expandShortPaths)\r\n   at System.IO.Path.NormalizePath(String path, Boolean fullCheck, Int32 maxPathLength, Boolean expandShortPaths)\r\n   at System.IO.Path.GetFullPathInternal(String path)\r\n   at System.IO.FileInfo.Init(String fileName, Boolean checkHost)\r\n   at System.IO.FileInfo..ctor(String fileName)\r\n   at EaappFramework.EaappFramework.CoreWeb.Browser.TakeScreenShot(String fileName) in C:\\Users\\ognyp\\Desktop\\FinalProject\\Test\\EaappFramework\\EaappFramework\\CoreWeb\\Browser.cs:line 62\r\n   at EaappTests.BaseFixture.TearDown() in C:\\Users\\ognyp\\Desktop\\FinalProject\\Test\\EaappTests\\BaseFixture.cs:line 27"
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [
+        {
+          "name": "Console Output",
+          "source": "4b2d89a35ccd4966b0eab55e9718ba22-attachment.txt",
+          "type": "text/plain"
+        }
+      ],
+      "parameters": [],
+      "start": 1634487505795,
+      "stop": 1634487556969
+    }
+  ],
+  "attachments": [],
+  "parameters": [
+    {
+      "name": "Param #0",
+      "value": "Test"
+    }
+  ],
+  "start": 1634487505795,
+  "stop": 1634487556970
+}

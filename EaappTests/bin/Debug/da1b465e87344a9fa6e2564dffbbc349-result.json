@@ -1,0 +1,76 @@
+{
+  "uuid": "ed02d1ae-36ce-468e-87c4-87da1c355c03-tr-0-1001",
+  "historyId": "Eaapp.CreateNewEmployeeTest.SuccessCreateNewEmployee",
+  "fullName": "Eaapp.CreateNewEmployeeTest.SuccessCreateNewEmployee",
+  "labels": [
+    {
+      "name": "thread",
+      "value": "NonParallelWorker"
+    },
+    {
+      "name": "host",
+      "value": "5CD8350GPM"
+    },
+    {
+      "name": "testClass",
+      "value": "Eaapp.CreateNewEmployeeTest"
+    },
+    {
+      "name": "testMethod",
+      "value": "SuccessCreateNewEmployee"
+    },
+    {
+      "name": "package",
+      "value": "Eaapp.CreateNewEmployeeTest"
+    },
+    {
+      "name": "severity",
+      "value": "critical"
+    },
+    {
+      "name": "owner",
+      "value": "Oksana"
+    }
+  ],
+  "links": [],
+  "name": "SuccessCreateNewEmployee",
+  "status": "failed",
+  "statusDetails": {
+    "known": false,
+    "muted": false,
+    "flaky": false,
+    "message": "  User data from UI does not match user data set from file\r\n  Expected: True\r\n  But was:  False\r\n",
+    "trace": "   at Eaapp.CreateNewEmployeeTest.SuccessCreateNewEmployee() in C:\\Users\\ognyp\\Desktop\\FinalProject\\Test\\EaappTests\\EaappTests\\CreateNewEmployeeTest.cs:line 53\r\n"
+  },
+  "stage": "finished",
+  "description": "Create a new employee\n",
+  "steps": [
+    {
+      "name": "SuccessCreateNewEmployee",
+      "status": "failed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false,
+        "message": "  User data from UI does not match user data set from file\r\n  Expected: True\r\n  But was:  False\r\n",
+        "trace": "   at Eaapp.CreateNewEmployeeTest.SuccessCreateNewEmployee() in C:\\Users\\ognyp\\Desktop\\FinalProject\\Test\\EaappTests\\EaappTests\\CreateNewEmployeeTest.cs:line 53\r\n"
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [
+        {
+          "name": "Console Output",
+          "source": "d1da04a5335d49219ee7eca6a5b005c2-attachment.txt",
+          "type": "text/plain"
+        }
+      ],
+      "parameters": [],
+      "start": 1634461250542,
+      "stop": 1634461255798
+    }
+  ],
+  "attachments": [],
+  "parameters": [],
+  "start": 1634461250542,
+  "stop": 1634461255801
+}

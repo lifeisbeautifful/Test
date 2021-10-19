@@ -6,7 +6,7 @@ namespace Eaapp.EaappFramework.CustomWaiters
 {
     public static class WaitForUrl
     {
-        private const int DefaultTimeoutInSeconds = 60;
+        private const int DefaultTimeoutInSeconds = 10;
         public static void WaitForPageUrl(bool condition)
         {
             Stopwatch timer = Stopwatch.StartNew();

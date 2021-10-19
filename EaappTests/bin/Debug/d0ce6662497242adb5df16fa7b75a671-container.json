@@ -1,0 +1,78 @@
+{
+  "uuid": "b3203100-85f9-444a-8eb2-be88cdc01df2-tc-0-1008",
+  "name": "Eaapp.SearchTest.PerformSearch(\"fdg\")",
+  "children": [
+    "69d03831-44df-473e-a2e5-b72e800e29a7-tr-0-1009"
+  ],
+  "befores": [
+    {
+      "name": "Setup",
+      "status": "passed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1634488252486,
+      "stop": 1634488252486
+    },
+    {
+      "name": "Setup",
+      "status": "passed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1634488252486,
+      "stop": 1634488252486
+    }
+  ],
+  "afters": [
+    {
+      "name": "TearDown",
+      "status": "failed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false,
+        "message": "TearDown : System.ArgumentException : Illegal characters in path.",
+        "trace": "--TearDown\r\n   at System.IO.LongPathHelper.Normalize(String path, UInt32 maxPathLength, Boolean checkInvalidCharacters, Boolean expandShortPaths)\r\n   at System.IO.Path.NewNormalizePath(String path, Int32 maxPathLength, Boolean expandShortPaths)\r\n   at System.IO.Path.NormalizePath(String path, Boolean fullCheck, Int32 maxPathLength, Boolean expandShortPaths)\r\n   at System.IO.Path.GetFullPathInternal(String path)\r\n   at System.IO.FileInfo.Init(String fileName, Boolean checkHost)\r\n   at System.IO.FileInfo..ctor(String fileName)\r\n   at EaappFramework.EaappFramework.CoreWeb.Browser.TakeScreenShot(String fileName) in C:\\Users\\ognyp\\Desktop\\FinalProject\\Test\\EaappFramework\\EaappFramework\\CoreWeb\\Browser.cs:line 62\r\n   at EaappTests.BaseFixture.TearDown() in C:\\Users\\ognyp\\Desktop\\FinalProject\\Test\\EaappTests\\BaseFixture.cs:line 27"
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1634488252486,
+      "stop": 1634488252486
+    },
+    {
+      "name": "OneTimeTearDown",
+      "status": "none",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false,
+        "message": "It's not possible to get status of OneTimeTearDown",
+        "trace": "See Allure.NUnit wiki"
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1634488252487,
+      "stop": 1634488252487
+    }
+  ],
+  "links": [],
+  "start": 1634488100306,
+  "stop": 1634488252549
+}

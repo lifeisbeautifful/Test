@@ -60,9 +60,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EaappFramework\CoreWeb\Browser.cs" />
+    <Compile Include="EaappFramework\CoreWeb\BrowserManager.cs" />
+    <Compile Include="EaappFramework\CoreWeb\Element.cs" />
+    <Compile Include="EaappFramework\CoreWeb\ElementFactory.cs" />
+    <Compile Include="EaappFramework\CoreWeb\Elements\InputElement.cs" />
+    <Compile Include="EaappFramework\CoreWeb\Locator.cs" />
     <Compile Include="EaappFramework\CustomWaiters\WaitForUrl.cs" />
-    <Compile Include="EaappFramework\DriverHelper\Drivers.cs" />
-    <Compile Include="EaappFramework\DriverHelper\TakeScreenShot.cs" />
+    <Compile Include="EaappFramework\CoreWeb\Elements\CommonElement.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
