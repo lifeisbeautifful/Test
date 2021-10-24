@@ -1,0 +1,73 @@
+{
+  "uuid": "123b5cad-7111-4e86-95ec-f1151226660f-tr-0-1001",
+  "historyId": "Eaapp.CreateNewEmployeeTest.SuccessCreateNewEmployee",
+  "fullName": "Eaapp.CreateNewEmployeeTest.SuccessCreateNewEmployee",
+  "labels": [
+    {
+      "name": "thread",
+      "value": "NonParallelWorker"
+    },
+    {
+      "name": "host",
+      "value": "5CD8350GPM"
+    },
+    {
+      "name": "testClass",
+      "value": "Eaapp.CreateNewEmployeeTest"
+    },
+    {
+      "name": "testMethod",
+      "value": "SuccessCreateNewEmployee"
+    },
+    {
+      "name": "package",
+      "value": "Eaapp.CreateNewEmployeeTest"
+    },
+    {
+      "name": "severity",
+      "value": "critical"
+    },
+    {
+      "name": "owner",
+      "value": "Oksana"
+    }
+  ],
+  "links": [],
+  "name": "SuccessCreateNewEmployee",
+  "status": "passed",
+  "statusDetails": {
+    "known": false,
+    "muted": false,
+    "flaky": false,
+    "message": "SuccessCreateNewEmployee"
+  },
+  "stage": "finished",
+  "description": "Create a new employee\n",
+  "steps": [
+    {
+      "name": "SuccessCreateNewEmployee",
+      "status": "passed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [
+        {
+          "name": "Console Output",
+          "source": "05080ba7494144cc9f6a7adbf3075b03-attachment.txt",
+          "type": "text/plain"
+        }
+      ],
+      "parameters": [],
+      "start": 1635057607779,
+      "stop": 1635057612034
+    }
+  ],
+  "attachments": [],
+  "parameters": [],
+  "start": 1635057607779,
+  "stop": 1635057612037
+}

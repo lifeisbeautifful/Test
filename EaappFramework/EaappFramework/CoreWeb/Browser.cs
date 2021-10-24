@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using EaappFramework.EaappFramework.Elements;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
@@ -36,12 +37,6 @@ namespace EaappFramework.EaappFramework.CoreWeb
             return element;
         }
 
-        public List<IWebElement> FindElements(Locator locator)
-        {
-            List<IWebElement> elements = _driverWrapper.FindElements(locator.Wrapper).ToList();
-            return elements;
-        }
-
         internal void Quit()
         {
             _driverWrapper.Quit();
@@ -50,6 +45,12 @@ namespace EaappFramework.EaappFramework.CoreWeb
         internal void MaximizeWindow()
         {
             _driverWrapper.Manage().Window.Maximize();
+        }
+
+        public List<IWebElement> FindElements(Locator locator)
+        {
+            List<IWebElement> elements = _driverWrapper.FindElements(locator.Wrapper).ToList();
+            return elements;
         }
 
         public void Navigate(string url)
@@ -69,6 +70,15 @@ namespace EaappFramework.EaappFramework.CoreWeb
         public void NavigateBack()
         {
             _driverWrapper.Navigate().Back();
+        }
+
+        public void WaitForElement(CommonElement element)
+        {
+            _waitWrapper.Until(driver =>
+            {
+                bool IsElementVisible = element.Displayed;
+                return IsElementVisible;
+            });
         }
     }
 }

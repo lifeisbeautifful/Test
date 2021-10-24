@@ -1,0 +1,78 @@
+{
+  "uuid": "d445f850-c8bb-46e8-86c2-22ebb7237c76-tr-0-1010",
+  "historyId": "Eaapp.SearchTest.PerformSearch(\"Karthik\")",
+  "fullName": "Eaapp.SearchTest.PerformSearch(\"Karthik\")",
+  "labels": [
+    {
+      "name": "thread",
+      "value": "NonParallelWorker"
+    },
+    {
+      "name": "host",
+      "value": "5CD8350GPM"
+    },
+    {
+      "name": "testClass",
+      "value": "Eaapp.SearchTest"
+    },
+    {
+      "name": "testMethod",
+      "value": "PerformSearch"
+    },
+    {
+      "name": "package",
+      "value": "Eaapp.SearchTest"
+    },
+    {
+      "name": "severity",
+      "value": "critical"
+    },
+    {
+      "name": "owner",
+      "value": "Oksana"
+    }
+  ],
+  "links": [],
+  "name": "PerformSearch(\"Karthik\")",
+  "status": "passed",
+  "statusDetails": {
+    "known": false,
+    "muted": false,
+    "flaky": false,
+    "message": "PerformSearch(\"Karthik\")"
+  },
+  "stage": "finished",
+  "description": "Perform search with different parameters\n",
+  "steps": [
+    {
+      "name": "PerformSearch(\"Karthik\")",
+      "status": "passed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [
+        {
+          "name": "Console Output",
+          "source": "e1c405f624504b0fb0582859e969bcde-attachment.txt",
+          "type": "text/plain"
+        }
+      ],
+      "parameters": [],
+      "start": 1635056886390,
+      "stop": 1635056997334
+    }
+  ],
+  "attachments": [],
+  "parameters": [
+    {
+      "name": "Param #0",
+      "value": "Karthik"
+    }
+  ],
+  "start": 1635056886390,
+  "stop": 1635056997334
+}

@@ -1,5 +1,5 @@
 ﻿using OpenQA.Selenium.Chrome;
-
+using OpenQA.Selenium.Firefox;
 
 namespace EaappFramework.EaappFramework.CoreWeb
 {
@@ -8,9 +8,17 @@ namespace EaappFramework.EaappFramework.CoreWeb
         private static Browser _browser;
         public static Browser Current => _browser;
 
-        public static void InitializeBrowser()
+        public static void InitializeBrowser(BrowserType browser)
         {
-            _browser = new Browser(new ChromeDriver());
+            switch (browser)
+            {
+                case BrowserType.Chrome:
+                    _browser = new Browser(new ChromeDriver());
+                    break;
+                case BrowserType.Firefox:
+                    _browser = new Browser(new FirefoxDriver());
+                    break;
+            }
             _browser.MaximizeWindow();
         }
 

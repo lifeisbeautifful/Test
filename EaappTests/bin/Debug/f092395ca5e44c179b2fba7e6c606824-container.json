@@ -1,0 +1,46 @@
+{
+  "uuid": "a3e16651-fb88-48a9-94d1-03c966d5fb45-tc-0-1006",
+  "name": "Eaapp.LoginTest.SuccessLoginWithValidCredentials",
+  "children": [
+    "eb4625f1-dd12-4753-a8da-1e16ac3bfcf3-tr-0-1007"
+  ],
+  "befores": [
+    {
+      "name": "Setup",
+      "status": "passed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1635057642590,
+      "stop": 1635057642590
+    }
+  ],
+  "afters": [
+    {
+      "name": "OneTimeTearDown",
+      "status": "none",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false,
+        "message": "It's not possible to get status of OneTimeTearDown",
+        "trace": "See Allure.NUnit wiki"
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1635057642590,
+      "stop": 1635057642590
+    }
+  ],
+  "links": [],
+  "start": 1635057640981,
+  "stop": 1635057642591
+}

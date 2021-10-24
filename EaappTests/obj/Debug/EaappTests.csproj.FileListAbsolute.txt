@@ -77,14 +77,11 @@ C:\Users\ognyp\Desktop\FinalProject\Test\EaappTests\bin\Debug\Newtonsoft.Json.dl
 C:\Users\ognyp\Desktop\FinalProject\Test\EaappTests\bin\Debug\NUnit.Allure.dll
 C:\Users\ognyp\Desktop\FinalProject\Test\EaappTests\bin\Debug\nunit.framework.dll
 C:\Users\ognyp\Desktop\FinalProject\Test\EaappTests\bin\Debug\WebDriver.dll
-C:\Users\ognyp\Desktop\FinalProject\Test\EaappTests\bin\Debug\WebDriver.Support.dll
 C:\Users\ognyp\Desktop\FinalProject\Test\EaappTests\bin\Debug\NLog.dll
 C:\Users\ognyp\Desktop\FinalProject\Test\EaappTests\bin\Debug\EaappFramework.pdb
 C:\Users\ognyp\Desktop\FinalProject\Test\EaappTests\bin\Debug\EaappUI.pdb
 C:\Users\ognyp\Desktop\FinalProject\Test\EaappTests\bin\Debug\Newtonsoft.Json.xml
 C:\Users\ognyp\Desktop\FinalProject\Test\EaappTests\bin\Debug\nunit.framework.xml
-C:\Users\ognyp\Desktop\FinalProject\Test\EaappTests\bin\Debug\WebDriver.xml
-C:\Users\ognyp\Desktop\FinalProject\Test\EaappTests\bin\Debug\WebDriver.Support.xml
 C:\Users\ognyp\Desktop\FinalProject\Test\EaappTests\bin\Debug\NLog.xml
 C:\Users\ognyp\Desktop\FinalProject\Test\EaappTests\obj\Debug\EaappTests.csproj.AssemblyReference.cache
 C:\Users\ognyp\Desktop\FinalProject\Test\EaappTests\obj\Debug\EaappTests.csproj.CoreCompileInputs.cache

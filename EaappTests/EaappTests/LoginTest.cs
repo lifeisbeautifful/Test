@@ -17,7 +17,7 @@ namespace Eaapp
         [OneTimeSetUp]
         public void Setup()
         {
-            BrowserManager.InitializeBrowser();
+            BrowserManager.InitializeBrowser(BrowserType.Chrome);
             BrowserManager.Current.Navigate(EAAPPUrls.urlHome);
         }
 

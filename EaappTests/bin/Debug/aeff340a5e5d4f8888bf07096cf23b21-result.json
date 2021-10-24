@@ -1,0 +1,78 @@
+{
+  "uuid": "da483523-3e13-41c6-8f17-8f8ccfae810d-tr-0-1011",
+  "historyId": "Eaapp.SearchTest.PerformSearch(\"act\")",
+  "fullName": "Eaapp.SearchTest.PerformSearch(\"act\")",
+  "labels": [
+    {
+      "name": "thread",
+      "value": "NonParallelWorker"
+    },
+    {
+      "name": "host",
+      "value": "5CD8350GPM"
+    },
+    {
+      "name": "testClass",
+      "value": "Eaapp.SearchTest"
+    },
+    {
+      "name": "testMethod",
+      "value": "PerformSearch"
+    },
+    {
+      "name": "package",
+      "value": "Eaapp.SearchTest"
+    },
+    {
+      "name": "severity",
+      "value": "critical"
+    },
+    {
+      "name": "owner",
+      "value": "Oksana"
+    }
+  ],
+  "links": [],
+  "name": "PerformSearch(\"act\")",
+  "status": "passed",
+  "statusDetails": {
+    "known": false,
+    "muted": false,
+    "flaky": false,
+    "message": "PerformSearch(\"act\")"
+  },
+  "stage": "finished",
+  "description": "Perform search with different parameters\n",
+  "steps": [
+    {
+      "name": "PerformSearch(\"act\")",
+      "status": "passed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [
+        {
+          "name": "Console Output",
+          "source": "c1f2a5942c1e46f499a9df2d578726e7-attachment.txt",
+          "type": "text/plain"
+        }
+      ],
+      "parameters": [],
+      "start": 1635082527996,
+      "stop": 1635082635621
+    }
+  ],
+  "attachments": [],
+  "parameters": [
+    {
+      "name": "Param #0",
+      "value": "act"
+    }
+  ],
+  "start": 1635082527996,
+  "stop": 1635082635621
+}

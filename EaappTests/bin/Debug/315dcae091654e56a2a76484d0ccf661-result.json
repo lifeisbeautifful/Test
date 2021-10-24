@@ -1,0 +1,73 @@
+{
+  "uuid": "f5202f6a-3049-45a3-af3a-178ac21ca7ba-tr-0-1007",
+  "historyId": "Eaapp.LoginTest.SuccessLoginWithValidCredentials",
+  "fullName": "Eaapp.LoginTest.SuccessLoginWithValidCredentials",
+  "labels": [
+    {
+      "name": "thread",
+      "value": "NonParallelWorker"
+    },
+    {
+      "name": "host",
+      "value": "5CD8350GPM"
+    },
+    {
+      "name": "testClass",
+      "value": "Eaapp.LoginTest"
+    },
+    {
+      "name": "testMethod",
+      "value": "SuccessLoginWithValidCredentials"
+    },
+    {
+      "name": "package",
+      "value": "Eaapp.LoginTest"
+    },
+    {
+      "name": "severity",
+      "value": "critical"
+    },
+    {
+      "name": "owner",
+      "value": "Oksana"
+    }
+  ],
+  "links": [],
+  "name": "SuccessLoginWithValidCredentials",
+  "status": "passed",
+  "statusDetails": {
+    "known": false,
+    "muted": false,
+    "flaky": false,
+    "message": "SuccessLoginWithValidCredentials"
+  },
+  "stage": "finished",
+  "description": "Login as admin user with valid credentials\n",
+  "steps": [
+    {
+      "name": "SuccessLoginWithValidCredentials",
+      "status": "passed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [
+        {
+          "name": "Console Output",
+          "source": "54983f7b38574b148bfa59901b5bda4f-attachment.txt",
+          "type": "text/plain"
+        }
+      ],
+      "parameters": [],
+      "start": 1635082301379,
+      "stop": 1635082303551
+    }
+  ],
+  "attachments": [],
+  "parameters": [],
+  "start": 1635082301379,
+  "stop": 1635082303551
+}

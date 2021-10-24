@@ -1,0 +1,76 @@
+{
+  "uuid": "7edb5965-a01e-4b2f-bf49-6994263f59a7-tr-0-1003",
+  "historyId": "Eaapp.DeleteEmployeeTest.DeleteUser",
+  "fullName": "Eaapp.DeleteEmployeeTest.DeleteUser",
+  "labels": [
+    {
+      "name": "thread",
+      "value": "NonParallelWorker"
+    },
+    {
+      "name": "host",
+      "value": "5CD8350GPM"
+    },
+    {
+      "name": "testClass",
+      "value": "Eaapp.DeleteEmployeeTest"
+    },
+    {
+      "name": "testMethod",
+      "value": "DeleteUser"
+    },
+    {
+      "name": "package",
+      "value": "Eaapp.DeleteEmployeeTest"
+    },
+    {
+      "name": "owner",
+      "value": "Oksana"
+    },
+    {
+      "name": "severity",
+      "value": "critical"
+    }
+  ],
+  "links": [],
+  "name": "DeleteUser",
+  "status": "failed",
+  "statusDetails": {
+    "known": false,
+    "muted": false,
+    "flaky": false,
+    "message": "  User is not deleted\r\n  Expected: False\r\n  But was:  True\r\n",
+    "trace": "   at Eaapp.DeleteEmployeeTest.DeleteUser() in C:\\Users\\ognyp\\Desktop\\FinalProject\\Test\\EaappTests\\EaappTests\\DeleteEmployeeTest.cs:line 39\r\n"
+  },
+  "stage": "finished",
+  "description": "Delete employee\n",
+  "steps": [
+    {
+      "name": "DeleteUser",
+      "status": "failed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false,
+        "message": "  User is not deleted\r\n  Expected: False\r\n  But was:  True\r\n",
+        "trace": "   at Eaapp.DeleteEmployeeTest.DeleteUser() in C:\\Users\\ognyp\\Desktop\\FinalProject\\Test\\EaappTests\\EaappTests\\DeleteEmployeeTest.cs:line 39\r\n"
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [
+        {
+          "name": "Console Output",
+          "source": "b34aa23c4b144ce4b93c5f4872e64e6a-attachment.txt",
+          "type": "text/plain"
+        }
+      ],
+      "parameters": [],
+      "start": 1635056747982,
+      "stop": 1635056751711
+    }
+  ],
+  "attachments": [],
+  "parameters": [],
+  "start": 1635056747982,
+  "stop": 1635056751711
+}

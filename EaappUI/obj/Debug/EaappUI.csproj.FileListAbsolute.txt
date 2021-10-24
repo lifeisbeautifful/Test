@@ -58,8 +58,6 @@ C:\Users\ognyp\Desktop\FinalProject\Test\EaappUI\bin\Debug\WebDriver.dll
 C:\Users\ognyp\Desktop\FinalProject\Test\EaappUI\bin\Debug\WebDriver.Support.dll
 C:\Users\ognyp\Desktop\FinalProject\Test\EaappUI\bin\Debug\EaappFramework.pdb
 C:\Users\ognyp\Desktop\FinalProject\Test\EaappUI\bin\Debug\NLog.xml
-C:\Users\ognyp\Desktop\FinalProject\Test\EaappUI\bin\Debug\WebDriver.xml
-C:\Users\ognyp\Desktop\FinalProject\Test\EaappUI\bin\Debug\WebDriver.Support.xml
 C:\Users\ognyp\Desktop\FinalProject\Test\EaappUI\obj\Debug\EaappUI.csproj.AssemblyReference.cache
 C:\Users\ognyp\Desktop\FinalProject\Test\EaappUI\obj\Debug\EaappUI.csproj.CoreCompileInputs.cache
 C:\Users\ognyp\Desktop\FinalProject\Test\EaappUI\obj\Debug\EaappUI.csproj.CopyComplete

@@ -2,19 +2,17 @@
 using EaappFramework.EaappFramework.CoreWeb.Elements;
 using EaappFramework.EaappFramework.Elements;
 using EaappUI.EaappUI.Pages;
-
+using OpenQA.Selenium.Support.UI;
 
 namespace Eaapp.Pages
 {
     public class CreatePage : BasePage
     {
-        //WebDriverWait wait = new WebDriverWait(BrowserManager.Current, TimeSpan.FromSeconds(10));
-
+       
         public CreatePage(string pageUrl):base(pageUrl)
         {
             
         }
-
 
         private CommonElement CreateNewButton => ElementFactory.Create<CommonElement>(Locator.XPath("//a[text()='Create New']"));
         private InputElement NameInput => ElementFactory.Create<InputElement>(Locator.Id("Name"));
@@ -42,7 +40,7 @@ namespace Eaapp.Pages
         public void SaveUserData()
         {
             CreateButton.Click();
-            //wait.Until(ExpectedConditions.ElementToBeClickable(CreateNewButton));
+            BrowserManager.Current.WaitForElement(CreateNewButton);
         }
     }
 }

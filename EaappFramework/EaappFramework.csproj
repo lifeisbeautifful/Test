@@ -62,6 +62,7 @@
   <ItemGroup>
     <Compile Include="EaappFramework\CoreWeb\Browser.cs" />
     <Compile Include="EaappFramework\CoreWeb\BrowserManager.cs" />
+    <Compile Include="EaappFramework\CoreWeb\BrowserType.cs" />
     <Compile Include="EaappFramework\CoreWeb\Element.cs" />
     <Compile Include="EaappFramework\CoreWeb\ElementFactory.cs" />
     <Compile Include="EaappFramework\CoreWeb\Elements\InputElement.cs" />
