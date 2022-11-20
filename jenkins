@@ -13,7 +13,8 @@ pipeline{
         }
         stage("Stage three"){
             steps{
-                dir("https://github.com/lifeisbeautifful/Test")
+                dir("https://github.com/lifeisbeautifful/Test/tree/master/EaappTests/EaappTests"){
+                    sh "https://github.com/lifeisbeautifful/Test/tree/master/EaappTests/EaappTests/"
             }
         }
      }
