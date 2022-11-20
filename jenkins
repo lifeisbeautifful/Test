@@ -14,7 +14,8 @@ pipeline{
         stage("Stage three"){
             steps{
                 dir("https://github.com/lifeisbeautifful/Test/tree/master/EaappTests/EaappTests"){
-                    sh "https://github.com/lifeisbeautifful/Test/tree/master/EaappTests/EaappTests/"
+                    sh "https://github.com/lifeisbeautifful/Test/blob/master/EaappTests/EaappTests/CreateNewEmployeeTest.cs"
+                    
             }
         }
      }
