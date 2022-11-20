@@ -13,7 +13,7 @@ pipeline{
         }
         stage("Stage three"){
             steps{
-                echo "This is stage three"
+                dir("https://github.com/lifeisbeautifful/Test")
             }
         }
      }
